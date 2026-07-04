@@ -2102,6 +2102,7 @@ public class LocationMapping
                 ArchipelagoId = 7676298,
                 ObjectIds = ["106"],
                 IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always, // Should get an option to keep item vanilla in the future
                 IsNpc = true,
                 CompletionDialogId = 1918,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2616,6 +2617,7 @@ public class LocationMapping
                 ArchipelagoId = 7676261,
                 ObjectIds = ["64"],
                 IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always, // Should get an option to keep item vanilla in the future
                 IsNpc = true,
                 CompletionDialogId = 1770,
                 DialogReplacements = new Dictionary<int, List<string[]>>
