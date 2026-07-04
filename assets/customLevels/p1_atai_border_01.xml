@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="128" height="32" tilewidth="16" tileheight="16" infinite="0" nextobjectid="465">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
+  <image source="../../Textures/tiles.PNG" width="2048" height="2048"/>
+ </tileset>
+ <layer name="back" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztl+1Nw0AMhr1HGAAkfjTlQ/QX/GGALsAs3iPdgCXKIFTAJM3lYnS5XIhTEkU6v4/0qrEvZ5/tfqREAAAAAAAAAAAAAAAAAMBynDZrn2AZPjd9O/ZZoZ4xS/2xcpv/UJ2Yv435W6pVi+vJqWx7UHr9XmfWE0u1anE9edv6PrjX8Dq3nliqVYul70RLtWr5ruv+6YpF9Rqvfb45Gav1K7N6NVh6JrZUq5axnuTUF0u1atD0Q/O7+P7YiBc/8D+Yq9ac+Ot5SNuTjwei41MjFp/YqbWpyP6heIlcyXxz1Jobc83/ZdeIxSd2am0qMs+heHEuzF/PbJ//XSMWn9iptanIfIfixbmG3m+Yf5+pPamuiQ5e/HpPR5H4Ki8K7XhfcA+nzhTHCeftfCGpXO7+2HdJrRaY2pPihujKqzN/8RVeFNrxvuAeTp0pjhNSJOyxXJfWagHNM7HTc+lV1X09ePH+jkgkvsqrY9f7er7WbtYktiiOI1S3Pn+IJlcbd3T2+P+HngAAAAAArMUZZ9/S3A==
+  </data>
+ </layer>
+ <layer name="back" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztl1FOwkAQhkcfvYIYHzRRYkigKuWRFwO+6ZM84F1GL+AB5AboHTCa4CF88CjOtBaWZVtaCojt/yV/0t2d7szs34ZCBAAAAAAAAAAAAAAAAAAAAMBy3DdopOrXie/rMhb168F8W/XX9a2SMvWalS85E+O60JSp17SU6UzK1GtaynQmZep1EfK7x6p+I/hNbKvkWucDFYky9bopav70XQLl4swPxK9N4qH/19UQ7R4S7xziedwUwybRi3rfDJ8Br7nes386CnNqvqfjMJfkJc27d0D8KN4/wH8AANhaxufEVxc0+lXblqyvlNoWfJsUCfXPGjtjDI9HUczYp29VWv8Hp8TPp2G+t8tgPDOXlCtCvxGy0pFnphuKO/iPE7xD0fd+kv/PJ+FaXv9lHxqIKlXi/erUfxlP5jSXxrly6b26FtWctV+pkT5D8bhg/t95RD2P2BD15ufMeb2Ho2/vJP/NmFuZj6QxN/4k3lxjWxq7L+93Rd919dnwX8aTOf3PqXGuXHpvnl47LaLrFnG3FVzP9LtNfEitsWpY667xVBwjmpPniPOC+VBJ96bZfz4uymvvP80dt587frZ/Vz/2WZn9zY/N2I3y7iWKM8iOt/dx7RkXk1SPvU+WOtPErrLGpfSP/bd9cY3TxsTVsmicpca8fSyq8b/7b59Vlmci7X7LKm0deZXLywL4v05v4P8a/P8BxucnsA==
+  </data>
+ </layer>
+ <layer name="back" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1EFOwkAUxvF3Ho0R0QK1G6OAkGiweKE5ildwJzuiQnFBVFi64Sg+psU20lqsxhry/yUvM+20M2W+CSIAAAAAAAAAAAAAAAAAAJSnuyumo1X2d+DvjXbEPGn2E60uZ2DrDBu2TNnfgZ/rN77/zolry/z6x6AUfj3u9zY4D0PXlimyVqeeO15o3k286NqvifWLnP1t0Y/+v089kTMvfSzNtSNGK3xO+31n/Zmmno/Bfth2PDHNxFkJcvINcs5Hlnb0XnC4PrY601fa+p8y9wuuty3uNfuHRP5+Ip/nlL2Za+bzKPOZ9mdRf+qGbaMi5lH7bkWkpe3Es9cfcy7zn1blJqvy8h85tux87Vp8f7xBjmm/JzFmskcxcGRR1f2+PdY8j+K9utOcB1pvB+G1jsml7uVFYj979fD+UpT/IquW+e99kVOrZsvOPdb+eS3+nlUb6PkIUv6XAAAAgP/mHXNybOI=
+  </data>
+ </layer>
+ <layer name="back" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt10FqAjEUgOF3o9pxiqiMGwu68gDtpgvpOd4l5hRewI3dVHDXM7joQXxxoAMxHdIywwzm/+BhYh7kkccEIgIAAAAAAADgv96zvisAAPSB+z9t9D9t9D9t9D893+N67Pr/ll9DvRwV3KVtXo9d/8/5NdTLUQEwaOWI7zRV5aPobkL/AaAPxUxkUYW6sLnG5pymIiu7v9cNYeut14P2HOysP6pQF4fAef+W4/p/avmdHVOPL/T+R5xifjPX2Jwu+h9Tjy/0/kezTzuzo8VLJvKaVWP3a3O1sdq67h9ENnaHh3K+7H/X/7/sFYifvQL1qF9PpweSmOWTyHMVGgpbV5cXk9PGXrH1AAAADN0Fm0yItg==
+  </data>
+ </layer>
+ <layer name="front" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztmFtOwzAQRb2ULKGPj4Lgg104kfhgA+xhlsJGQKyiTgoS3UD3wNgJsgltHiKplfE90lWc2m3nepzHWCkAAAAAAAAAAACAadArpXJWUYsK33bn3Ec8hmLHCebBcJ5LVlWLKt9259xHRkj+W2u9rWTXul6z/1r0wXNxWPlz7qPY8U1FSmt9DPsm15x3m3/6yb097gXl35LKWh9Dte6WJKyfr51Sx507kmSvY9Eb9ZA34vZ77HjAdeF74Uu5ccr4fvgUOx5wXTjnYf6z2PGA+dBNzRN+xu9Dx0vXf7Hg2kj7vY1OD0PHScA0NU/h9ev657WQBXtCtlZabG1kfL3nPIQ1f7gH0B4XO+654Xc8lfeLrHgsxY73P6TkdSiGPZf9Iiuz8DlJyetQLu2FhHtAh7q9+L2RlLyO5fPOt083TnSuL+R1q9TbVtEY8Xfo/K91M+V/hX6eb516vUrn8d632/kP+yTQ5Uea16Eg//19kkH++/skE/puPxOlzQny/5eU5iQlr0NJaU5S8goAAACAZfENuOkXNg==
+  </data>
+ </layer>
+ <layer name="front" width="128" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztmM9SwkAMxvMoHrwjVUC8MfAK6DAD5aAPkkfxVRg5qHflwp9XMdm6ulN31q0Fasv3m/km3aTbJmQ5pEQAAAAAAAAAAAAAAABwWB7Oie9FVecBqqFJ/Zc6tB5QAPS/+Wy6RNNuZl2Jj9U2iXmPaNv9vrYSH4vlSpOrkLWnz+LjoydyBNKe18dHTwSAirm7+P3cyz2goawi+r9qUP8ngVpCMQAAABmLayMu6y/zvlgf8KPz/fpKZn2RWNZvAJOEzkSPvpjLoG/E+WcW9cfi2x/rU3TmTzsy63eIxbLO+7ZWX+yvedYJne+nUvdMJJbdbwChmLLoG3H+mUX9sfj2x/oUnfm3UstO+6t9dub9UKzprKXuTcdYLhIb3BiV9sfi2x/rs6RyhudyrlPP/zsUazqzwDfeUKyO7AL9DcUA+K8ME6JRJh61zZq//J9rjQ0zkWvtM2w8v+9QOb+1jVjte5LJXev1Pt/n1uuplX21ur+Du9/usb+5jeu6bry2iF9Ez62f9YuPJKb37J1xYsRqby+N2F2PD3D2QvXkY0vpr4iWkocjcpRfu/eCmvOUlBOoN+j/aYP+nzZV9/8DI7MYzA==
+  </data>
+ </layer>
+ <objectgroup name="meta" visible="0">
+  <object id="171" name="config" type="id=0;zoom_allowance=1" x="384" y="64" width="1360" height="400"/>
+  <object id="201" name="lighting" type="shader=diffuse;intensity=1.5;gales_light_power=5;no_add_lights;color=fff0e0" x="1248" y="-16" width="112" height="64"/>
+  <object id="220" name="level_art" x="1376" y="-16" width="112" height="64">
+   <properties>
+    <property name="bg_x" value="graphic=biome_sand_dunes;add_x=0;add_y=0.5;scroll_x=.008;scroll_y=0.04234"/>
+    <property name="bg_y" value="graphic=biome_sand_cliffs;scroll_y=0.045;add_x=0;add_y=0.32;scroll_x=.016"/>
+   </properties>
+  </object>
+  <object id="231" name="music" x="1504" y="-16" width="112" height="64">
+   <properties>
+    <property name="1" value="the_borders"/>
+   </properties>
+  </object>
+  <object id="291" name="GIS_PACK" x="1120" y="-16" width="112" height="64">
+   <properties>
+    <property name="1-getMSfromCastellaGuard" value="CONTINUE_IF,SI_FALSE,MOON_RHODUS_1|ITEM_add,5,1|FILE_MARK_SI,MOON_RHODUS_1,true"/>
+    <property name="2-GetMSfromRhodusGuard" value="CONTINUE_IF,SI_FALSE,MOON_RHODUS_2|ITEM_add,5,1|FILE_MARK_SI,MOON_RHODUS_2,true"/>
+    <property name="3-bot gifts item" value="ITEM_add,101,1|FILE_MARK_OC,bbot_gift"/>
+    <property name="4-get letter of rec" value="ITEM_add,188,1|FILE_MARK_SI,TRADE_QUEST_6,true"/>
+    <property name="5-bought refurb lamp" value="ITEM_add,39,1"/>
+   </properties>
+  </object>
+  <object id="296" name="memory" x="1024" y="-16" width="80" height="64">
+   <properties>
+    <property name="_snd_packs" value="p_camel,p_recycler"/>
+    <property name="_snd_solos" value="gale_yawn"/>
+    <property name="prefabs" value="p_camel,p_recycler"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="solid_collisions" visible="0">
+  <object id="234" type="profile=HARD_GRASS" x="256" y="432" width="640" height="80"/>
+  <object id="257" x="384" y="416" width="224" height="16"/>
+  <object id="258" x="1496" y="146">
+   <polygon points="8,0 16,0 16,16 8,24"/>
+  </object>
+  <object id="260" x="1368" y="146">
+   <polygon points="0,0 0,16 8,24 8,0"/>
+  </object>
+  <object id="263" x="552" y="130">
+   <polygon points="8,0 16,0 16,16 8,24"/>
+  </object>
+  <object id="265" x="272" y="144" width="288" height="16"/>
+  <object id="267" x="464" y="208" width="64" height="80"/>
+  <object id="268" x="584" y="258">
+   <polygon points="8,0 16,0 16,16 8,24"/>
+  </object>
+  <object id="270" x="568" y="258">
+   <polygon points="0,0 0,16 8,24 8,0"/>
+  </object>
+  <object id="271" x="576" y="272" width="16" height="16"/>
+  <object id="272" x="1336" y="258">
+   <polygon points="0,0 0,16 8,24 8,0"/>
+  </object>
+  <object id="276" x="1528" y="258">
+   <polygon points="8,0 16,0 16,16 8,24"/>
+  </object>
+  <object id="278" x="1344" y="288" width="192" height="48"/>
+  <object id="279" x="1424" y="336" width="32" height="16"/>
+  <object id="280" x="400" y="288" width="192" height="48"/>
+  <object id="281" x="480" y="336" width="32" height="80"/>
+  <object id="282" x="1328" y="416" width="224" height="16"/>
+  <object id="283" type="profile=SAND" x="1440" y="432" width="608" height="80"/>
+  <object id="284" type="profile=WOOD" x="1561" y="384">
+   <polyline points="0,0 46,0"/>
+  </object>
+  <object id="289" type="profile=WOOD" x="896" y="368">
+   <polyline points="0,0 144,0"/>
+  </object>
+  <object id="300" type="profile=HARD_GRASS" x="1040" y="432" width="400" height="80"/>
+  <object id="301" type="profile=GRASS" x="896" y="432" width="144" height="80"/>
+  <object id="319" x="1376" y="160" width="32" height="16"/>
+  <object id="320" x="1424" y="160" width="80" height="48"/>
+  <object id="342" x="1082" y="392" width="13" height="12"/>
+  <object id="374" type="profile=HARD_WOOD" x="640" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="375" type="profile=HARD_WOOD" x="768" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="377" type="profile=HARD_WOOD" x="704" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="378" type="profile=HARD_WOOD" x="1072" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="379" type="profile=HARD_WOOD" x="1200" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="380" type="profile=HARD_WOOD" x="1136" y="336">
+   <polygon points="0,0 0,8 16,16 80,16 96,8 96,0"/>
+  </object>
+  <object id="383" type="profile=METAL" x="272" y="160" width="288" height="48"/>
+  <object id="384" type="profile=METAL" x="1376" y="176" width="32" height="32"/>
+  <object id="460" x="1344" y="272" width="32" height="16"/>
+  <object id="461" x="1504" y="272" width="32" height="16"/>
+  <object id="463" x="1376" y="258" width="8" height="30"/>
+  <object id="464" x="1496" y="258" width="8" height="30"/>
+ </objectgroup>
+ <objectgroup name="objects" visible="0">
+  <object id="181" name="door" type="profile=TOUCH_TRIGGER;open=p1_world_map_sw;id=8" x="1760" y="-128" width="128" height="640"/>
+  <object id="182" name="end_door" type="id=8;facing=left" x="1696" y="400" width="32" height="32"/>
+  <object id="250" name="ladder" x="1408" y="144">
+   <polygon points="0,0 0,160 16,160 16,0"/>
+  </object>
+  <object id="252" name="end_door" type="id=1;facing=keep" x="1424" y="384" width="32" height="32"/>
+  <object id="253" name="door" type="profile=NONE_BACK;open=p1_atai_border_01a;id=1" x="1424" y="384" width="32" height="32"/>
+  <object id="254" name="door" type="profile=NONE_BACK;open=p1_atai_border_01a;id=2" x="1424" y="256" width="32" height="32"/>
+  <object id="255" name="end_door" type="id=2;facing=keep" x="1424" y="256" width="32" height="32"/>
+  <object id="286" name="puzzle" type="type=p_camel" x="1584" y="400" width="32" height="32"/>
+  <object id="295" name="trigger" type="GIS=cutscene,line$BORDER_LOCK" x="336" y="-144" width="144" height="608"/>
+  <object id="297" name="end_door" type="id=9000;facing=right;mode=SLEEPING_LIGHT" x="1568" y="352" width="32" height="32"/>
+  <object id="298" name="save_point" type="intensity=1,2,.02" x="1632" y="400" width="32" height="32"/>
+  <object id="323" name="AT" type="sprite=1;angle=90;scale=vec3(.1/.17/1);sort=bg_tiles,-1;color=00A0FF;use_all_bright;alpha=0.7" x="1632" y="432" width="32" height="16"/>
+  <object id="408" name="AT" type="anim=21;sort=bg_tiles,13;scale=vec3(1/0.75/1)" x="735.667" y="410" width="16" height="16"/>
+  <object id="415" name="ladder" x="880" y="368">
+   <polygon points="0,0 0,80 16,80 16,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="animated_bg_npcs" visible="0">
+  <object id="344" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=80;scale=vec3(-1/1/1)" x="1200" y="400" width="16" height="32"/>
+  <object id="345" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=81" x="1168" y="400" width="16" height="32"/>
+  <object id="349" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=80;scale=vec3(-1/1/1)" x="889" y="400" width="16" height="32"/>
+  <object id="350" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=81" x="854" y="400" width="16" height="32"/>
+  <object id="353" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=82" x="627" y="400" width="16" height="32"/>
+  <object id="354" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=83" x="716" y="400" width="32" height="32"/>
+  <object id="355" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=84" x="741" y="404" width="32" height="32"/>
+  <object id="356" name="AT" type="use_all_bright;spd=0.67;sort=bg_tiles,3;anim=82" x="1296" y="399" width="16" height="32"/>
+ </objectgroup>
+ <objectgroup name="objects_npcs" visible="0">
+  <object id="325" name="end_door" type="id=0;facing=keep" x="960" y="304" width="32" height="32"/>
+  <object id="326" name="puzzle" type="type=p_camel;dir=RIGHT" x="975" y="400" width="32" height="32"/>
+  <object id="327" name="puzzle" type="type=p_camel;dir=RIGHT" x="942" y="400" width="32" height="32"/>
+  <object id="328" name="npc" type="profile=soldierf;voice=woman,0.95;speech=loop,BORDER_GUARD_MOON,BORDER_GUARD_MOON+1,BORDER_GUARD_MOON+2,BORDER_GUARD_MOON+3;behavior=stand;floating;spacing=stand;talk_range=0.3" x="1350" y="240" width="16" height="32"/>
+  <object id="329" name="npc" type="name=camel_merch;voice=man,0.95;profile=atai_man;speech=CAMEL_MERCHANT,CAMEL_MERCHANT+5;behavior=stand;face_right" x="916" y="400" width="16" height="32"/>
+  <object id="330" name="npc" type="voice=woman,1;profile=rhodosf;speech=RHODUS_GUARD_1,RHODUS_GUARD_1+2;behavior=stand;face_right;spacing=right,0.2" x="572" y="384" width="16" height="32"/>
+  <object id="331" name="npc" type="name=rhodus_guard;voice=man,0.95;profile=rhodosm;speech=RHODUS_GUARD_2;behavior=stand;face_right;spacing=right,1" x="512" y="112" width="16" height="32"/>
+  <object id="332" name="puzzle" type="name=recycler;type=p_recycler" x="1078" y="387" width="48" height="45"/>
+  <object id="333" name="npc" type="name=recycler_npc;profile=!;speech=RECYCLER;timeout=0.4;spacing=stand;floating" x="1080" y="400" width="17" height="32"/>
+  <object id="334" name="npc" type="name=science_man;profile=scientist_man;voice=man,1;speech=B_BOT_TROUBLES;behavior=stand;face_right;spacing=left,0.2" x="656" y="304" width="16" height="32"/>
+  <object id="335" name="npc" type="name=scientist;profile=scientist_woman;voice=woman,1;speech=B_SCIENTIST;behavior=stand;face_right;sort=fg_tiles,1" x="1181" y="400" width="16" height="32"/>
+  <object id="336" name="npc" type="profile=soldierm;voice=man,0.95;speech=B_KNIGHT_01,B_KNIGHT_01+1;behavior=stand" x="1402" y="384" width="16" height="32"/>
+  <object id="337" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=241021;alpha=0.35;use_all_bright" x="1370" y="368" width="80" height="64">
+   <ellipse/>
+  </object>
+  <object id="339" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=241021;alpha=0.25;use_all_bright" x="540" y="368" width="80" height="64">
+   <ellipse/>
+  </object>
+  <object id="340" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=241021;alpha=0.25;use_all_bright" x="1165" y="384" width="48" height="64">
+   <ellipse/>
+  </object>
+  <object id="359" name="npc" type="voice=woman,1;profile=atai_woman;speech=B_WOMAN_1,B_WOMAN_1+1;behavior=path,47.5,55.5;sort=fg_tiles,-1" x="760" y="400" width="16" height="32"/>
+  <object id="360" name="npc" type="voice=man,1.05;profile=atai_boy;speech=B_BOY_1,B_BOY_1+1;behavior=path,57.5,62.5;spacing=auto,0.2" x="912" y="336" width="16" height="32"/>
+  <object id="361" name="npc" type="profile=atai_soldierm;voice=man,1;speech=B_KNIGHT_06,B_KNIGHT_06+1;behavior=path,89,92.5;spacing=stand" x="1424" y="128" width="16" height="32"/>
+  <object id="363" name="npc" type="profile=atai_soldierf;voice=woman,1;speech=B_KNIGHT_02,B_KNIGHT_02+2;behavior=path,87,92;spacing=stand" x="1488" y="256" width="16" height="32"/>
+  <object id="364" name="npc" type="name=shady_merchant;profile=masked;voice=man,0.95;speech=SHADE_MERCH,SHADE_MERCH+2;behavior=stand;sort=game_objects,40" x="856" y="400" width="16" height="32"/>
+  <object id="365" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=ffffff;alpha=0.15;use_all_bright" x="795" y="384" width="64" height="64">
+   <ellipse/>
+  </object>
+  <object id="366" name="npc" type="voice=woman,1;profile=rhodosf;speech=B_KNIGHT_05,B_KNIGHT_05+1;behavior=stand;face_right;spacing=auto,0.2" x="1104" y="304" width="16" height="32"/>
+  <object id="368" name="npc" type="name=girl;voice=woman,1.05;profile=daea_girl;speech=TRADE_QUEST_PONY,TRADE_QUEST_PONY+1;behavior=jumping;sort=game_objects,49;spacing=auto,0.1" x="1006" y="400" width="16" height="32"/>
+  <object id="369" name="npc" type="voice=man,1.03;profile=atai_teen_boy;speech=B_MAN_1,B_MAN_1+2;behavior=stand;sort=game_objects,48;spacing=right,0.1" x="616" y="400" width="16" height="32"/>
+  <object id="371" name="npc" type="voice=man,1;profile=rhodosm;speech=B_KNIGHT_08,B_KNIGHT_08+2;behavior=stand;face_right;spacing=right,0.2" x="520" y="384" width="16" height="32"/>
+  <object id="372" name="npc" type="name=rho_merch;voice=man,1;profile=sitting_vendor;speech=RHO_MERCH,RHO_MERCH+2;behavior=stand;long_talker;face_right" x="718" y="400" width="16" height="32"/>
+  <object id="373" name="npc" type="name=trader;voice=man,1;profile=atai_gen_vendor;speech=ATAI_TRADER+3,ATAI_TRADER+5;long_talker;spacing=auto,0.2" x="1292" y="400" width="16" height="32"/>
+  <object id="386" name="npc" type="profile=peace_woman;voice=man,1;speech=B_PEACE_1,B_PEACE_1+2;behavior=path,74,78" x="1184" y="304" width="16" height="32"/>
+  <object id="387" name="npc" type="name=peace_man;profile=peace_man;voice=man,1;speech=B_BOT_TROUBLES;behavior=stand;spacing=right,0.2" x="688" y="304" width="16" height="32"/>
+  <object id="388" name="npc" type="profile=robot;voice=robot,1;speech=B_BOT_1,B_BOT_1+2;behavior=path,52,45;spacing=auto,0.1" x="832" y="304" width="16" height="32"/>
+  <object id="390" name="npc" type="name=mom;voice=woman,1;profile=daea_rich_woman;speech=TRADE_QUEST_PONY+4;behavior=stand;spacing=right,0.25;talk_range=1" x="1040" y="400" width="16" height="32"/>
+  <object id="391" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=241021;alpha=0.25;use_all_bright" x="1024" y="384" width="48" height="64">
+   <ellipse/>
+  </object>
+  <object id="392" name="AT" type="sprite=38;sort=bg_tiles,30;scale=vec3(0.4/0.3/1);color=ffffff;alpha=0.15;use_all_bright" x="784" y="300" width="64" height="48">
+   <ellipse/>
+  </object>
+  <object id="393" name="npc" type="voice=woman,1.03;profile=atai_teen_girl;speech=B_TEEN,B_TEEN+2;behavior=path,95,84;sort=game_objects,48;spacing=auto,0.1" x="1456" y="384" width="16" height="32"/>
+  <object id="417" name="AT" type="sprite=0;scale=adapt;sort=bg_tiles,31;use_all_bright;color=253055" x="1100" y="404" width="32" height="16"/>
+ </objectgroup>
+ <objectgroup name="objects_shops" visible="0">
+  <object id="430" name="npc" type="profile=item,61;speech=RHO_CURRY;sort=game_objects,41;spacing=left,0.2" x="688" y="410" width="16" height="16"/>
+  <object id="431" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="688" y="400" width="16" height="32">
+   <ellipse/>
+  </object>
+  <object id="432" name="npc" type="profile=item,177;speech=RHO_MILK;sort=game_objects,41;spacing=left,0.2" x="656" y="409" width="16" height="16"/>
+  <object id="433" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="656" y="400" width="16" height="32">
+   <ellipse/>
+  </object>
+  <object id="434" name="AT" type="loot=177;sort=bg_tiles,6;color=C5C5C5" x="670" y="415" width="6" height="16"/>
+  <object id="435" name="AT" type="loot=177;sort=bg_tiles,6;color=C5C5C5" x="678" y="415" width="6" height="16"/>
+  <object id="438" name="AT" type="loot=39;sort=bg_tiles,14;alpha=1;color=C5C5C5" x="823" y="414" width="16" height="16"/>
+  <object id="439" name="npc" type="profile=item,109;speech=SHADE_DUCK;spacing=left,0.1;face_right" x="800" y="409" width="16" height="16"/>
+  <object id="440" name="npc" type="profile=item,39;speech=SHADE_LAMP;spacing=left,0.1;face_right" x="832" y="407" width="16" height="16"/>
+  <object id="441" name="AT" type="loot=39;sort=bg_tiles,13;alpha=1;color=C5C5C5" x="816" y="414" width="16" height="16"/>
+  <object id="442" name="AT" type="loot=109;sort=bg_tiles,14;alpha=1;color=C5C5C5" x="795" y="416" width="16" height="16"/>
+  <object id="443" name="AT" type="loot=109;sort=bg_tiles,13;alpha=1;color=C5C5C5" x="787" y="415" width="16" height="16"/>
+  <object id="444" name="AT" type="loot=109;sort=bg_tiles,12;alpha=1;color=C5C5C5" x="790" y="410" width="16" height="16"/>
+  <object id="445" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="832" y="400" width="16" height="32">
+   <ellipse/>
+  </object>
+  <object id="446" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="800" y="401" width="16" height="32">
+   <ellipse/>
+  </object>
+  <object id="449" name="npc" type="profile=item,68;speech=ATAI_CHOCOLATE;voice=man,1;sort=game_objects,41;spacing=left,0.1" x="1264" y="407" width="16" height="16"/>
+  <object id="450" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="1264" y="401" width="16" height="32">
+   <ellipse/>
+  </object>
+<!--  <object id="451" name="AT" type="loot=68;sort=game_objects,40;alpha=1" x="1264" y="416" width="6" height="6"/>-->
+<!--  <object id="452" name="AT" type="loot=68;sort=game_objects,39;alpha=1" x="1274" y="416" width="6" height="6"/>-->
+  <object id="453" name="npc" type="profile=item,54;speech=ATAI_BREW;voice=man,1;sort=game_objects,41;spacing=left,0.1" x="1232" y="408" width="16" height="16"/>
+  <object id="454" name="AT" type="sprite=38;scale=vec3(0.1/0.1/1);sort=bg_tiles,13;color=ffffff;alpha=.3;use_all_bright" x="1232" y="401" width="16" height="32">
+   <ellipse/>
+  </object>
+  <object id="455" name="AT" type="loot=54;sort=bg_tiles,6;color=C5C5C5" x="1246" y="416" width="6" height="16"/>
+  <object id="456" name="AT" type="loot=54;sort=bg_tiles,6;color=C5C5C5" x="1252" y="416" width="6" height="16"/>
+ </objectgroup>
+ <objectgroup name="objects_lights" visible="0">
+  <object id="308" name="bulb2" type="intensity=4;z=-15;range=20;color=ffedc1;diameter=80" x="1360" y="240" width="160" height="144">
+   <ellipse/>
+  </object>
+  <object id="309" name="bulb2" type="intensity=2;z=-15;range=20;color=ffedc1;diameter=80" x="416" y="240" width="160" height="144">
+   <ellipse/>
+  </object>
+  <object id="310" name="bulb2" type="intensity=5;z=-18;range=20;color=ffedc1;diameter=80" x="880" y="320" width="176" height="144">
+   <ellipse/>
+  </object>
+  <object id="381" name="AT" type="anim=0;scale=adapt;sort=fg_tiles,-1;color=4C1121;alpha=.15" x="1075" y="336" width="218" height="96"/>
+  <object id="382" name="AT" type="anim=0;scale=adapt;sort=fg_tiles,-1;color=4C1121;alpha=.15" x="643" y="336" width="218" height="96"/>
+ </objectgroup>
+</map>
