@@ -1994,44 +1994,58 @@ public class LocationMapping
                     "name=pot;type=P1_ATAI_CERAMIC_POT_S;ql=SI_FALSE,MOON_ATAI_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_ATAI_4|particle_emitter,highlighter,stop",
             },
         },
-        ["p1_atai_inn_01"] =
-            new List<Check>
+        ["p1_atai_inn_01"] = 
+        {
+            new Check
             {
-                new Check
+                ArchipelagoId = 7676225,
+                ObjectIds = ["22"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    ArchipelagoId = 7676225,
-                    ObjectIds = ["22"],
-                    IsKeyItem = false,
-                    IsNpc = true,
-                    DialogReplacements = new Dictionary<int, List<string[]>>
-                    {
-                        [1586] = [["A Milk", "%APPlayer%%APItem%"]],
-                        [1587] =
-                        [
-                            ["JUMP_TO,ATAI_BARTENDER+-2,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
-                            ["ITEM_add,67,1", "FILE_MARK_AP,ATAI_BARTENDER_MILK"]
-                        ],
-                    },
-                    GISIdentifier = "ATAI_BARTENDER_MILK",
-                    OverrideType =
-                        "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
+                    [1586] = [["A Milk", "%APPlayer%%APItem%"]],
+                    [1587] =
+                    [
+                        ["JUMP_TO,ATAI_BARTENDER+-2,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
+                        ["ITEM_add,67,1", "FILE_MARK_AP,ATAI_BARTENDER_MILK"]
+                    ],
                 },
-                new Check
-                {
-                    ArchipelagoId = 7676226,
-                    ObjectIds = ["22"],
-                    IsKeyItem = true,
-                    IsNpc = true,
-                    DialogReplacements = new Dictionary<int, List<string[]>>
-                    {
-                        [1586] = [["A Bottle Of Wine", "%APPlayer%%APItem%"]],
-                        [1597] = [["|ITEM_add,123,1", ""]],
-                    },
-                    GISIdentifier = "CH2_D3_GOT_WINE",
-                    OverrideType =
-                        "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
-                },
+                GISIdentifier = "ATAI_BARTENDER_MILK",
+                OverrideType =
+                    "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
             },
+            new Check
+            {
+                ArchipelagoId = 7676226,
+                ObjectIds = ["22"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [1586] = [["A Bottle Of Wine", "%APPlayer%%APItem%"]],
+                    [1597] = [["|ITEM_add,123,1", ""]],
+                },
+                GISIdentifier = "CH2_D3_GOT_WINE",
+                OverrideType =
+                    "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676133,
+                ObjectIds = ["43"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [1683] = [["GO,GP1", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,BLUE_MERC_GEAR,true"]],
+                },
+                GISIdentifier = "BLUE_MERC_GEAR",
+                OverrideType =
+                    "voice=man,0.85;profile=atai_gunner;speech=BLUE_MERC;behavior=stand;spacing=right,0.1;face_right;name=blue_merc;ql=SI_FALSE,BIRDY_CAUGHT",
+            },
+        },
         ["p1_atai_house_04"] = new List<Check>
         {
             new Check
