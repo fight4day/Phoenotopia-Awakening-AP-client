@@ -23,6 +23,7 @@ public class ItemHandler
     public readonly HashSet<long> SuppressedItemAddition = [];
 
     private static readonly Regex ItemLinkRegex = new(@"%ItemLink\$\d+%");
+    private readonly long[] _statusUpgradeIdsOnlyOnIgnoredCutscene = [3, 4];
 
     private static readonly Dictionary<long, int[]> UpgradeChains = new()
     {
@@ -134,7 +135,7 @@ public class ItemHandler
                                   PT2.director.is_directing;
             PT2.save_file.AddItemToolOrStatusIdToInventory((int)id, quantity, ignoreCutscene);
 
-            if (ignoreCutscene) ApplyStatusUpgrade(id);
+            ApplyStatusUpgrade(id, ignoreCutscene);
             return;
         }
 
@@ -144,8 +145,10 @@ public class ItemHandler
         });
     }
 
-    private void ApplyStatusUpgrade(long id)
+    private void ApplyStatusUpgrade(long id, bool ignoreCutscene)
     {
+        if (_statusUpgradeIdsOnlyOnIgnoredCutscene.Contains(id) && !ignoreCutscene) return;
+        
         string gisCommand = id switch
         {
             3 => "apply_upgrade,HEALTH_UPGRADE|FILE_INTEGER_ADD,2,1",
@@ -161,6 +164,7 @@ public class ItemHandler
             26 => "enable_gale_abilities",
             27 => "enable_gale_abilities",
             34 => "enable_gale_abilities",
+            129 => "FILE_MARK_SI,BATTLE_SONG_BOOSTS,true",
             _ => ""
         };
         MainThreadDispatcher.RunOnMainThread(() =>
