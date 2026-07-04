@@ -1994,7 +1994,7 @@ public class LocationMapping
                     "name=pot;type=P1_ATAI_CERAMIC_POT_S;ql=SI_FALSE,MOON_ATAI_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_ATAI_4|particle_emitter,highlighter,stop",
             },
         },
-        ["p1_atai_inn_01"] = 
+        ["p1_atai_inn_01"] = new List<Check>
         {
             new Check
             {
