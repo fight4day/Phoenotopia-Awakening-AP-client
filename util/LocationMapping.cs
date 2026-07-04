@@ -693,6 +693,24 @@ public class LocationMapping
                 OverrideType =
                     "id=%ItemId%;ql=SI_FALSE,ANURI_KEY_5_COLLECTED;collected_GIS=FILE_MARK_SI,ANURI_KEY_5_COLLECTED,true;name=SHINY_LOOT",
             },
+            new Check
+            {
+                ArchipelagoId = 7676134,
+                ObjectIds = ["170"],
+                IsKeyItem = false,
+                GISIdentifier = "herb_at02c2",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_OC,herb_at02c2;ql=OC_ABSENT,herb_at02c2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676135,
+                ObjectIds = ["171"],
+                IsKeyItem = false,
+                GISIdentifier = "herb_at02c1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_OC,herb_at02c1;ql=OC_ABSENT,herb_at02c1",
+            },
         },
         ["p1_anuri_temple_03"] = new List<Check>
         {
