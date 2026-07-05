@@ -2821,7 +2821,7 @@ public class LocationMapping
         },
         ["p1_ex_sands_01"] = new List<Check>
         {
-            new Check // BUG: When money is spawned, errors occur
+            new Check
             {
                 ArchipelagoId = 7676275,
                 ObjectIds = ["126"],
@@ -2829,7 +2829,7 @@ public class LocationMapping
                 FillWhenExcluded = FillMode.StatusUpgrade,
                 GISIdentifier = "HEART_BANDIT_1",
                 OverrideType =
-                    "name=loot_box;type=P1_WOOD_L;ql=SI_FALSE,HEART_BANDIT_1;destroyed_GIS=puzzle,id$6,msg$FLIP_ON|SPAWN_loot,%ItemId%,pos$name(loot_box)+vec3(0/1.5/0),velocity$vec3(0/10/0),loot_GIS_MARK_SI$HEART_BANDIT_1|common_sfx,150",
+                    "name=loot_box;type=P1_WOOD_L;ql=SI_FALSE,HEART_BANDIT_1;destroyed_GIS=puzzle,id$6,msg$FLIP_ON|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$HEART_BANDIT_1,pos$name(loot_box)+vec3(0/1.5/0),velocity$vec3(0/10/0)|common_sfx,150",
             },
         },
         ["biome_desert_ruins_02"] = new List<Check>
@@ -3135,7 +3135,7 @@ public class LocationMapping
                 IsKeyItem = true,
                 GISIdentifier = "BANDIT_KEY_1_COLLECTED",
                 OverrideType =
-                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,amt$1,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
+                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED,amt$1;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
             },
         },
         ["p1_bandit_lair_storeroom2"] = new List<Check>
