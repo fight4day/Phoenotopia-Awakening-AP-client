@@ -37,6 +37,10 @@ internal static class APScriptAdditions
         [
             "PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971;OWNER,none;GOIF_FAST,3224|ITEM_HAVE_COUNT,111,3;GOIF_FAST,3225|ITEM_HAVE_COUNT,111,1",
         ],
+        ["10222"] =
+        [
+            "PROFILE,static;TXT_BOX_WIDTH,1000;VOICE,static;POS,0.5,0.5;CHOICE,10227,10226,10225,10224,10223||||Pick a combat difficulty level that suits you.\\n<#ababab><size=-10>\\n(Note: it's possible to change the difficulty at any time):\\n</size></color>||<sprite=50><sprite=50><sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50>||<sprite=50>",
+        ],
     };
 
     public static void AddCustomScriptLines()
