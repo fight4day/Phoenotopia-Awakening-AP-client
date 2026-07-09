@@ -3442,6 +3442,30 @@ public class LocationMapping
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
             },
         },
+        // ET
+        // fight4day
+        ["p1_ex_cave_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676500,
+                ObjectIds = ["274"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_2;ql=SI_FALSE,DAEA_MONEY_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676501,
+                ObjectIds = ["273"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_DAEA_4",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_DAEA_4,true;ql=SI_FALSE,OXY_DAEA_4",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
