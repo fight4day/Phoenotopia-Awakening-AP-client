@@ -2503,7 +2503,7 @@ public class LocationMapping
         },
         ["p1_adars_house_02"] = new List<Check>
         {
-            new Check // TODO: Does this one respawn when filler is implemented? Also does not spawn at all?
+            new Check
             {
                 ArchipelagoId = 7676197,
                 ObjectIds = ["292"],
@@ -3037,7 +3037,7 @@ public class LocationMapping
         },
         ["p1_bandit_lair_01e"] = new List<Check>
         {
-            new Check // TODO: To be tested
+            new Check
             {
                 ArchipelagoId = 7676195,
                 ObjectIds = ["255"],
