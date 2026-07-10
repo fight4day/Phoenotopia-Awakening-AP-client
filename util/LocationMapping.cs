@@ -3466,6 +3466,66 @@ public class LocationMapping
                     "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_DAEA_4,true;ql=SI_FALSE,OXY_DAEA_4",
             },
         },
+        // ["p1_ex_forest_03"] = new List<Check>
+        // {
+        //     new Check // TODO: needs custom level
+        //     {
+        //         ArchipelagoId = 7676502,
+        //         ObjectIds = ["301"],
+        //         IsKeyItem = true,
+        //         GISIdentifier = "PERRO_3",
+        //         OverrideType =
+        //             "id=%ItemId%;collected_GIS=FILE_MARK_SI,PERRO_3,true;ql=AP_SETTING_TRUE,PERRO&SI_FALSE,PERRO_3",
+        //     },
+        // },
+        ["p1_ex_ouroboros_05a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676503,
+                ObjectIds = ["154"],
+                IsKeyItem = true,
+                GISIdentifier = "OURO_SCROLL_5",
+                OverrideType =
+                    "id=%ItemId%;use_all_bright;collected_GIS=FILE_MARK_SI,OURO_SCROLL_5,true;ql=SI_FALSE,OURO_SCROLL_5",
+            },
+        },
+        ["p1_ex_geo_06d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676504,
+                ObjectIds = ["84"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3839] = [["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_6",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_06+3,GEO_ROBOT_06+5,GEO_ROBOT_06+6",
+            },
+        },
+        ["p1_ex_geo_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676505,
+                ObjectIds = ["288"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7390] = [["GO,PLANTO_REWARD+-1", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_PLANTO_3"]],
+                },
+                GISIdentifier = "AP_PLANTO_3",
+                DifferingInGameIdentifier = "PLANTO_3",
+                OverrideType =
+                    "name=planto;profile=planto;voice=man,0.85;speech=PLANTO_P3;behavior=action_only;ql=SI_FALSE,PLANTO_3;floating;sort=bg_tiles,-1;talk_range=4;spacing=stand",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
