@@ -86,11 +86,11 @@ public class ItemHandler
 
     public long HandleUpgradableItems(long id)
     {
+        if (!UpgradeChains.TryGetValue(id, out var chain)) return id;
+        
         int[] tools = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_TOOLS_ITEMS, false, "");
         int[] status = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_STATUS, false, "");
         int[] toolsAndStatus = tools.Concat(status).ToArray();
-
-        if (!UpgradeChains.TryGetValue(id, out var chain)) return id;
 
         foreach (var upgradeId in chain)
         {
@@ -269,8 +269,8 @@ public class ItemHandler
             if ((itemInfo.Flags & ItemFlags.Trap) != 0) replacementId = 213.ToString();
         }
 
-        int[] animatedFillerIds = [213, 214, 215];
         if (!check.OverrideType.Contains("CustomAnimatedSprite")) return replacementId;
+        int[] animatedFillerIds = [213, 214, 215];
 
         check.OverrideType = check.OverrideType.Replace("CustomAnimatedSprite;", "");
         int id = int.Parse(replacementId);

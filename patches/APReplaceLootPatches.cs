@@ -258,6 +258,13 @@ internal sealed class APReplaceLootPatches
         profile = $"item,{item_id}";
     }
 
+    [HarmonyPatch(typeof(AnimatedTileLogic), "Set")]
+    [HarmonyPrefix] // Patch to render the appropriate sprite of an upgradable item for animated tile sprites
+    private static void AnimatedTileLogicSetPrefix(ref int graphic_loot_id)
+    {
+        graphic_loot_id = (int)PhoaAPClient.APConnection.ItemHandler.HandleUpgradableItems(graphic_loot_id);
+    }
+
     [HarmonyPatch(typeof(ItemGenerator), "SpawnLoot")]
     [HarmonyPrefix] // Patch to switch around some values in case moonstone physics apply to either the location or item
     private static void SpawnLootMoonSwitchPrefix(ref int item_id, string collected_GIS, ref int __state)
