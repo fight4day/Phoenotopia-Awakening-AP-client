@@ -14,6 +14,10 @@
     <PackageId>PhoA_AP_client</PackageId>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <NoWarn>AD0001</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Archipelago.MultiClient.Net" Version="6.6.1" />
     <PackageReference Include="Archipelago.MultiClient.Net.Analyzers" Version="1.5.0">
@@ -24,6 +28,7 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
     <PackageReference Include="UnityEngine.Modules" Version="5.6.5" IncludeAssets="compile" />
+    <PackageReference Include="UniverseLib.Mono" Version="1.5.1" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
@@ -33,6 +38,9 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>lib\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
 
