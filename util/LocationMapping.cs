@@ -3526,6 +3526,44 @@ public class LocationMapping
                     "name=planto;profile=planto;voice=man,0.85;speech=PLANTO_P3;behavior=action_only;ql=SI_FALSE,PLANTO_3;floating;sort=bg_tiles,-1;talk_range=4;spacing=stand",
             },
         },
+        ["p1_frans_base"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676506,
+                ObjectIds = ["393"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9404] = [["my extremely precious voucher for one free <#00ffff>pocket expansion</color> at Tailoring Tracy's", "%APPlayer/my %extremely precious %APItem%"]],
+                    [9405] = [["Tailoring Tracy's is GREAT!<*_>", "%APItem% is GREAT!<*_> And so is Tailoring Tracy's!"]],
+                    [9409] = [["use it", "keep %APItem%"]],
+                    [9410] = [["GO,9411", "GO,9412"]],
+                    [9412] = [["ITEM_add,164,1|", ""]],
+                },
+                GISIdentifier = "FRAN_QUEST_2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_2;behavior=path,33,42;use_all_bright;sort=fg_tiles,101",
+            },
+        },
+        // ["p1_fran_geo_outside"] = new List<Check> // TODO: Triggers GIS_PAK,7 in p1_frans_base, handle with -1 + replace GO. Also, custom text for AP item name
+        // {
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676507,
+        //         ObjectIds = ["206"],
+        //         IsKeyItem = true,
+        //         IsNpc = true,
+        //         DialogReplacements = new Dictionary<int, List<string[]>>
+        //         {
+        //             [9518] = [[]],
+        //         },
+        //         GISIdentifier = "FRAN_VOUCHER2",
+        //         OverrideType =
+        //             "",
+        //     },
+        // },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
