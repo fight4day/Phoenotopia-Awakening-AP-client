@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 
 namespace PhoA_AP_client.patches;
 

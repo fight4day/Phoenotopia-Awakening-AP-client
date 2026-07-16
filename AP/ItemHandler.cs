@@ -7,6 +7,7 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 using WebSocketSharp;
 

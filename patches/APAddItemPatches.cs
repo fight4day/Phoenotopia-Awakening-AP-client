@@ -3,6 +3,7 @@ using System.Text;
 using HarmonyLib;
 using PhoA_AP_client.AP;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 using WebSocketSharp;
 

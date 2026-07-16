@@ -3,6 +3,7 @@ using System.Linq;
 using Archipelago.MultiClient.Net.Models;
 using JetBrains.Annotations;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 
 namespace PhoA_AP_client.AP;
 
