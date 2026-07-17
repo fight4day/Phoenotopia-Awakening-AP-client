@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Archipelago.MultiClient.Net.Models;
+using BepInEx;
 using JetBrains.Annotations;
 using PhoA_AP_client.util;
-using WebSocketSharp;
 
 namespace PhoA_AP_client.AP;
 
@@ -36,9 +36,6 @@ public class DialogHandler
         {
             string playerName = dialogPatch.ScoutedItem == null || dialogPatch.IsFromThisWorld
                 ? ""
-                : $"{dialogPatch.ScoutedItem.Player.Name}'s ";
-            string playerNameNpc = dialogPatch.ScoutedItem == null || dialogPatch.IsFromThisWorld
-                ? "my"
                 : $"{dialogPatch.ScoutedItem.Player.Name}'s ";
             string itemName = dialogPatch.ScoutedItem == null ? "Nothing" : dialogPatch.ScoutedItem.ItemName;
             int bonusLineId = -1;
@@ -102,7 +99,7 @@ public class DialogHandler
                 foreach (Group group in match.Groups)
                 {
                     replacement = replacement
-                        .Replace($"%APPlayer/{group.Value}%", playerName.IsNullOrEmpty() ? group.Value : playerName);
+                        .Replace($"%APPlayer/{group.Value}%", playerName.IsNullOrWhiteSpace() ? group.Value : playerName);
                 }
             }
 
