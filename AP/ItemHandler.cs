@@ -182,9 +182,9 @@ public class ItemHandler
         string itemName = apItem.ItemDisplayName;
         if ((apItem.Flags & ItemFlags.Advancement) != 0) itemName = "<sprite=30>" + itemName;
 
-        string message = $"Found {itemName}";
+        string message = $"<#ffffffB3>Found</color> {itemName}";
         if (apItem.Player.Name != _sessionContext.Session.Players.ActivePlayer.Name)
-            message = $"Received {itemName} from {apItem.Player.Name}";
+            message = $"<#ffffffB3>Received</color> {itemName} <#ffffffB3>from</color> {apItem.Player.Name}";
 
         PT2.sound_g.PlayGlobalCommonSfx(133, 1f, 1f, 2);
         PT2.display_messages.DisplayMessage(message, DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);

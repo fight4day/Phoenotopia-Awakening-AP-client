@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using HarmonyLib;
 using Newtonsoft.Json;
+using PhoA_AP_client.AP;
 using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 
@@ -16,6 +18,14 @@ internal sealed class SaveWarpPatches
     private static Dictionary<string, Dictionary<string, Dictionary<string, string>>> _savepointData = new();
     private static string _currentRegionCmd;
     private static string _currentLocationCmd;
+
+    private static bool _freeWarp = false;
+
+    private static string _availableUnselectedColor = "#00bf2c";
+    private static string _unavailableUnselectedColor = "#d8002c";
+    private static string _availableSelectedColor = "#40ff6c";
+    private static string _unavailableSelectedColor = "#f8204c";
+
 
     [HarmonyPatch(typeof(DirectorLogic), "Awake")]
     [HarmonyPostfix] // Patch to add save warp option to menu
@@ -64,9 +74,11 @@ internal sealed class SaveWarpPatches
     [HarmonyPrefix] // Patch to add actions to new menu options
     private static bool OptionsExecuteCmdPrefix(DirectorLogic __instance, string cmd_option)
     {
-        PhoaAPClient.Logger.LogDebug(cmd_option);
         if (cmd_option is "__OPT_WARP" or "__OPT_WARP_return")
         {
+            _currentRegionCmd = null;
+            _currentLocationCmd = null;
+
             string[] regionArray = _savepointData.Keys
                 .Select(r => $"__OPT_WARP_REGION_{r.Replace(' ', '_').ToLower()}")
                 .ToArray();
@@ -75,8 +87,6 @@ internal sealed class SaveWarpPatches
             Array.Copy(regionArray, 0, optionsArray, 1, regionArray.Length);
             optionsArray[optionsArray.Length - 2] = optionsArray[optionsArray.Length - 1] = "__OPT_CONTROL_return";
 
-            foreach (var thing in optionsArray)
-                PhoaAPClient.Logger.LogDebug(thing);
             InsertMenuData(__instance, optionsArray);
 
             int soundId = cmd_option.EndsWith("_return") ? 123 : 122;
@@ -87,6 +97,8 @@ internal sealed class SaveWarpPatches
         if (cmd_option.StartsWith("__OPT_WARP_REGION_"))
         {
             _currentRegionCmd = cmd_option.Replace("_return", "");
+            _currentLocationCmd = null;
+
             string[] locationArray = _savepointData[DB.TRANSLATE_map[_currentRegionCmd]].Keys
                 .Select(l => $"__OPT_WARP_LOCATION_{l.Replace(' ', '_').ToLower()}")
                 .ToArray();
@@ -126,15 +138,95 @@ internal sealed class SaveWarpPatches
             string levelNameToWarp = _savepointData[DB.TRANSLATE_map[_currentRegionCmd]]
                 [DB.TRANSLATE_map[_currentLocationCmd]]
                 [DB.TRANSLATE_map[cmd_option]];
+            if (!_freeWarp && !APSaveState.UsedSavepoints.Contains(levelNameToWarp))
+            {
+                PT2.sound_g.PlayGlobalCommonSfx(20, 1f, 1f, 1);
+                return false;
+            }
+
+            _currentRegionCmd = null;
+            _currentLocationCmd = null;
             PT2.tv_hud.AppearPauseScreen(false, false);
             PT2.sound_g.PauseAllSounds(false);
             PT2.game_paused = false;
             Time.timeScale = 1f;
             PT2.sound_g.PlayGlobalCommonSfx(126, 1f, 1f, 1);
             PT2.LoadLevel(levelNameToWarp, 9000, Vector3.zero, false, 0.0f);
+            return false;
         }
 
+        _currentRegionCmd = null;
+        _currentLocationCmd = null;
         return true;
+    }
+
+    [HarmonyPatch(typeof(DirectorLogic), "_Options_RenderText")]
+    [HarmonyPostfix] // Patch to add text color to mark availability to the warp locations
+    private static void OptionsRenderTextPostfix()
+    {
+        if (_freeWarp || _currentRegionCmd == null || _currentLocationCmd == null)
+            return;
+
+        string renderedText = PT2.director.options_text.text;
+        Dictionary<string, string> savepoints =
+            _savepointData[DB.TRANSLATE_map[_currentRegionCmd]][DB.TRANSLATE_map[_currentLocationCmd]];
+
+        foreach (var kvp in savepoints)
+        {
+            bool isAvailable = APSaveState.UsedSavepoints.Contains(kvp.Value);
+            string selectedColor = isAvailable ? _availableSelectedColor : _unavailableSelectedColor;
+            string unselectedColor = isAvailable ? _availableUnselectedColor : _unavailableUnselectedColor;
+
+            renderedText = renderedText.Replace($"<#949494>{kvp.Key}", $"<{unselectedColor}>{kvp.Key}");
+            renderedText = renderedText.Replace($"<#00ffff>{kvp.Key}", $"<{selectedColor}>{kvp.Key}");
+        }
+
+        PT2.director.options_text.text = renderedText;
+    }
+
+    [HarmonyPatch(typeof(SaveFile), "_NS_CompactSaveDataAsString")]
+    [HarmonyPostfix] // Patch to add an array of used savepoints to the savefile
+    private static void NSCompactSaveDataAsStringPostfixVisitedSaves(ref string __result)
+    {
+        if (!APSaveState.UsedSavepoints.Contains(LevelBuildLogic.level_name))
+            APSaveState.UsedSavepoints.Add(LevelBuildLogic.level_name);
+
+        StringBuilder stringBuilder = new StringBuilder(__result);
+        var usedSavepoints = APSaveState.UsedSavepoints;
+        stringBuilder.Append("SAVES");
+        stringBuilder.Append("|");
+
+        foreach (string savepoint in usedSavepoints)
+        {
+            stringBuilder.Append(savepoint);
+            stringBuilder.Append("|");
+        }
+
+        stringBuilder.Append(",");
+
+        __result = stringBuilder.ToString();
+    }
+
+    [HarmonyPatch(typeof(SaveFile), "_NS_ProcessSaveDataString")]
+    [HarmonyPostfix] // Patch to extract the collect used savepoints from the savefile and compare them to AP
+    private static void NSProcessSaveDataStringPostfixVisitedSaves(string save_data_string)
+    {
+        string[] saveDataArray = save_data_string.Split(',');
+        string usedSavesString = saveDataArray.FirstOrDefault(entry => entry.StartsWith("SAVES"));
+
+        APSaveState.LoadVisitedSavepointsFromSaveString(usedSavesString);
+    }
+
+    public static void ToggleFreeWarp()
+    {
+        if (PT2.game_paused) return;
+
+        _freeWarp = !_freeWarp;
+        
+        string verb = _freeWarp ? "lifted" : "reinstated";
+        PT2.sound_g.PlayGlobalCommonSfx(126, 1f, 1f, 1);
+        PT2.display_messages.DisplayMessage($"<#ffffffB3>Warping conditions</color> {verb}",
+            DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);
     }
 
     private static void InsertMenuData(DirectorLogic __instance, string[] optionsArray)
