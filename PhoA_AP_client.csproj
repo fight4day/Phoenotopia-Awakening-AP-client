@@ -34,9 +34,16 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>lib\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="assets/data/savepointdata.json" />
     <EmbeddedResource Include="assets/apSprite.png"/>
     <EmbeddedResource Include="assets/apSpriteUseful.png"/>
     <EmbeddedResource Include="assets/apSpriteFiller.png"/>
@@ -45,5 +52,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="assets\customlevels\*.xml"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\data\" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Archipelago.MultiClient.Net.Models;
 
-namespace PhoA_AP_client.util;
+namespace PhoA_AP_client.util.DataClasses;
 
 public enum FillMode
 {

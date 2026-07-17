@@ -3,6 +3,7 @@ using System.Text;
 using HarmonyLib;
 using PhoA_AP_client.AP;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 using WebSocketSharp;
 
@@ -13,7 +14,7 @@ internal sealed class APAddItemPatches
 {
     [HarmonyPatch(typeof(SaveFile), "_NS_CompactSaveDataAsString")]
     [HarmonyPostfix] // Patch to add an array of collected items to the savefile
-    private static void NSCompactSaveDataAsStringPostfix(ref string __result)
+    private static void NSCompactSaveDataAsStringPostfixApItems(ref string __result)
     {
         StringBuilder stringBuilder = new StringBuilder(__result);
         var receivedItems = APSaveState.CollectedItems;
@@ -33,12 +34,12 @@ internal sealed class APAddItemPatches
 
     [HarmonyPatch(typeof(SaveFile), "_NS_ProcessSaveDataString")]
     [HarmonyPostfix] // Patch to extract the collect items from the savefile and compare them to AP
-    private static void NSProcessSaveDataStringPostfix(string save_data_string)
+    private static void NSProcessSaveDataStringPostfixApItems(string save_data_string)
     {
         string[] saveDataArray = save_data_string.Split(',');
         string apItemsString = saveDataArray.FirstOrDefault(entry => entry.StartsWith("APITEMS"));
 
-        APSaveState.LoadFromSaveString(apItemsString);
+        APSaveState.LoadFoundApItemsFromSaveString(apItemsString);
 
         if (!APHelpers.IsConnectedToAP()) return;
         PhoaAPClient.APConnection.ItemHandler.AddMissingItems();
