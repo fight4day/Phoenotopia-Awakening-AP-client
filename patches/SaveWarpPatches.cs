@@ -20,6 +20,7 @@ internal sealed class SaveWarpPatches
     private static string _currentLocationCmd;
 
     private static bool _freeWarp = false;
+    private static bool _isTeleporting = false;
 
     private static string _availableUnselectedColor = "#00bf2c";
     private static string _unavailableUnselectedColor = "#d8002c";
@@ -150,8 +151,7 @@ internal sealed class SaveWarpPatches
             PT2.sound_g.PauseAllSounds(false);
             PT2.game_paused = false;
             Time.timeScale = 1f;
-            PT2.sound_g.PlayGlobalCommonSfx(126, 1f, 1f, 1);
-            PT2.LoadLevel(levelNameToWarp, 9000, Vector3.zero, false, 0.0f);
+            WarpGail(levelNameToWarp);
             return false;
         }
 
@@ -222,11 +222,35 @@ internal sealed class SaveWarpPatches
         if (PT2.game_paused) return;
 
         _freeWarp = !_freeWarp;
-        
+
         string verb = _freeWarp ? "lifted" : "reinstated";
         PT2.sound_g.PlayGlobalCommonSfx(126, 1f, 1f, 1);
         PT2.display_messages.DisplayMessage($"<#ffffffB3>Warping conditions</color> {verb}",
             DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);
+    }
+
+    private static void WarpGail(string levelName)
+    {
+        if (_isTeleporting) return;
+        _isTeleporting = true;
+        Vector2 position = PT2.gale_script.GetTransform().position;
+
+        PT2.gale_script.SendGaleCommand(GALE_CMD.OPEN_REMOTE_CONTROLS_NO_GRAV);
+        PT2.sound_g.PlayGlobalUncommonSfx("computer_access", 1f, 1f, 2);
+        PT2.sound_g.PlayGlobalUncommonSfx("teleport", 1f, 1f, 2);
+        PT2.gale_script.SendGaleCommand(GALE_CMD.TELEPORT_1);
+        PT2.juicer.J_LingeringParticles(position, 1.5f, 1.5f);
+        PT2.gale_interacter.iscript.SA_Animate("fall", 1f);
+
+        LeanTween.delayedCall(PT2.gale_script.GetGaleObject(GALE_OBJ_REQ.GAME_OBJ), 2.35f, () =>
+        {
+            PT2.gale_script.SendGaleCommand(GALE_CMD.TELEPORT_2);
+            PT2.juicer.J_SparkLight(GL.C_HexToColor("bd8cbf"), position, 0.5f, 4, 5f, 12f);
+            PT2.LoadLevel(levelName, 9000, Vector3.zero, false, 1.0f);
+            _isTeleporting = false;
+        });
+
+        PT2.juicer.J_SparkLight(GL.C_HexToColor("a863db"), position, 3f, 5);
     }
 
     private static void InsertMenuData(DirectorLogic __instance, string[] optionsArray)
