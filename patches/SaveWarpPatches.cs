@@ -22,10 +22,10 @@ internal sealed class SaveWarpPatches
     private static bool _freeWarp = false;
     private static bool _isTeleporting = false;
 
-    private static string _availableUnselectedColor = "#00bf2c";
-    private static string _unavailableUnselectedColor = "#d8002c";
-    private static string _availableSelectedColor = "#40ff6c";
-    private static string _unavailableSelectedColor = "#f8204c";
+    private const string AvailableUnselectedColor = "#00bf2c";
+    private const string UnavailableUnselectedColor = "#d8002c";
+    private const string AvailableSelectedColor = "#40ff6c";
+    private const string UnavailableSelectedColor = "#f8204c";
 
 
     [HarmonyPatch(typeof(DirectorLogic), "Awake")]
@@ -174,8 +174,8 @@ internal sealed class SaveWarpPatches
         foreach (var kvp in savepoints)
         {
             bool isAvailable = APSaveState.UsedSavepoints.Contains(kvp.Value);
-            string selectedColor = isAvailable ? _availableSelectedColor : _unavailableSelectedColor;
-            string unselectedColor = isAvailable ? _availableUnselectedColor : _unavailableUnselectedColor;
+            string selectedColor = isAvailable ? AvailableSelectedColor : UnavailableSelectedColor;
+            string unselectedColor = isAvailable ? AvailableUnselectedColor : UnavailableUnselectedColor;
 
             renderedText = renderedText.Replace($"<#949494>{kvp.Key}", $"<{unselectedColor}>{kvp.Key}");
             renderedText = renderedText.Replace($"<#00ffff>{kvp.Key}", $"<{selectedColor}>{kvp.Key}");
