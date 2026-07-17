@@ -3540,30 +3540,94 @@ public class LocationMapping
                     [9405] = [["Tailoring Tracy's is GREAT!<*_>", "%APItem% is GREAT!<*_> And so is Tailoring Tracy's!"]],
                     [9409] = [["use it", "keep %APItem%"]],
                     [9410] = [["GO,9411", "GO,9412"]],
-                    [9412] = [["ITEM_add,164,1|", ""]],
+                    [9412] = [["ITEM_add,164,1|", ""], ["voucher", "%APItem%"]],
                 },
                 GISIdentifier = "FRAN_QUEST_2",
                 OverrideType =
                     "name=fran;profile=fran;voice=woman,1;speech=FRAN_2;behavior=path,33,42;use_all_bright;sort=fg_tiles,101",
             },
+            new Check
+            {
+                ArchipelagoId = 7676508,
+                ObjectIds = ["411"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9517] = [["GO,9518", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,FRAN_VOUCHER2,true"]],
+                },
+                GISIdentifier = "FRAN_VOUCHER2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_20_30;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676510,
+                ObjectIds = ["418"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9572] = [["Moon Crystal", "%APItem%"]],
+                    [9574] = [["GO,GP9", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_FRAN_BATCH_4"]],
+                },
+                GISIdentifier = "AP_FRAN_BATCH_4",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_40_50;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676511,
+                ObjectIds = ["422"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9610] = [["Heart Ruby", "%APItem%"]],
+                    [9611] = [["Heart Rubies", "of them"]],
+                    [9613] = [["Heart Ruby", "of them"], ["GO,GP6", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_FRAN_2,true|FILE_MARK_OC,turned_50"]],
+                },
+                GISIdentifier = "HEART_FRAN_2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_40_50;face_right;ql=OC_EXISTS,turned_50",
+            },
         },
-        // ["p1_fran_geo_outside"] = new List<Check> // TODO: Triggers GIS_PAK,7 in p1_frans_base, handle with -1 + replace GO. Also, custom text for AP item name
-        // {
-        //     new Check
-        //     {
-        //         ArchipelagoId = 7676507,
-        //         ObjectIds = ["206"],
-        //         IsKeyItem = true,
-        //         IsNpc = true,
-        //         DialogReplacements = new Dictionary<int, List<string[]>>
-        //         {
-        //             [9518] = [[]],
-        //         },
-        //         GISIdentifier = "FRAN_VOUCHER2",
-        //         OverrideType =
-        //             "",
-        //     },
-        // },
+        ["p1_fran_geo_outside"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676507,
+                ObjectIds = ["206"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9494] = [["GO,GP2", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_FRAN_1,true|black_bars_out"]],
+                },
+                GISIdentifier = "HEART_FRAN_1",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_10_20;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676509,
+                ObjectIds = ["228"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9543] = [["GO,GP8", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_FRAN_1,true"]],
+                },
+                GISIdentifier = "OXY_FRAN_1",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_30_40;behavior=stand;face_right;ql=END_DOOR_ID_EQS,98",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
