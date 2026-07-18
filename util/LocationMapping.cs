@@ -3641,13 +3641,66 @@ public class LocationMapping
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
+                    [3784] = [["a Golden Egg", "%APPlayer%%APItem%"]],
                     [3785] = [["JUMP_TO,GEO_EXCHANGE_NO+4,IF_FALSE|ITEM_CAN_ADD,95,1;", ""],
                               ["GO,GP1;", "GO,%BonusLine%;"]],
-                    [-1] = [["FILE_MARK_SI,GEO_EGG_1,true"]],
+                    [-1] = [["GIS,FILE_MARK_SI,GEO_EGG_1,true|recycle,shop_1"]],
                 },
                 GISIdentifier = "GEO_EGG_1",
                 OverrideType =
-                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_EGG;spacing=stand;talk_range=0.75;shiny",
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_EGG;spacing=stand;talk_range=0.75;shiny;name=shop_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676517,
+                ObjectIds = ["336"],
+                IsKeyItem = false,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3786] = [["That's a ", "That's %APPlayer/a %"], ["Heart Ruby", "%APItem%"], ["a beautiful red gem ", ""]],
+                    [3788] = [["a Heart Ruby", "%APPlayer%%APItem%"]],
+                    [3789] = [["GO,GP2;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_GEO_1,true|recycle,shop_2"]],
+                },
+                GISIdentifier = "HEART_GEO_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_HEART;spacing=stand;talk_range=0.75;shiny;name=shop_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676518,
+                ObjectIds = ["337"],
+                IsKeyItem = false,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3790] = [["An elegant green", "%APPlayer/An % elegant"], ["Energy Gem", "%APItem%"]],
+                    [3792] = [["an Energy Gem", "%APPlayer%%APItem%"]],
+                    [3793] = [["GO,GP3;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_GEO_1,true|recycle,shop_3"]],
+                },
+                GISIdentifier = "OXY_GEO_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_OXY;spacing=stand;talk_range=0.75;shiny;name=shop_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676519,
+                ObjectIds = ["339"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3794] = [["A ", "%APPlayer/A %"], ["GEO jacket", "%APItem%"], ["armor", "item"]],
+                    [3796] = [["a GEO Jacket", "%APPlayer%%APItem%"]],
+                    [3797] = [["JUMP_TO,GEO_EXCHANGE_NO+2,IF_TRUE|ITEM_HAVE,int_list(13);", ""], ["GEO jacket", "%APItem%"]],
+                    [3798] = [["GO,GP4", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_GEO_JACKET|recycle,shop_4"]],
+                },
+                GISIdentifier = "AP_GEO_JACKET",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_ARMOR;shiny;spacing=stand;talk_range=0.75;name=shop_4",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
