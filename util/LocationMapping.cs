@@ -3635,7 +3635,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676516,
+                ArchipelagoId = 7676517,
                 ObjectIds = ["338"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -3652,7 +3652,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676517,
+                ArchipelagoId = 7676518,
                 ObjectIds = ["336"],
                 IsKeyItem = false,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3669,7 +3669,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676518,
+                ArchipelagoId = 7676519,
                 ObjectIds = ["337"],
                 IsKeyItem = false,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3686,7 +3686,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676519,
+                ArchipelagoId = 7676520,
                 ObjectIds = ["339"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
