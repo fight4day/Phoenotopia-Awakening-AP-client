@@ -3569,7 +3569,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [9572] = [["Moon Crystal", "%APItem%"]],
+                    [9572] = [["the ", "%APPlayer/the %"], ["Moon Crystal", "%APItem%"]],
                     [9574] = [["GO,GP9", "GO,%BonusLine%"]],
                     [-1] = [["GIS,FILE_MARK_AP,AP_FRAN_BATCH_4"]],
                 },
@@ -3586,7 +3586,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [9610] = [["Heart Ruby", "%APItem%"]],
+                    [9610] = [["the ", "%APPlayer/the %"], ["Heart Ruby", "%APItem%"]],
                     [9611] = [["Heart Rubies", "of them"]],
                     [9613] = [["Heart Ruby", "of them"], ["GO,GP6", "GO,%BonusLine%"]],
                     [-1] = [["GIS,FILE_MARK_SI,HEART_FRAN_2,true|FILE_MARK_OC,turned_50"]],
@@ -3629,6 +3629,25 @@ public class LocationMapping
                 GISIdentifier = "OXY_FRAN_1",
                 OverrideType =
                     "name=fran;profile=fran;voice=woman,1;speech=FRAN_30_40;behavior=stand;face_right;ql=END_DOOR_ID_EQS,98",
+            },
+        },
+        ["p1_geo_base"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676516,
+                ObjectIds = ["338"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
+                    [3785] = [["JUMP_TO,GEO_EXCHANGE_NO+4,IF_FALSE|ITEM_CAN_ADD,95,1;", ""],
+                              ["GO,GP1;", "GO,%BonusLine%;"]],
+                    [-1] = [["FILE_MARK_SI,GEO_EGG_1,true"]],
+                },
+                GISIdentifier = "GEO_EGG_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_EGG;spacing=stand;talk_range=0.75;shiny",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
