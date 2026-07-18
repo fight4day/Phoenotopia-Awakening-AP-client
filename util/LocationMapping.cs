@@ -3582,6 +3582,7 @@ public class LocationMapping
                 ArchipelagoId = 7676511,
                 ObjectIds = ["422"],
                 IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
@@ -3602,6 +3603,7 @@ public class LocationMapping
                 ArchipelagoId = 7676507,
                 ObjectIds = ["206"],
                 IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
@@ -3617,6 +3619,7 @@ public class LocationMapping
                 ArchipelagoId = 7676509,
                 ObjectIds = ["228"],
                 IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
