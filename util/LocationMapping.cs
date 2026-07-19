@@ -3703,6 +3703,34 @@ public class LocationMapping
                     "profile=item,%ItemId%;speech=GEO_EXCHANGE_ARMOR;shiny;spacing=stand;talk_range=0.75;name=shop_4",
             },
         },
+        // ["p1_geo_head_office"] = new List<Check>
+        // {
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676521,
+        //         ObjectIds = ["343"],
+        //         IsKeyItem = true,
+        //         IsNpc = true,
+        //         DialogReplacements = new Dictionary<int, List<string[]>>
+        //         {
+        //             [3687] = [["Ask about earrings", "Ask about %APPlayer%%APItem%"]],
+        //             [3688] = [["Ask about earrings", "Ask about %APPlayer%%APItem%"],
+        //                       ["Trade Antique Pin for earrings", "Trade Antique Pin for %APPlayer%%APItem%"]],
+        //             [3689] = [["they", "that item"]],
+        //             [3690] = [["They're supposed to be <#00ffff>lucky earrings</color>,<*_> but I don't feel any special resonance from them.", "It's supposed to be lucky <#00ffff>%APItem%</color>,<*_> but I don't feel any special resonance from it."]],
+        //             [3691] = [["Do they", "Does it"]],
+        //             [3692] = [["these earrings", "%APItem%"]],
+        //             [3694] = [["Trade Antique Pin for earrings", "Trade Antique Pin for %APPlayer%%APItem%"]],
+        //             [3730] = [["", ""]], // TODO: how to implement conditional?
+        //             [3731] = [["<#00ffff>lucky earrings</color>", "lucky <#00ffff>%APItem%</color>"],
+        //                       ["GO,GP8", "GO,%BonusLine%"]],
+        //             [-1] = [["GIS,ITEM_remove,141,1|FILE_MARK_AP,AP_LUCKY_EARRINGS,true|black_bars_out|recycle,shelf_npc|DELAY,0.1|ANY_alpha_tween,earrings,0|AT_effect_enable,earring_halo,off|ANY_alpha_tween,earring_halo,0|particle_emitter,highlighter,stop"]],
+        //         },
+        //         GISIdentifier = "AP_LUCKY_EARRINGS",
+        //         OverrideType =
+        //             "name=shelf_npc;profile=!;voice=woman,1;speech=GEO_SHELF;behavior=stand;spacing=left,0.5;floating",
+        //     },
+        // },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
