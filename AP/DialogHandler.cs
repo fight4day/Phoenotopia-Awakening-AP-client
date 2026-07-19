@@ -5,6 +5,7 @@ using Archipelago.MultiClient.Net.Models;
 using BepInEx;
 using JetBrains.Annotations;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 
 namespace PhoA_AP_client.AP;
 

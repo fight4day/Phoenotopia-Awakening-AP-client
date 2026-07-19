@@ -1,0 +1,452 @@
+[
+  {
+    "levelName": "p1_panselo_house_01_gale",
+    "name": "Gail's Room",
+    "Location": "Panselo Village",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_panselo_village_02",
+    "name": "Panselo Village East",
+    "Location": "Panselo Village",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_panselo_village_01",
+    "name": "Panselo Village West",
+    "Location": "Panselo Village",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_teleport_panselo_01",
+    "name": "Franway Panselo",
+    "Location": "Panselo Region",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_duri_forest_01",
+    "name": "Doki Forest Entrance",
+    "Location": "Doki Forest",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_duri_forest_05",
+    "name": "Doki Forest Zophiel Statue Cave",
+    "Location": "Doki Forest",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_anuri_temple_01s",
+    "name": "Anuri Temple Campfire Room",
+    "Location": "Anuri Temple",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_anuri_temple_boss2",
+    "name": "Anuri Temple Slargummy Boss Room",
+    "Location": "Anuri Temple",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_sunflower_road_02",
+    "name": "Sunflower Road Inn",
+    "Location": "Panselo Region",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_bridge_atelo_03",
+    "name": "South Castella Bridge West",
+    "Location": "Atelo Bridge",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_bridge_atelo_01",
+    "name": "South Castella Bridge East",
+    "Location": "Atelo Bridge",
+    "Region": "Panselo Region"
+  },
+  {
+    "levelName": "p1_atai_city_01",
+    "name": "East Atai",
+    "Location": "Atai City",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_atai_city_03",
+    "name": "West Atai",
+    "Location": "Atai City",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_teleport_atai_01",
+    "name": "Franway Atai",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_adars_house_01",
+    "name": "Adar's House",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_ex_vault_hub",
+    "name": "Ancient Vault",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_atai_border_01",
+    "name": "Rhodus Checkpoint",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_bridge_daetai_01",
+    "name": "Kingdom Bridge South",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_oasis_01",
+    "name": "Oasis",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_drift_access",
+    "name": "Atai to Sand Drifts Access",
+    "Location": "Atai Region",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_sand_city_00_save",
+    "name": "Sand Drifts Ruins to Hideout",
+    "Location": "Sand Drifts",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_bandit_station",
+    "name": "Ouroboros Station",
+    "Location": "Sand Drifts",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_bandit_lair_01_save",
+    "name": "Forlorn Ruins Entrance",
+    "Location": "Forlorn Ruins",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_bandit_lair_midpoint",
+    "name": "Ouroboros Hideout Entrance",
+    "Location": "Ouroboros Hideout",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_moonlight_ravine_01",
+    "name": "Atai Moonlight Ravine Access",
+    "Location": "Moonlight Ravine",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_moonlight_ravine_06",
+    "name": "Daea Moonlight Ravine Access",
+    "Location": "Moonlight Ravine",
+    "Region": "Atai Region"
+  },
+  {
+    "levelName": "p1_thomas_00",
+    "name": "Thomas' Lab Entrance",
+    "Location": "Thomas' Lab",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_thomas_02",
+    "name": "Thomas' Lab Basement",
+    "Location": "Thomas' Lab",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_frans_teleporters",
+    "name": "Fran's Teleporters",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_fran_geo_outside",
+    "name": "GEO Base",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_daea_garden",
+    "name": "Daea Fountain Garden",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_daea_01",
+    "name": "Daea West",
+    "Location": "Daea City",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_dungeon_10a",
+    "name": "Daea East",
+    "Location": "Daea City",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_museum_outside",
+    "name": "Astrid's Museum",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_bridge_daetai_03",
+    "name": "Kingdom Bridge North",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_the_wall_01",
+    "name": "The First Wall",
+    "Location": "Daea Region",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_dungeon_00",
+    "name": "Castle Dungeon Entrance",
+    "Location": "Castle Dungeon",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_dungeon_05a",
+    "name": "Castle Dungeon C Hall",
+    "Location": "Castle Dungeon",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_tower_boss",
+    "name": "Katash Savepoint",
+    "Location": "White Towers",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_subterra_00",
+    "name": "Subterra Access",
+    "Location": "Subterra",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_subterra_station",
+    "name": "Subterra Station",
+    "Location": "Subterra",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_subterra_switch_2",
+    "name": "Subterra Water Switch",
+    "Location": "Subterra",
+    "Region": "Daea Region"
+  },
+  {
+    "levelName": "p1_wheat_path_02a",
+    "name": "Wheat Road Savepoint",
+    "Location": "Wheat Road",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_barn_town",
+    "name": "Cosette Village",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_pillars_02",
+    "name": "Tower of Dog",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_pillars_01",
+    "name": "Tower of the Queen",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_pillars_03",
+    "name": "Tower of the King",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_teleport_farm_01",
+    "name": "Franway Cosette",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_royal_well_01",
+    "name": "Cosette Well",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_pooki_farm_outside",
+    "name": "Pooki Farms",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_subterra_beach",
+    "name": "Forgotten Pier",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_far_beach",
+    "name": "Far Beach",
+    "Location": "Cosette",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_royal_archive_00_save",
+    "name": "Royal Archives Entrance",
+    "Location": "Royal Archives",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_royal_archive_03",
+    "name": "Royal Archives Midpoint",
+    "Location": "Royal Archives",
+    "Region": "Cosette Region"
+  },
+  {
+    "levelName": "p1_troll_castle_01",
+    "name": "Between the Walls",
+    "Location": "The Last Wall Area",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_wall_02",
+    "name": "The Last Wall",
+    "Location": "The Last Wall Area",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_first_geo_tops_right",
+    "name": "Ancient Geo Trial",
+    "Location": "Scorched Lands",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_scorchlands_00",
+    "name": "Scorched Lands Entrance",
+    "Location": "Scorched Lands",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_scorchlands_03",
+    "name": "Scorched Lands Buffer",
+    "Location": "Scorched Lands",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_mul_caves_00",
+    "name": "Mul Caves Access",
+    "Location": "Scorched Lands",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_mul_caves_04",
+    "name": "Mul Caverns Food Storage",
+    "Location": "Mul Caves",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_mul_caves_10",
+    "name": "Mul Caves Exit",
+    "Location": "Mul Caves",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_teleport_beyond_01",
+    "name": "SPHERE Region Teleporter",
+    "Location": "SPHERE Region",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_ocean_cliffs",
+    "name": "Fishing Sea",
+    "Location": "SPHERE Region",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_old_wood_01x",
+    "name": "Aurantia Base",
+    "Location": "Aurantia",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_old_wood_12",
+    "name": "Terrelum Entrance",
+    "Location": "Aurantia",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_worlds_end",
+    "name": "World's End",
+    "Location": "Aurantia",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_sphere_outside_01",
+    "name": "SPHERE Access",
+    "Location": "SPHERE",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_sphere_garden_01",
+    "name": "SPHERE Inside",
+    "Location": "SPHERE",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_megaliths_station",
+    "name": "Metro to E.D.E.N.",
+    "Location": "SPHERE",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_sphere_garden_02",
+    "name": "Pristine City Access",
+    "Location": "Pristine City",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_pristine_city_tower3",
+    "name": "Phalanx Access",
+    "Location": "Pristine City",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_phoenix_station",
+    "name": "E.D.E.N. Start",
+    "Location": "E.D.E.N.",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_phoenix_lab_hub",
+    "name": "E.D.E.N. Hub Room",
+    "Location": "E.D.E.N.",
+    "Region": "Beyond the First Wall"
+  },
+  {
+    "levelName": "p1_phoenix_lab_final_03",
+    "name": "Final Savepoint",
+    "Location": "E.D.E.N.",
+    "Region": "Beyond the First Wall"
+  }
+]

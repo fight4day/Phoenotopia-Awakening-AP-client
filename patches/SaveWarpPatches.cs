@@ -1,0 +1,287 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using HarmonyLib;
+using Newtonsoft.Json;
+using PhoA_AP_client.AP;
+using PhoA_AP_client.util.DataClasses;
+using UnityEngine;
+
+namespace PhoA_AP_client.patches;
+
+[HarmonyPatch]
+internal sealed class SaveWarpPatches
+{
+    private static Dictionary<string, Dictionary<string, Dictionary<string, string>>> _savepointData = new();
+    private static string _currentRegionCmd;
+    private static string _currentLocationCmd;
+
+    private static bool _freeWarp = false;
+    private static bool _isTeleporting = false;
+
+    private const string AvailableUnselectedColor = "#00bf2c";
+    private const string UnavailableUnselectedColor = "#d8002c";
+    private const string AvailableSelectedColor = "#40ff6c";
+    private const string UnavailableSelectedColor = "#f8204c";
+
+
+    [HarmonyPatch(typeof(DirectorLogic), "Awake")]
+    [HarmonyPostfix] // Patch to add save warp option to menu
+    private static void DirectorLogicAwakePostfix(DirectorLogic __instance)
+    {
+        LoadSavepointData();
+
+        string[] original = Traverse.Create(__instance).Field<string[]>("_options_arr_main").Value;
+        string[] expanded = new string[original.Length + 1];
+
+        expanded[0] = original[0];
+        expanded[1] = "__OPT_WARP";
+        Array.Copy(original, 1, expanded, 2, original.Length - 1);
+
+        Traverse.Create(__instance).Field<string[]>("_options_arr_main").Value = expanded;
+    }
+
+    [HarmonyPatch(typeof(DB), "_LoadTranslateMap")]
+    [HarmonyPostfix] // Patch to add entries to DB.TRANSLATE_map
+    private static void LoadTranslateMapPostfix(DirectorLogic __instance)
+    {
+        DB.TRANSLATE_map["__OPT_WARP"] = "Warp to Savepoint";
+        DB.TRANSLATE_map["__OPT_WARP_return"] = "Go Back";
+        DB.TRANSLATE_map["__OPT_WARP_select_region"] = "Select Region";
+        DB.TRANSLATE_map["__OPT_WARP_select_location"] = "Select Location";
+        DB.TRANSLATE_map["__OPT_WARP_select_savepoint"] = "Select Savepoint";
+
+        foreach (var kvpRegions in _savepointData)
+        {
+            DB.TRANSLATE_map[$"__OPT_WARP_REGION_{kvpRegions.Key.Replace(' ', '_').ToLower()}"] = kvpRegions.Key;
+            DB.TRANSLATE_map[$"__OPT_WARP_REGION_{kvpRegions.Key.Replace(' ', '_').ToLower()}_return"] = "Go Back";
+
+            foreach (var kvpLocations in kvpRegions.Value)
+            {
+                DB.TRANSLATE_map[$"__OPT_WARP_LOCATION_{kvpLocations.Key.Replace(' ', '_').ToLower()}"] =
+                    kvpLocations.Key;
+
+                foreach (var kvpSavepoints in kvpLocations.Value)
+                    DB.TRANSLATE_map[$"__OPT_WARP_SAVE_{kvpSavepoints.Key.Replace(' ', '_').ToLower()}"] =
+                        kvpSavepoints.Key;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(DirectorLogic), "_OptionsExecuteCmd")]
+    [HarmonyPrefix] // Patch to add actions to new menu options
+    private static bool OptionsExecuteCmdPrefix(DirectorLogic __instance, string cmd_option)
+    {
+        if (cmd_option is "__OPT_WARP" or "__OPT_WARP_return")
+        {
+            _currentRegionCmd = null;
+            _currentLocationCmd = null;
+
+            string[] regionArray = _savepointData.Keys
+                .Select(r => $"__OPT_WARP_REGION_{r.Replace(' ', '_').ToLower()}")
+                .ToArray();
+            string[] optionsArray = new string[regionArray.Length + 3];
+            optionsArray[0] = "__OPT_WARP_select_region";
+            Array.Copy(regionArray, 0, optionsArray, 1, regionArray.Length);
+            optionsArray[optionsArray.Length - 2] = optionsArray[optionsArray.Length - 1] = "__OPT_CONTROL_return";
+
+            InsertMenuData(__instance, optionsArray);
+
+            int soundId = cmd_option.EndsWith("_return") ? 123 : 122;
+            PT2.sound_g.PlayGlobalCommonSfx(soundId, 1f, 1.25f, 1);
+            return false;
+        }
+
+        if (cmd_option.StartsWith("__OPT_WARP_REGION_"))
+        {
+            _currentRegionCmd = cmd_option.Replace("_return", "");
+            _currentLocationCmd = null;
+
+            string[] locationArray = _savepointData[DB.TRANSLATE_map[_currentRegionCmd]].Keys
+                .Select(l => $"__OPT_WARP_LOCATION_{l.Replace(' ', '_').ToLower()}")
+                .ToArray();
+            string[] optionsArray = new string[locationArray.Length + 3];
+            optionsArray[0] = "__OPT_WARP_select_location";
+            Array.Copy(locationArray, 0, optionsArray, 1, locationArray.Length);
+            optionsArray[optionsArray.Length - 2] = optionsArray[optionsArray.Length - 1] = "__OPT_WARP_return";
+
+            InsertMenuData(__instance, optionsArray);
+
+            int soundId = cmd_option.EndsWith("_return") ? 123 : 122;
+            PT2.sound_g.PlayGlobalCommonSfx(soundId, 1f, 1.25f, 1);
+            return false;
+        }
+
+        if (cmd_option.StartsWith("__OPT_WARP_LOCATION_"))
+        {
+            _currentLocationCmd = cmd_option.Replace("_return", "");
+            string[] savepointArray =
+                _savepointData[DB.TRANSLATE_map[_currentRegionCmd]][DB.TRANSLATE_map[_currentLocationCmd]].Keys
+                    .Select(s => $"__OPT_WARP_SAVE_{s.Replace(' ', '_').ToLower()}")
+                    .ToArray();
+            string[] optionsArray = new string[savepointArray.Length + 3];
+            optionsArray[0] = "__OPT_WARP_select_savepoint";
+            Array.Copy(savepointArray, 0, optionsArray, 1, savepointArray.Length);
+            optionsArray[optionsArray.Length - 2] = optionsArray[optionsArray.Length - 1] =
+                $"{_currentRegionCmd}_return";
+
+            InsertMenuData(__instance, optionsArray);
+
+            PT2.sound_g.PlayGlobalCommonSfx(122, 1f, 1.25f, 1);
+            return false;
+        }
+
+        if (cmd_option.StartsWith("__OPT_WARP_SAVE_"))
+        {
+            string levelNameToWarp = _savepointData[DB.TRANSLATE_map[_currentRegionCmd]]
+                [DB.TRANSLATE_map[_currentLocationCmd]]
+                [DB.TRANSLATE_map[cmd_option]];
+            if (!_freeWarp && !APSaveState.UsedSavepoints.Contains(levelNameToWarp))
+            {
+                PT2.sound_g.PlayGlobalCommonSfx(20, 1f, 1f, 1);
+                return false;
+            }
+
+            _currentRegionCmd = null;
+            _currentLocationCmd = null;
+            PT2.tv_hud.AppearPauseScreen(false, false);
+            PT2.sound_g.PauseAllSounds(false);
+            PT2.game_paused = false;
+            Time.timeScale = 1f;
+            WarpGail(levelNameToWarp);
+            return false;
+        }
+
+        _currentRegionCmd = null;
+        _currentLocationCmd = null;
+        return true;
+    }
+
+    [HarmonyPatch(typeof(DirectorLogic), "_Options_RenderText")]
+    [HarmonyPostfix] // Patch to add text color to mark availability to the warp locations
+    private static void OptionsRenderTextPostfix()
+    {
+        if (_freeWarp || _currentRegionCmd == null || _currentLocationCmd == null)
+            return;
+
+        string renderedText = PT2.director.options_text.text;
+        Dictionary<string, string> savepoints =
+            _savepointData[DB.TRANSLATE_map[_currentRegionCmd]][DB.TRANSLATE_map[_currentLocationCmd]];
+
+        foreach (var kvp in savepoints)
+        {
+            bool isAvailable = APSaveState.UsedSavepoints.Contains(kvp.Value);
+            string selectedColor = isAvailable ? AvailableSelectedColor : UnavailableSelectedColor;
+            string unselectedColor = isAvailable ? AvailableUnselectedColor : UnavailableUnselectedColor;
+
+            renderedText = renderedText.Replace($"<#949494>{kvp.Key}", $"<{unselectedColor}>{kvp.Key}");
+            renderedText = renderedText.Replace($"<#00ffff>{kvp.Key}", $"<{selectedColor}>{kvp.Key}");
+        }
+
+        PT2.director.options_text.text = renderedText;
+    }
+
+    [HarmonyPatch(typeof(SaveFile), "_NS_CompactSaveDataAsString")]
+    [HarmonyPostfix] // Patch to add an array of used savepoints to the savefile
+    private static void NSCompactSaveDataAsStringPostfixVisitedSaves(ref string __result)
+    {
+        if (!APSaveState.UsedSavepoints.Contains(LevelBuildLogic.level_name))
+            APSaveState.UsedSavepoints.Add(LevelBuildLogic.level_name);
+
+        StringBuilder stringBuilder = new StringBuilder(__result);
+        var usedSavepoints = APSaveState.UsedSavepoints;
+        stringBuilder.Append("SAVES");
+        stringBuilder.Append("|");
+
+        foreach (string savepoint in usedSavepoints)
+        {
+            stringBuilder.Append(savepoint);
+            stringBuilder.Append("|");
+        }
+
+        stringBuilder.Append(",");
+
+        __result = stringBuilder.ToString();
+    }
+
+    [HarmonyPatch(typeof(SaveFile), "_NS_ProcessSaveDataString")]
+    [HarmonyPostfix] // Patch to extract the collect used savepoints from the savefile and compare them to AP
+    private static void NSProcessSaveDataStringPostfixVisitedSaves(string save_data_string)
+    {
+        string[] saveDataArray = save_data_string.Split(',');
+        string usedSavesString = saveDataArray.FirstOrDefault(entry => entry.StartsWith("SAVES"));
+
+        APSaveState.LoadVisitedSavepointsFromSaveString(usedSavesString);
+    }
+
+    public static void ToggleFreeWarp()
+    {
+        if (PT2.game_paused) return;
+
+        _freeWarp = !_freeWarp;
+
+        string verb = _freeWarp ? "lifted" : "reinstated";
+        PT2.sound_g.PlayGlobalCommonSfx(126, 1f, 1f, 1);
+        PT2.display_messages.DisplayMessage($"<#ffffffB3>Warping conditions</color> {verb}",
+            DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);
+    }
+
+    private static void WarpGail(string levelName)
+    {
+        if (_isTeleporting) return;
+        _isTeleporting = true;
+        Vector2 position = PT2.gale_script.GetTransform().position;
+
+        PT2.gale_script.SendGaleCommand(GALE_CMD.OPEN_REMOTE_CONTROLS_NO_GRAV);
+        PT2.sound_g.PlayGlobalUncommonSfx("computer_access", 1f, 1f, 2);
+        PT2.sound_g.PlayGlobalUncommonSfx("teleport", 1f, 1f, 2);
+        PT2.gale_script.SendGaleCommand(GALE_CMD.TELEPORT_1);
+        PT2.juicer.J_LingeringParticles(position, 1.5f, 1.5f);
+        PT2.gale_interacter.iscript.SA_Animate("fall", 1f);
+
+        LeanTween.delayedCall(PT2.gale_script.GetGaleObject(GALE_OBJ_REQ.GAME_OBJ), 2.35f, () =>
+        {
+            PT2.gale_script.SendGaleCommand(GALE_CMD.TELEPORT_2);
+            PT2.juicer.J_SparkLight(GL.C_HexToColor("bd8cbf"), position, 0.5f, 4, 5f, 12f);
+            PT2.LoadLevel(levelName, 9000, Vector3.zero, false, 1.0f);
+            _isTeleporting = false;
+        });
+
+        PT2.juicer.J_SparkLight(GL.C_HexToColor("a863db"), position, 3f, 5);
+    }
+
+    private static void InsertMenuData(DirectorLogic __instance, string[] optionsArray)
+    {
+        Traverse.Create(__instance).Field<string[]>("_curr_options_arr").Value = optionsArray;
+        Traverse.Create(__instance).Field<int>("_curr_options_index").Value = 1;
+        Traverse.Create(__instance).Field<int>("_curr_options_top_index").Value = 1;
+        Traverse.Create(__instance).Method("_Options_RenderText").GetValue();
+    }
+
+    private static void LoadSavepointData()
+    {
+        using Stream stream = Assembly.GetExecutingAssembly()
+            .GetManifestResourceStream("PhoA_AP_client.assets.data.savepointdata.json");
+        using StreamReader reader =
+            new StreamReader(stream ?? throw new InvalidOperationException("savepoint data not found"));
+
+        string json = reader.ReadToEnd();
+        List<Savepoint> savepoints = JsonConvert.DeserializeObject<List<Savepoint>>(json);
+
+        _savepointData = savepoints
+            .GroupBy(savepoint => savepoint.Region)
+            .ToDictionary(
+                region => region.Key,
+                region => region
+                    .GroupBy(savepoint => savepoint.Location)
+                    .ToDictionary(
+                        location => location.Key,
+                        location => location.ToDictionary(savepoint => savepoint.name,
+                            savepoint => savepoint.levelName)
+                    )
+            );
+    }
+}

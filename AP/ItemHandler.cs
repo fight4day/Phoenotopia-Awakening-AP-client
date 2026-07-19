@@ -7,6 +7,7 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 using WebSocketSharp;
 
@@ -86,11 +87,11 @@ public class ItemHandler
 
     public long HandleUpgradableItems(long id)
     {
+        if (!UpgradeChains.TryGetValue(id, out var chain)) return id;
+        
         int[] tools = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_TOOLS_ITEMS, false, "");
         int[] status = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_STATUS, false, "");
         int[] toolsAndStatus = tools.Concat(status).ToArray();
-
-        if (!UpgradeChains.TryGetValue(id, out var chain)) return id;
 
         foreach (var upgradeId in chain)
         {
@@ -181,9 +182,9 @@ public class ItemHandler
         string itemName = apItem.ItemDisplayName;
         if ((apItem.Flags & ItemFlags.Advancement) != 0) itemName = "<sprite=30>" + itemName;
 
-        string message = $"Found {itemName}";
+        string message = $"<#ffffffB3>Found</color> {itemName}";
         if (apItem.Player.Name != _sessionContext.Session.Players.ActivePlayer.Name)
-            message = $"Received {itemName} from {apItem.Player.Name}";
+            message = $"<#ffffffB3>Received</color> {itemName} <#ffffffB3>from</color> {apItem.Player.Name}";
 
         PT2.sound_g.PlayGlobalCommonSfx(133, 1f, 1f, 2);
         PT2.display_messages.DisplayMessage(message, DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);
@@ -269,8 +270,8 @@ public class ItemHandler
             if ((itemInfo.Flags & ItemFlags.Trap) != 0) replacementId = 213.ToString();
         }
 
-        int[] animatedFillerIds = [213, 214, 215];
         if (!check.OverrideType.Contains("CustomAnimatedSprite")) return replacementId;
+        int[] animatedFillerIds = [213, 214, 215];
 
         check.OverrideType = check.OverrideType.Replace("CustomAnimatedSprite;", "");
         int id = int.Parse(replacementId);

@@ -7,6 +7,7 @@ using System.Text;
 using System.Xml;
 using HarmonyLib;
 using PhoA_AP_client.util;
+using PhoA_AP_client.util.DataClasses;
 using UnityEngine;
 using WebSocketSharp;
 
@@ -24,6 +25,12 @@ internal sealed class APReplaceLootPatches
         { "PERRO", "enable_perros" }
     };
 
+    private static readonly Dictionary<int, int> DungeonItemBundleReference = new()
+    {
+        { 98, 217 },
+        { 108, 218 },
+    };
+
     [HarmonyPatch(typeof(PT2), "Initialize")]
     [HarmonyPostfix] // Patch to add AP item sprite
     private static void InitializePostfix()
@@ -34,6 +41,8 @@ internal sealed class APReplaceLootPatches
             LoadSpriteFromResource("apSpriteUseful.png"),
             LoadSpriteFromResource("apSpriteFiller.png"),
             LoadSpriteFromResource("preludeOfPanseloUpgrade.png"),
+            LoadSpriteFromResource("anuriPearlstoneNecklace.png"),
+            LoadSpriteFromResource("ouroGuardKeyring.png"),
         ];
 
         Sprite[] originalSpriteLib = PT2.sprite_lib.all_item_sprites;
@@ -75,6 +84,18 @@ internal sealed class APReplaceLootPatches
                 FindSpriteIdByName("preludeOfPanseloUpgrade"),
                 "Healing linked to a nostalgic song",
                 "FREE"
+            ),
+            CreateItemDef(
+                "Anuri Pearlstone Necklace",
+                FindSpriteIdByName("anuriPearlstoneNecklace"),
+                "A necklace of small amber spheres boasting more technology than its simple appearance would suggest. Small glyphs at every sphere's core glows brighter the closer it approaches an Anuri door receptacle.",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef(
+                "Ouro Guard Keyring",
+                FindSpriteIdByName("ouroGuardKeyring"),
+                "A keyring with irregularly shaped keys obtained from an Ouroboros guard. The key's shape is fashioned after a sand drake's head, with the stem resembling a tongue.",
+                "FREE;NO_DISCARD"
             ),
         ];
 
@@ -258,6 +279,14 @@ internal sealed class APReplaceLootPatches
         profile = $"item,{item_id}";
     }
 
+    [HarmonyPatch(typeof(AnimatedTileLogic), "Set")]
+    [HarmonyPrefix] // Patch to render the appropriate sprite of an upgradable item for animated tile sprites
+    private static void AnimatedTileLogicSetPrefix(ref int graphic_loot_id)
+    {
+        if (!APHelpers.IsConnectedToAP()) return;
+        graphic_loot_id = (int)PhoaAPClient.APConnection.ItemHandler.HandleUpgradableItems(graphic_loot_id);
+    }
+
     [HarmonyPatch(typeof(ItemGenerator), "SpawnLoot")]
     [HarmonyPrefix] // Patch to switch around some values in case moonstone physics apply to either the location or item
     private static void SpawnLootMoonSwitchPrefix(ref int item_id, string collected_GIS, ref int __state)
@@ -378,6 +407,18 @@ internal sealed class APReplaceLootPatches
         return false;
     }
 
+    [HarmonyPatch(typeof(SaveFile), "_QL_HandleItemsHaveCount")]
+    [HarmonyPostfix] // Patch to handle functionality of dungeon item bundles
+    private static void QLHandleItemsHaveCountPostfix(string[] args, ref bool __result)
+    {
+        if (__result) return;
+
+        int itemId = int.Parse(args[1]);
+        if (!DungeonItemBundleReference.Keys.Contains(itemId)) return;
+
+        __result = PT2.save_file.QL_EvaluateExpression($"ITEM_HAVE_COUNT,{DungeonItemBundleReference[itemId]},1");
+    }
+
     private static void ProcessAPItemAnimalLifeSmall(AnimalLifeSmallLogic __instance)
     {
         var traverse = Traverse.Create(__instance);
@@ -391,7 +432,7 @@ internal sealed class APReplaceLootPatches
         List<string> extractedGisCmds = [];
         foreach (string instruction in instructionArray)
         {
-            if (instruction.Contains("loot_GIS_MARK_AP") || 
+            if (instruction.Contains("loot_GIS_MARK_AP") ||
                 (instruction.Contains("SPAWN_pickup") && instruction.Contains("FILE_MARK_AP")))
             {
                 extractedGisCmds.Add(instruction);

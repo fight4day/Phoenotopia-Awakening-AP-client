@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Archipelago.MultiClient.Net.Models;
 using JetBrains.Annotations;
 
-namespace PhoA_AP_client.util;
+namespace PhoA_AP_client.util.DataClasses;
 
 public class DialogPatch
 {

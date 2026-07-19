@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using PhoA_AP_client.AP;
+using PhoA_AP_client.patches;
 using PhoA_AP_client.util;
 using UnityEngine;
 
@@ -40,6 +41,12 @@ public class PhoaAPClient : BaseUnityPlugin
 
         _harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
         _harmony.PatchAll();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.F9))
+            SaveWarpPatches.ToggleFreeWarp();
     }
 
     private void OnDestroy()
