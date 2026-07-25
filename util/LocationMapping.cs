@@ -543,6 +543,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
+                    [482] = [["JUMP_AT_END,483,IF_TRUE|OC_ABSENT,shelby_gave_herb&ITEM_CAN_ADD,45,1", "GO,483"]],
                     [483] = [["GO,GP2", "GO,%BonusLine%"]],
                     [-1] = [["GIS,FILE_MARK_OC,shelby_gave_herb|FILE_ERASE_OC,cooked_in_p1_duri_forest_05"]],
                 },
@@ -606,7 +607,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [531] = [["GO,GP5", "GO,%BonusLine%"]],
+                    [531] = [["GO,GP5", "GO,%BonusLine%"], [";JUMP_AT_END,532,IF_FALSE|ITEM_CAN_ADD,112,1", ""]],
                     [-1] = [["GIS,FILE_MARK_POC,seth_liz"]],
                 },
                 GISIdentifier = "seth_liz",
