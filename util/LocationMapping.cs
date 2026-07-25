@@ -1035,7 +1035,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3847] = [["|ITEM_add,140,1", ""]],
+                    [3847] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
                 },
                 GISIdentifier = "GEO_TICKET_1",
                 OverrideType =
@@ -1538,7 +1538,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3864] = [["|ITEM_add,140,1", ""]],
+                    [3864] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
                 },
                 GISIdentifier = "GEO_TICKET_2",
                 OverrideType =
@@ -3502,7 +3502,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3839] = [["|ITEM_add,140,1", ""]],
+                    [3839] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
                 },
                 GISIdentifier = "GEO_TICKET_6",
                 OverrideType =
@@ -3632,6 +3632,16 @@ public class LocationMapping
                 OverrideType =
                     "name=fran;profile=fran;voice=woman,1;speech=FRAN_30_40;behavior=stand;face_right;ql=END_DOOR_ID_EQS,98",
             },
+            new Check
+            {
+                ArchipelagoId = 7676525,
+                ObjectIds = ["212"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_6",
+                OverrideType =
+                    "name=moon_fish;face_right;initial_behavior=STATIC;type=fish;instruction=FISH_M;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_6|particle_emitter,fish_highlighter,stop;ql=ALWAYS_TRUE",
+            },
         },
         ["p1_geo_base"] = new List<Check>
         {
@@ -3639,7 +3649,7 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676517,
                 ObjectIds = ["338"],
-                IsKeyItem = false,
+                IsKeyItem = false, // Cannot be bought again even in vanilla
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
@@ -3656,7 +3666,7 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676518,
                 ObjectIds = ["336"],
-                IsKeyItem = false,
+                IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
@@ -3673,7 +3683,7 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676519,
                 ObjectIds = ["337"],
-                IsKeyItem = false,
+                IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
@@ -3703,6 +3713,14 @@ public class LocationMapping
                 GISIdentifier = "AP_GEO_JACKET",
                 OverrideType =
                     "profile=item,%ItemId%;speech=GEO_EXCHANGE_ARMOR;shiny;spacing=stand;talk_range=0.75;name=shop_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676523,
+                ObjectIds = ["431"],
+                GISIdentifier = "REGEN_GEO_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,REGEN_GEO_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_GEO_1;use_all_bright",
             },
         },
         // ["p1_geo_head_office"] = new List<Check> // TODO: implement 7676516 (probably needs custom level)
@@ -3752,6 +3770,24 @@ public class LocationMapping
         //             "name=shelf_npc;profile=!;voice=woman,1;speech=GEO_SHELF;behavior=stand;spacing=left,0.5;floating",
         //     },
         // },
+        ["p1_ex_geo_07a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676524,
+                ObjectIds = ["189"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3809] = [["Receive your ticket now", "Receive %APPlayer/your %%APItem% now"]],
+                    [3810] = [["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_7",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_07",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
