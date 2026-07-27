@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
+using Archipelago.MultiClient.Net.Enums;
 using HarmonyLib;
 using PhoA_AP_client.util;
 using PhoA_AP_client.util.DataClasses;
@@ -17,6 +18,7 @@ namespace PhoA_AP_client.patches;
 internal sealed class APReplaceLootPatches
 {
     private static string _spawnLootAPCollectedGis;
+    private static readonly List<long> ChecksToHint = [];
     private static readonly List<string> ExtractedPuzzleGisCmds = [];
     private static readonly string[] LevelsWithItemDisplays = ["p1_atai_shooting_gallery"];
 
@@ -197,13 +199,12 @@ internal sealed class APReplaceLootPatches
                 PhoaAPClient.APConnection.ItemHandler.LocalAllLocationsChecked.Contains(check.ArchipelagoId);
             bool isNpcOrStateDependentCheck = check.IsNpc || check.OverrideType.Contains("profile=WEAK_ROCK");
 
-            if (!isChecked || isNpcOrStateDependentCheck)
-            {
-                reader = ReplaceReader(reader, check.OverrideType);
-                return true;
-            }
+            if (!isChecked && check.HintWhenLoaded)
+                ChecksToHint.Add(check.ArchipelagoId);
 
-            return !check.IsKeyItem;
+            if (isChecked && !isNpcOrStateDependentCheck) return !check.IsKeyItem;
+            reader = ReplaceReader(reader, check.OverrideType);
+            return true;
         }
 
         return true;
@@ -227,6 +228,18 @@ internal sealed class APReplaceLootPatches
 
             reader = ReplaceReader(reader, check.OverrideType);
         }
+    }
+
+    [HarmonyPatch(typeof(LevelBuildLogic), "_LoadLevel")]
+    [HarmonyPrefix] // Patch to apply hints
+    private static void LoadLevelHintItemsPrefix(string new_level_name)
+    {
+        if (!APHelpers.IsConnectedToAP() || ChecksToHint.Count <= 0) return;
+
+        PhoaAPClient.APConnection.SessionContext.Session.Hints.CreateHints(
+            HintStatus.Unspecified, ChecksToHint.ToArray());
+
+        ChecksToHint.Clear();
     }
 
     [HarmonyPatch(typeof(LevelBuildLogic), "_LoadLevel")]

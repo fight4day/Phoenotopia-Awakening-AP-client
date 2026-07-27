@@ -15,6 +15,18 @@ namespace PhoA_AP_client.patches;
 [HarmonyPatch]
 internal sealed class APCheckLocationPatches
 {
+    private static readonly List<long> ChecksToHint = [];
+
+    private static readonly HashSet<string> ValidInstructionTypes =
+    [
+        "FILE_MARK_SI",
+        "FILE_MARK_OC",
+        "FILE_MARK_POC",
+        "POC_WRITE",
+        "FILE_MARK_AP",
+        "AP_HINT"
+    ];
+
     [HarmonyPatch(typeof(GaleInteracter), "_AttemptGrabbingLoot")]
     [HarmonyPrefix] // Patch to handle possible custom behaviour for AP
     private static bool AttemptGrabbingLootPrefix(Collider2D loot_collider)
@@ -80,18 +92,15 @@ internal sealed class APCheckLocationPatches
             string[] instructionParts = instruction.Split(',');
             string instructionType = instructionParts[0];
 
-            var validInstructionTypes = new HashSet<string>
-            {
-                "FILE_MARK_SI",
-                "FILE_MARK_OC",
-                "FILE_MARK_POC",
-                "POC_WRITE",
-                "FILE_MARK_AP",
-            };
-
-            if (!validInstructionTypes.Contains(instructionType)) continue;
+            if (!ValidInstructionTypes.Contains(instructionType)) continue;
 
             if (!APHelpers.IsConnectedToAP()) continue;
+
+            if (instructionType.StartsWith("AP_HINT"))
+            {
+                ChecksToHint.Add(long.Parse(instructionParts[1]));
+                continue;
+            }
 
             string identifier = instructionParts[1];
 
@@ -131,9 +140,21 @@ internal sealed class APCheckLocationPatches
 
         instructionsList.RemoveAll(instruction =>
             instruction.Contains("FILE_MARK_AP") || instruction.Contains("miceBoxbreak") ||
-            instruction.Contains("scorpBoxbreak"));
+            instruction.Contains("scorpBoxbreak") || instruction.Contains("AP_HINT"));
 
         instructions = string.Join("|", instructionsList.ToArray());
+    }
+
+    [HarmonyPatch(typeof(DirectorLogic), "_CloseCurrDialoguer")]
+    [HarmonyPostfix] // Patch to apply hints after closing the dialoger
+    private static void CloseCurrDialoguerPostfix()
+    {
+        if (!APHelpers.IsConnectedToAP() || ChecksToHint.Count <= 0) return;
+
+        PhoaAPClient.APConnection.SessionContext.Session.Hints.CreateHints(
+            HintStatus.Unspecified, ChecksToHint.ToArray());
+
+        ChecksToHint.Clear();
     }
 
     [HarmonyPatch(typeof(SaveFile), "SaveGame")]

@@ -251,6 +251,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676072,
+                HintWhenLoaded = true,
                 ObjectIds = ["50"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -270,6 +271,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676073,
+                HintWhenLoaded = true,
                 ObjectIds = ["48"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -289,6 +291,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676074,
+                HintWhenLoaded = true,
                 ObjectIds = ["52"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1272,6 +1275,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676106,
+                HintWhenLoaded = true,
                 ObjectIds = ["63"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1291,6 +1295,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676107,
+                HintWhenLoaded = true,
                 ObjectIds = ["58"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1311,6 +1316,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676108,
+                HintWhenLoaded = true,
                 ObjectIds = ["64"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1686,6 +1692,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676205,
+                HintWhenLoaded = true,
                 ObjectIds = ["291"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1705,6 +1712,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676206,
+                HintWhenLoaded = true,
                 ObjectIds = ["342"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1724,6 +1732,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676207,
+                HintWhenLoaded = true,
                 ObjectIds = ["290"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1743,6 +1752,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676208,
+                HintWhenLoaded = true,
                 ObjectIds = ["288"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1762,6 +1772,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676209,
+                HintWhenLoaded = true,
                 ObjectIds = ["124"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1781,6 +1792,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676210,
+                HintWhenLoaded = true,
                 ObjectIds = ["289"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1800,6 +1812,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676222,
+                HintWhenLoaded = true,
                 ObjectIds = ["300"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1819,6 +1832,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676223,
+                HintWhenLoaded = true,
                 ObjectIds = ["301"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -1843,7 +1857,8 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [1419] = [["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
+                    // NOTE: If APId ever changes, it should also change in the dialog!
+                    [1419] = [["||||", ";GIS,AP_HINT,7676224||||"], ["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
                     [1429] = [["How many are you looking to sell?", "For the first 4 I'll give you <#00ffff>%APPlayer%%APItem%</color>"]],
                     [1430] = [[",1432,1433", ""], ["25 R||Sell 8 Berry Fruits for 50 R||Sell 12 Berry Fruits for 75 R", "%APPlayer%%APItem%"]],
                     [1431] = [["money_adjust,P1_RAI,25", "FILE_MARK_AP,ATAI_MARKET_BERRY_SELL"]],
@@ -1876,6 +1891,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676211,
+                HintWhenLoaded = true,
                 ObjectIds = ["18"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -1893,6 +1909,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676212,
+                HintWhenLoaded = true,
                 ObjectIds = ["15"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -1910,6 +1927,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676213,
+                HintWhenLoaded = true,
                 ObjectIds = ["58"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -1927,6 +1945,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676214,
+                HintWhenLoaded = true,
                 ObjectIds = ["60"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -1944,6 +1963,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676215,
+                HintWhenLoaded = true,
                 ObjectIds = ["61"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -2024,7 +2044,8 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [1586] = [["A Milk", "%APPlayer%%APItem%"]],
+                    // NOTE: If APId ever changes, it should also change in the dialog!
+                    [1586] = [["GIS,", "GIS,AP_HINT,7676225|"], ["A Milk", "%APPlayer%%APItem%"]],
                     [1587] =
                     [
                         ["JUMP_TO,ATAI_BARTENDER+-2,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
@@ -2043,7 +2064,8 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [1586] = [["A Bottle Of Wine", "%APPlayer%%APItem%"]],
+                    // NOTE: If APId ever changes, it should also change in the dialog!
+                    [1586] = [["GIS,", "GIS,AP_HINT,7676226|"], ["A Bottle Of Wine", "%APPlayer%%APItem%"]],
                     [1597] = [["|ITEM_add,123,1", ""]],
                 },
                 GISIdentifier = "CH2_D3_GOT_WINE",
@@ -2291,6 +2313,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676245,
+                HintWhenLoaded = true,
                 ObjectIds = ["328"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -2307,6 +2330,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676246,
+                HintWhenLoaded = true,
                 ObjectIds = ["453"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2326,6 +2350,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676247,
+                HintWhenLoaded = true,
                 ObjectIds = ["449"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2345,6 +2370,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676248,
+                HintWhenLoaded = true,
                 ObjectIds = ["439"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2364,6 +2390,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676249,
+                HintWhenLoaded = true,
                 ObjectIds = ["440"],
                 IsKeyItem = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2393,6 +2420,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676250,
+                HintWhenLoaded = true,
                 ObjectIds = ["432"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -2412,6 +2440,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676251,
+                HintWhenLoaded = true,
                 ObjectIds = ["430"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>

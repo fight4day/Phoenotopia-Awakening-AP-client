@@ -13,6 +13,7 @@ public enum FillMode
 public class Check
 {
     public long ArchipelagoId { get; set; }
+    public bool HintWhenLoaded { get; set; }
     public string[] ObjectIds { get; set; }
     public bool IsKeyItem { get; set; }
     public FillMode FillWhenExcluded { get; set; } = FillMode.Never;
