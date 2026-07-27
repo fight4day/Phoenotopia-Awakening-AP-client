@@ -3679,6 +3679,7 @@ public class LocationMapping
                 ArchipelagoId = 7676517,
                 ObjectIds = ["338"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
+                HintWhenLoaded = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
@@ -3697,6 +3698,7 @@ public class LocationMapping
                 ObjectIds = ["336"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
+                HintWhenLoaded = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3786] = [["That's a ", "That's %APPlayer/a %"], ["Heart Ruby", "%APItem%"], ["a beautiful red gem ", ""]],
@@ -3714,6 +3716,7 @@ public class LocationMapping
                 ObjectIds = ["337"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
+                HintWhenLoaded = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3790] = [["An elegant green", "%APPlayer/An % elegant"], ["Energy Gem", "%APItem%"]],
@@ -3731,6 +3734,7 @@ public class LocationMapping
                 ObjectIds = ["339"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
+                HintWhenLoaded = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3794] = [["A ", "%APPlayer/A %"], ["GEO jacket", "%APItem%"], ["armor", "item"]],
