@@ -3821,6 +3821,57 @@ public class LocationMapping
                     "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_07",
             },
         },
+        ["p1_thomas_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676526,
+                ObjectIds = ["7"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Prevent correct answer until gift is earned
+                    [5585] = [["CHOICE,5586,5587,THOMAS_OPEN_1ST||||...||Visiting||Safety inspection||Internship", "CHOICE,5586,5587||||...||Visiting||Safety inspection"]],
+                    [5589] = [["money_adjust,P1_RAI,50|", ""]],
+                },
+                GISIdentifier = "RECEIVED_THOMAS_BRIBE",
+                OverrideType =
+                    "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            },
+        },
+        ["p1_thomas_02x"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676527,
+                ObjectIds = ["214"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5652] = [["your", "%APPlayer/your %"], ["Calory Slush", "%APItem%"]],
+                    [5654] = [["Calory Slush", "%APItem%"]],
+                    [5655] = [["Calory Slush", "%APPlayer%%APItem%"]],
+                    [5656] = [["GO,GP1;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_CALORY_SLUSH"]],
+                },
+                GISIdentifier = "AP_CALORY_SLUSH",
+                OverrideType =
+                    "name=vend_machine;voice=robot,0.75;profile=!;speech=VENDING_1_SLUSH;spacing=auto,0.1",
+            },
+        },
+        ["p1_thomas_song"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676528,
+                ObjectIds = ["70"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_THOMAS_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_THOMAS_1,true;ql=SI_FALSE,OXY_THOMAS_1",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
