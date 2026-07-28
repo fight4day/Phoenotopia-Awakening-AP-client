@@ -154,6 +154,7 @@ public class ItemHandler
         {
             3 => "apply_upgrade,HEALTH_UPGRADE|FILE_INTEGER_ADD,2,1",
             4 => "apply_upgrade,STAMINA_UPGRADE|FILE_INTEGER_ADD,3,1",
+            5 => "common_sfx,145|FILE_INTEGER_ADD,8,1|FILE_INTEGER_ADD,9,1",
             14 => "enable_gale_abilities",
             15 => "enable_gale_abilities",
             16 => "enable_gale_abilities",
