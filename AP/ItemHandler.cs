@@ -24,7 +24,7 @@ public class ItemHandler
     public readonly HashSet<long> SuppressedItemAddition = [];
 
     private static readonly Regex ItemLinkRegex = new(@"%ItemLink\$\d+%");
-    private readonly long[] _statusUpgradeIdsOnlyOnIgnoredCutscene = [3, 4];
+    private readonly long[] _statusUpgradeIdsOnlyOnIgnoredCutscene = [3, 4, 5];
 
     private static readonly Dictionary<long, int[]> UpgradeChains = new()
     {
