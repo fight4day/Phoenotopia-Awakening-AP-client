@@ -2673,7 +2673,8 @@ public class LocationMapping
                 {
                     [1745] = [["JUMP_TO,BOAR_BOY_3,IF_TRUE|ITEM_HAVE,int_list(15);", ""]],
                     [1759] = [["Angry Boar Charging Tusk Strike", "%APPlayer%%APItem%"], ["Tusk Strike", "%APItem%"]],
-                    [1766] = [["GO,1767;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,ITEM_add,15,1|haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4", "GIS,FILE_MARK_AP,BOAR_BOY"]],
+                    [1765] = [["GO,1766", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,BOAR_BOY"]],
                 },
                 GISIdentifier = "BOAR_BOY",
                 OverrideType =

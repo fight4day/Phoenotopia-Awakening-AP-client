@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
@@ -24,7 +25,6 @@ public class ItemHandler
     public readonly HashSet<long> SuppressedItemAddition = [];
 
     private static readonly Regex ItemLinkRegex = new(@"%ItemLink\$\d+%");
-    private readonly long[] _statusUpgradeIdsOnlyOnIgnoredCutscene = [3, 4, 5];
 
     private static readonly Dictionary<long, int[]> UpgradeChains = new()
     {
@@ -88,7 +88,7 @@ public class ItemHandler
     public long HandleUpgradableItems(long id)
     {
         if (!UpgradeChains.TryGetValue(id, out var chain)) return id;
-        
+
         int[] tools = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_TOOLS_ITEMS, false, "");
         int[] status = PT2.save_file.FetchData(MenuLogic.MENU_TYPE.P1_STATUS, false, "");
         int[] toolsAndStatus = tools.Concat(status).ToArray();
@@ -148,27 +148,54 @@ public class ItemHandler
 
     private void ApplyStatusUpgrade(long id, bool ignoreCutscene)
     {
-        if (_statusUpgradeIdsOnlyOnIgnoredCutscene.Contains(id) && !ignoreCutscene) return;
-        
-        string gisCommand = id switch
+        string alwaysGisCommand = id switch
         {
-            3 => "apply_upgrade,HEALTH_UPGRADE|FILE_INTEGER_ADD,2,1",
-            4 => "apply_upgrade,STAMINA_UPGRADE|FILE_INTEGER_ADD,3,1",
-            5 => "common_sfx,145|FILE_INTEGER_ADD,8,1|FILE_INTEGER_ADD,9,1",
-            14 => "enable_gale_abilities",
-            15 => "enable_gale_abilities",
-            16 => "enable_gale_abilities",
-            17 => "enable_gale_abilities",
-            18 => "enable_gale_abilities",
-            19 => "enable_gale_abilities",
-            20 => "enable_gale_abilities",
-            25 => "enable_gale_abilities",
-            26 => "enable_gale_abilities",
-            27 => "enable_gale_abilities",
-            34 => "enable_gale_abilities",
+            14 or 15 or 16 or 17 or 18 or 19 or 20 or 25 or 26 or 27 or 34 => "enable_gale_abilities",
             129 => "FILE_MARK_SI,BATTLE_SONG_BOOSTS,true",
             _ => ""
         };
+
+        string conditionalGisCommand = ignoreCutscene
+            ? id switch
+            {
+                3 => "apply_upgrade,HEALTH_UPGRADE|FILE_INTEGER_ADD,2,1",
+                4 => "apply_upgrade,STAMINA_UPGRADE|FILE_INTEGER_ADD,3,1",
+                5 => "common_sfx,145|FILE_INTEGER_ADD,8,1|FILE_INTEGER_ADD,9,1",
+                _ => ""
+            }
+            : id switch
+            {
+                7 => "cutscene,line$BAT2_GET",
+                8 => "cutscene,line$BAT3_GET",
+                11 => "cutscene,line$ARMOR2_GET",
+                12 => "cutscene,line$ARMOR3_GET",
+                15 => "cutscene,line$TUSK_STRIKE_GET|muffle_timeout,5.5",
+                16 => "cutscene,line$5492|muffle_timeout,5.5",
+                17 => "cutscene,line$SPEAR_BOMB_GET|muffle_timeout,5.5",
+                18 => "cutscene,line$8228|muffle_timeout,5.5",
+                19 => "cutscene,line$7618|muffle_timeout,5.5",
+                20 => "cutscene,line$9015|muffle_timeout,5.5",
+                29 => "cutscene,line$OCARINA_GET",
+                32 => "cutscene,line$LAMP_GET",
+                33 => "cutscene,line$SPEAR_GET|muffle_timeout,5.5",
+                34 => "cutscene,line$ROCKET_GET|muffle_timeout,5.5",
+                35 => "cutscene,line$8430|muffle_timeout,5.5",
+                37 => "cutscene,line$CROSSBOW_GET",
+                39 => "cutscene,line$LAMP2_GET",
+                40 => "cutscene,line$FISHPOLE_GET",
+                124 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$8|global_common_sfx,235|muffle_timeout,11.5",
+                125 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$10|global_common_sfx,237|muffle_timeout,9.5",
+                126 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$7|global_common_sfx,239|muffle_timeout,7",
+                127 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$9|global_common_sfx,236|muffle_timeout,12",
+                128 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$4|global_common_sfx,240|muffle_timeout,4",
+                129 => "haze_screen,color$ffffff,alpha$1,transition$1,hold_time$3.7|global_common_sfx,238|muffle_timeout,3.7",
+                _ => ""
+            };
+
+        string gisCommand = alwaysGisCommand.Length > 0
+            ? (conditionalGisCommand.Length > 0 ? $"{conditionalGisCommand}|{alwaysGisCommand}" : alwaysGisCommand)
+            : conditionalGisCommand;
+
         MainThreadDispatcher.RunOnMainThread(() =>
         {
             PT2.GIS_ProcessInstructions(gisCommand, PT2.gale_script.GetTransform().position);

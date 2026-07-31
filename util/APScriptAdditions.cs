@@ -29,18 +29,48 @@ internal static class APScriptAdditions
             "OWNER,zophiel;GO,%NextIndex%||||<i><size=-10><color=#898989><*name_op>- Zophiel statue - <*name_ed></color></size></i><*stop=0.15>\nThough<*_>, time has yet to pass.",
             "OWNER,zophiel||||<i><size=-10><color=#898989><*name_op>- Zophiel statue - <*name_ed></color></size></i><*stop=0.15>\nPlease come back once time has passed and the world has changed."
         ],
-        ["154"] =
+        ["141"] =
         [
-            "GIS,SAVE",
+            "GO,142;WAIT,2;PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971;GIS,muffle_timeout,5.5|common_sfx,186,pan$0|send_message,gale,DISPLAY_ITEM,29|DELAY,2.5|common_sfx,188"
+        ],
+        ["154"] = ["GIS,SAVE"],
+        ["1766"] =
+        [
+            "GO,1767;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
         ],
         ["3223"] =
         [
-            "PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971;OWNER,none;GOIF_FAST,3224|ITEM_HAVE_COUNT,111,3;GOIF_FAST,3225|ITEM_HAVE_COUNT,111,1",
+            "PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971;OWNER,none;GOIF_FAST,3224|ITEM_HAVE_COUNT,111,3;GOIF_FAST,3225|ITEM_HAVE_COUNT,111,1"
         ],
-        ["10222"] =
+        ["3358"] =
         [
-            "PROFILE,static;TXT_BOX_WIDTH,1000;VOICE,static;POS,0.5,0.5;CHOICE,10227,10226,10225,10224,10223||||Pick a combat difficulty level that suits you.\\n<#ababab><size=-10>\\n(Note: it's possible to change the difficulty at any time):\\n</size></color>||<sprite=50><sprite=50><sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50><sprite=50>||<sprite=50><sprite=50>||<sprite=50>",
+            "GO,3359;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
         ],
+        ["5492"] =
+        [
+            "GO,5493;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
+        ],
+        ["6397"] = ["GO,6398;GROUND_NPC,gale;ANIMATE,gale,fall=presenting"],
+        ["7618"] =
+        [
+            "GO,7619;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
+        ],
+        ["8228"] =
+        [
+            "GO,8229;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
+        ],
+        ["8363"] = ["GO,8364;GROUND_NPC,gale;ANIMATE,gale,fall=presenting"],
+        ["8366"] = ["GO,STOP_DISPLAY_ITEM;PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971"],
+        ["8430"] =
+        [
+            "GO,8431;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
+        ],
+        ["8433"] = ["GO,STOP_DISPLAY_ITEM;PROFILE,static;VOICE,static;COLOR_BUBBLE,H7ab5c9;COLOR_TEXT,H364971"],
+        ["9015"] =
+        [
+            "GO,9016;GROUND_NPC,gale;ANIMATE,gale,fall=presenting;GIS,haze_screen,color$00ffff,alpha$0.5,transition$1,hold_time$4"
+        ],
+        ["10222"] = ["PROFILE,static;TXT_BOX_WIDTH,1000;VOICE,static;POS,0.5,0.5;CHOICE,10227,10226,10225,10224,10223"],
     };
 
     public static void AddCustomScriptLines()
