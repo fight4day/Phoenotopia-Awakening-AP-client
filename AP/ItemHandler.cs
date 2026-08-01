@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
@@ -24,6 +23,7 @@ public class ItemHandler
     public readonly HashSet<long> SuppressedItemMessages = [];
     public readonly HashSet<long> SuppressedItemAddition = [];
 
+    private readonly HashSet<long> _preAddedItems = [];
     private static readonly Regex ItemLinkRegex = new(@"%ItemLink\$\d+%");
 
     private static readonly Dictionary<long, int[]> UpgradeChains = new()
@@ -57,6 +57,21 @@ public class ItemHandler
         _sessionContext.Session.Items.ItemReceived -= AddMissingItems;
     }
 
+    public void PreAddItem(long id, ItemInfo apItem)
+    {
+        if (LevelBuildLogic.level_name.Equals("game_start")) return;
+        if (LevelBuildLogic.level_name.Equals("limbo")) return;
+        if (LevelBuildLogic.level_name.StartsWith("cutscene")) return;
+
+        _preAddedItems.Add(apItem.ItemId);
+
+        MainThreadDispatcher.RunPerFrameActionOnMainThread(() =>
+        {
+            AddItemToGame(id, apItem);
+            ShowItemMessage(id, apItem);
+        });
+    }
+
     public void AddMissingItems(ReceivedItemsHelper helper = null)
     {
         if (!APHelpers.IsConnectedToAP()) return;
@@ -76,6 +91,12 @@ public class ItemHandler
             if (saveItems.Remove(id)) continue;
 
             APSaveState.CollectedItems.Add(id);
+
+            if (_preAddedItems.Contains(apItem.ItemId))
+            {
+                _preAddedItems.Remove(apItem.ItemId);
+                continue;
+            }
 
             MainThreadDispatcher.RunPerFrameActionOnMainThread(() =>
             {
