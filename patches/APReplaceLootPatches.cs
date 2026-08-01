@@ -193,7 +193,7 @@ internal sealed class APReplaceLootPatches
 
             if (!PhoaAPClient.APConnection.ItemHandler.LocalAllLocations.Contains(check.ArchipelagoId) &&
                 check.FillWhenExcluded < PhoaAPClient.APConnection.ItemHandler.FillMode)
-                return true;
+                continue;
 
             bool isChecked =
                 PhoaAPClient.APConnection.ItemHandler.LocalAllLocationsChecked.Contains(check.ArchipelagoId);
