@@ -51,8 +51,7 @@ internal sealed class APCheckLocationPatches
         if (collectedGISParts.Length < 2) return true;
         string identifier = collectedGISParts[1];
 
-        Check location = LocationMapping.LocationMap
-            .SelectMany(kvp => kvp.Value)
+        Check location = LocationMapping.LocationMap[LevelBuildLogic.level_name.ToLower()]
             .FirstOrDefault(check => check.GISIdentifier == identifier);
 
         if (location == null ||
@@ -62,9 +61,6 @@ internal sealed class APCheckLocationPatches
             return true;
 
         component.Taken();
-        // The original method calls these two methods. I don't have a clue why, but they're here, to be sure
-        // PT2.thing_wheel.UpdateToolHudGraphics(false, false, false);
-        // PT2.thing_wheel.UpdateWheelGraphics();
 
         return false;
     }
@@ -125,6 +121,9 @@ internal sealed class APCheckLocationPatches
                 PhoaAPClient.APConnection.ItemHandler.SuppressedItemAddition.Add(checkedLocation.ItemInfo.ItemId);
 
             OnLocationGet(checkedLocation.ItemInfo);
+            if (checkedLocation.ItemInfo.Player.Slot == PhoaAPClient.APConnection.SessionContext.Login.Slot)
+                PhoaAPClient.APConnection.ItemHandler.PreAddItem(
+                    checkedLocation.ItemInfo.ItemId, checkedLocation.ItemInfo);
 
             new Thread(() =>
             {
@@ -177,7 +176,7 @@ internal sealed class APCheckLocationPatches
         string itemName = itemInfo.ItemDisplayName;
         string playerName = itemInfo.Player.Name;
 
-        StringBuilder message = new StringBuilder("Found ");
+        StringBuilder message = new StringBuilder("<#ffffffB3>Found</color> ");
 
         if (playerName != PhoaAPClient.APConnection.SessionContext?.Session?.Players.ActivePlayer.Name)
             message.Append($"{playerName}'s ");

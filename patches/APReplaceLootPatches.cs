@@ -193,7 +193,7 @@ internal sealed class APReplaceLootPatches
 
             if (!PhoaAPClient.APConnection.ItemHandler.LocalAllLocations.Contains(check.ArchipelagoId) &&
                 check.FillWhenExcluded < PhoaAPClient.APConnection.ItemHandler.FillMode)
-                return true;
+                continue;
 
             bool isChecked =
                 PhoaAPClient.APConnection.ItemHandler.LocalAllLocationsChecked.Contains(check.ArchipelagoId);
@@ -533,11 +533,11 @@ internal sealed class APReplaceLootPatches
     private static ItemGridLogic.ItemOrToolDef[] ConvertToKeyItems(
         ItemGridLogic.ItemOrToolDef[] extendedItemOrToolDef)
     {
-        int[] lunarArtifactIds = [88, 92, 99, 100, 144, 145, 155, 156, 157, 158, 159, 160];
+        int[] discardableKeyItemIds = [63, 88, 92, 99, 100, 144, 145, 155, 156, 157, 158, 159, 160];
 
-        foreach (int lunarArtifactId in lunarArtifactIds)
+        foreach (int discardableKeyItemId in discardableKeyItemIds)
         {
-            extendedItemOrToolDef[lunarArtifactId].commands += ";FREE;NO_DISCARD";
+            extendedItemOrToolDef[discardableKeyItemId].commands += ";FREE;NO_DISCARD";
         }
 
         return extendedItemOrToolDef;
