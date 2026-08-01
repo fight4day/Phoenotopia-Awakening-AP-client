@@ -546,7 +546,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [482] = [["JUMP_AT_END,483,IF_TRUE|OC_ABSENT,shelby_gave_herb&ITEM_CAN_ADD,45,1", "GO,483"]],
+                    [482] = [["&ITEM_CAN_ADD,45,1", ""]],
                     [483] = [["GO,GP2", "GO,%BonusLine%"]],
                     [-1] = [["GIS,FILE_MARK_OC,shelby_gave_herb|FILE_ERASE_OC,cooked_in_p1_duri_forest_05"]],
                 },
