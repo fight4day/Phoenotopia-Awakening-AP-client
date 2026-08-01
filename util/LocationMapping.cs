@@ -3872,6 +3872,102 @@ public class LocationMapping
                     "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_THOMAS_1,true;ql=SI_FALSE,OXY_THOMAS_1",
             },
         },
+        ["p1_thomas_test_11"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676529,
+                ObjectIds = ["14"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_1",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_1;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_1,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_12"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676530,
+                ObjectIds = ["19"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_2",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_2;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_2,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_13"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676531,
+                ObjectIds = ["5"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_3",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_3;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_3,true|GIS_PACK,1;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_14"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676532,
+                ObjectIds = ["8"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_4",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_4;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_4,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_21"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676533,
+                ObjectIds = ["7"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_1",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_1;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_1,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_22"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676534,
+                ObjectIds = ["9"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_2",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_2;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_2,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_23"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676535,
+                ObjectIds = ["5"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_3",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_3;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_3,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_24"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676536,
+                ObjectIds = ["8"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_4",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_4;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_4,true;name=KEY_CARD",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
