@@ -3839,6 +3839,38 @@ public class LocationMapping
                 OverrideType =
                     "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
             },
+            // new Check
+            // {
+            //     ArchipelagoId = 7676540,
+            //     ObjectIds = ["7"],
+            //     IsNpc = true,
+            //     FillWhenExcluded = FillMode.StatusUpgrade,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5610] = [["shiny blue rock", "mystery item"]],
+            //         [5612] = [["GO,GP0", "GO,%BonusLine%"]], // TODO: GP0 calls both GP1 & GP2 which each have a CONTINUE_IF. How to model in dialogue?
+            //         [-1] = [["GIS,CONTINUE_IF,OC_EXISTS,exchange_blue|FILE_MARK_SI,MOON_THOMAS_2,true|ITEM_remove,115,1"]],
+            //     },
+            //     GISIdentifier = "MOON_THOMAS_2",
+            //     OverrideType =
+            //         "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            // },
+            // new Check
+            // {
+            //     ArchipelagoId = 7676541,
+            //     ObjectIds = ["7"],
+            //     IsNpc = true,
+            //     FillWhenExcluded = FillMode.StatusUpgrade,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5610] = [["shiny blue rock", "mystery item"]],
+            //         [5612] = [["GO,GP0", "GO,%BonusLine%"]], // TODO: GP0 calls both GP1 & GP2 which each have a CONTINUE_IF. How to model in dialogue?
+            //         [-1] = [["GIS,CONTINUE_IF,OC_EXISTS,exchange_red|FILE_MARK_SI,MOON_THOMAS_1,true|ITEM_remove,116,1"]],
+            //     },
+            //     GISIdentifier = "MOON_THOMAS_1",
+            //     OverrideType =
+            //         "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            // },
         },
         ["p1_thomas_02x"] = new List<Check>
         {
@@ -3967,6 +3999,43 @@ public class LocationMapping
                 GISIdentifier = "THOMAS_RED_KEY_4",
                 OverrideType =
                     "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_4;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_4,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_speed"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676537,
+                ObjectIds = ["73"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_THOMAS_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_THOMAS_1,true;ql=SI_FALSE,HEART_THOMAS_1",
+            },
+        },
+        ["p1_thomas_test_32"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676538,
+                ObjectIds = ["56"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_MUFFIN",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_MUFFIN;ql=SI_FALSE,REGEN_MUFFIN",
+            },
+        },
+        ["p1_thomas_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676539,
+                ObjectIds = ["80"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_SLUSH",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_SLUSH;ql=SI_FALSE,REGEN_SLUSH",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
