@@ -51,8 +51,9 @@ internal sealed class APCheckLocationPatches
         if (collectedGISParts.Length < 2) return true;
         string identifier = collectedGISParts[1];
 
-        Check location = LocationMapping.LocationMap[LevelBuildLogic.level_name.ToLower()]
-            .FirstOrDefault(check => check.GISIdentifier == identifier);
+        if (!LocationMapping.LocationMap.TryGetValue(LevelBuildLogic.level_name.ToLower(), out var locations))
+            return true;
+        Check location = locations.FirstOrDefault(check => check.GISIdentifier == identifier);
 
         if (location == null ||
             !PhoaAPClient.APConnection.ItemHandler.LocalAllLocations.Contains(location.ArchipelagoId) ||

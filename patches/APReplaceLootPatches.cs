@@ -203,6 +203,7 @@ internal sealed class APReplaceLootPatches
                 ChecksToHint.Add(check.ArchipelagoId);
 
             if (isChecked && !isNpcOrStateDependentCheck) return !check.IsKeyItem;
+            PhoaAPClient.Logger.LogDebug($"AP replacement for {check.ArchipelagoId}, trying to spawn {check.ItemInfo.ItemDisplayName} with id {check.ItemInfo.ItemId}");
             reader = ReplaceReader(reader, check.OverrideType);
             return true;
         }
@@ -270,8 +271,6 @@ internal sealed class APReplaceLootPatches
     [HarmonyPrefix] // Patch to spawn the appropriate version of an upgradable item
     private static void SpawnLootUpgradableItemPrefix(ref int item_id)
     {
-        if (item_id is < 292 or > 299) return;
-
         item_id = (int)PhoaAPClient.APConnection.ItemHandler.HandleUpgradableItems(item_id);
         PhoaAPClient.Logger.LogDebug($"New id: {item_id}");
     }
@@ -285,11 +284,10 @@ internal sealed class APReplaceLootPatches
         string[] splittedProfile = profile.Split(',');
         if (!profile.Contains("item,") && splittedProfile.Length == 2) return;
 
-        int item_id = int.Parse(splittedProfile[1]);
-        if (item_id is < 293 or > 299) return;
+        long itemId = long.Parse(splittedProfile[1]);
 
-        item_id = (int)PhoaAPClient.APConnection.ItemHandler.HandleUpgradableItems(item_id);
-        profile = $"item,{item_id}";
+        itemId = PhoaAPClient.APConnection.ItemHandler.HandleUpgradableItems(itemId);
+        profile = $"item,{itemId}";
     }
 
     [HarmonyPatch(typeof(AnimatedTileLogic), "Set")]
