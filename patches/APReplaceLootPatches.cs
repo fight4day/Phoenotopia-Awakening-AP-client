@@ -203,7 +203,7 @@ internal sealed class APReplaceLootPatches
                 ChecksToHint.Add(check.ArchipelagoId);
 
             if (isChecked && !isNpcOrStateDependentCheck) return !check.IsKeyItem;
-            PhoaAPClient.Logger.LogDebug($"AP replacement for {check.ArchipelagoId}, trying to spawn {check.ItemInfo.ItemDisplayName} with id {check.ItemInfo.ItemId}");
+            PhoaAPClient.Logger.LogDebug($"AP replacement for {check.ArchipelagoId}, trying to spawn {check.ItemInfo?.ItemDisplayName} with id {check.ItemInfo?.ItemId}");
             reader = ReplaceReader(reader, check.OverrideType);
             return true;
         }
