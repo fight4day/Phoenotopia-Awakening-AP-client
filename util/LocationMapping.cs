@@ -3474,13 +3474,12 @@ public class LocationMapping
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
             },
         },
-        // ET
-        // fight4day
+        // FIXME: from here on
         ["p1_ex_cave_04"] = new List<Check>
         {
             new Check
             {
-                ArchipelagoId = 7676500,
+                ArchipelagoId = 7676426,
                 ObjectIds = ["274"],
                 IsKeyItem = true,
                 GISIdentifier = "DAEA_MONEY_2",
@@ -3489,7 +3488,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676501,
+                ArchipelagoId = 7676427,
                 ObjectIds = ["273"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3502,7 +3501,7 @@ public class LocationMapping
         // {
         //     new Check // TODO: needs custom level
         //     {
-        //         ArchipelagoId = 7676502,
+        //         ArchipelagoId = 7676428,
         //         ObjectIds = ["301"],
         //         IsKeyItem = true,
         //         GISIdentifier = "PERRO_3",
@@ -3514,7 +3513,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676503,
+                ArchipelagoId = 7676429,
                 ObjectIds = ["154"],
                 IsKeyItem = true,
                 GISIdentifier = "OURO_SCROLL_5",
@@ -3526,7 +3525,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676504,
+                ArchipelagoId = 7676430,
                 ObjectIds = ["84"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3543,7 +3542,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676505,
+                ArchipelagoId = 7676431,
                 ObjectIds = ["288"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3558,11 +3557,11 @@ public class LocationMapping
                     "name=planto;profile=planto;voice=man,0.85;speech=PLANTO_P3;behavior=action_only;ql=SI_FALSE,PLANTO_3;floating;sort=bg_tiles,-1;talk_range=4;spacing=stand",
             },
         },
-        ["p1_frans_base"] = new List<Check> // TODO: implement gift checks 7676512 to 7676515 + make non-missable
+        ["p1_frans_base"] = new List<Check> // TODO: implement gift checks 7676438 to 7676441 + make non-missable
         {
             new Check
             {
-                ArchipelagoId = 7676506,
+                ArchipelagoId = 7676432,
                 ObjectIds = ["393"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3580,7 +3579,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676508,
+                ArchipelagoId = 7676434,
                 ObjectIds = ["411"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3595,7 +3594,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676510,
+                ArchipelagoId = 7676436,
                 ObjectIds = ["418"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3611,7 +3610,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676511,
+                ArchipelagoId = 7676437,
                 ObjectIds = ["422"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3632,7 +3631,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676507,
+                ArchipelagoId = 7676433,
                 ObjectIds = ["206"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3648,7 +3647,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676509,
+                ArchipelagoId = 7676435,
                 ObjectIds = ["228"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3664,7 +3663,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676525,
+                ArchipelagoId = 7676451,
                 ObjectIds = ["212"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3677,7 +3676,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676517,
+                ArchipelagoId = 7676443,
                 ObjectIds = ["338"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
                 HintWhenLoaded = true,
@@ -3695,7 +3694,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676518,
+                ArchipelagoId = 7676444,
                 ObjectIds = ["336"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3713,7 +3712,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676519,
+                ArchipelagoId = 7676445,
                 ObjectIds = ["337"],
                 IsKeyItem = false, // Cannot be bought again even in vanilla
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3731,7 +3730,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676520,
+                ArchipelagoId = 7676446,
                 ObjectIds = ["339"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -3750,7 +3749,7 @@ public class LocationMapping
             },
             new Check
             {
-                ArchipelagoId = 7676523,
+                ArchipelagoId = 7676449,
                 ObjectIds = ["431"],
                 GISIdentifier = "REGEN_GEO_1",
                 OverrideType =
@@ -3761,7 +3760,7 @@ public class LocationMapping
         // {
         //     new Check
         //     {
-        //         ArchipelagoId = 7676521,
+        //         ArchipelagoId = 7676447,
         //         ObjectIds = ["330", "340", "325"], // Loot
         //         // ObjectIds = ["343"], // Shelf
         //         IsKeyItem = true,
@@ -3788,7 +3787,7 @@ public class LocationMapping
         //     },
         //     new Check
         //     {
-        //         ArchipelagoId = 7676522,
+        //         ArchipelagoId = 7676448,
         //         ObjectIds = ["343"],
         //         IsKeyItem = true,
         //         FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3808,7 +3807,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676524,
+                ArchipelagoId = 7676450,
                 ObjectIds = ["189"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -3826,7 +3825,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676526,
+                ArchipelagoId = 7676452,
                 ObjectIds = ["7"],
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -3841,7 +3840,7 @@ public class LocationMapping
             },
             // new Check
             // {
-            //     ArchipelagoId = 7676540,
+            //     ArchipelagoId = 7676466,
             //     ObjectIds = ["7"],
             //     IsNpc = true,
             //     FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3857,7 +3856,7 @@ public class LocationMapping
             // },
             // new Check
             // {
-            //     ArchipelagoId = 7676541,
+            //     ArchipelagoId = 7676467,
             //     ObjectIds = ["7"],
             //     IsNpc = true,
             //     FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3876,7 +3875,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676527,
+                ArchipelagoId = 7676453,
                 ObjectIds = ["214"],
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -3896,7 +3895,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676528,
+                ArchipelagoId = 7676454,
                 ObjectIds = ["70"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -3909,7 +3908,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676529,
+                ArchipelagoId = 7676455,
                 ObjectIds = ["14"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_BLUE_KEY_1",
@@ -3921,7 +3920,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676530,
+                ArchipelagoId = 7676456,
                 ObjectIds = ["19"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_BLUE_KEY_2",
@@ -3933,7 +3932,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676531,
+                ArchipelagoId = 7676457,
                 ObjectIds = ["5"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_BLUE_KEY_3",
@@ -3945,7 +3944,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676532,
+                ArchipelagoId = 7676458,
                 ObjectIds = ["8"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_BLUE_KEY_4",
@@ -3957,7 +3956,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676533,
+                ArchipelagoId = 7676459,
                 ObjectIds = ["7"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_RED_KEY_1",
@@ -3969,7 +3968,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676534,
+                ArchipelagoId = 7676460,
                 ObjectIds = ["9"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_RED_KEY_2",
@@ -3981,7 +3980,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676535,
+                ArchipelagoId = 7676461,
                 ObjectIds = ["5"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_RED_KEY_3",
@@ -3993,7 +3992,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676536,
+                ArchipelagoId = 7676462,
                 ObjectIds = ["8"],
                 IsKeyItem = true,
                 GISIdentifier = "THOMAS_RED_KEY_4",
@@ -4005,7 +4004,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676537,
+                ArchipelagoId = 7676463,
                 ObjectIds = ["73"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
@@ -4018,7 +4017,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676538,
+                ArchipelagoId = 7676464,
                 ObjectIds = ["56"],
                 IsKeyItem = false,
                 GISIdentifier = "REGEN_MUFFIN",
@@ -4030,7 +4029,7 @@ public class LocationMapping
         {
             new Check
             {
-                ArchipelagoId = 7676539,
+                ArchipelagoId = 7676465,
                 ObjectIds = ["80"],
                 IsKeyItem = false,
                 GISIdentifier = "REGEN_SLUSH",
