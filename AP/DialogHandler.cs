@@ -98,10 +98,8 @@ public class DialogHandler
             if (match.Success)
             {
                 foreach (Group group in match.Groups)
-                {
                     replacement = replacement
                         .Replace($"%APPlayer/{group.Value}%", playerName.IsNullOrWhiteSpace() ? group.Value : playerName);
-                }
             }
 
             dialog = dialog.Replace(dialogReplacement[0], replacement);
