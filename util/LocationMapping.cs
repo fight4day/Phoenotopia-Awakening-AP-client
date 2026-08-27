@@ -4025,6 +4025,19 @@ public class LocationMapping
                     "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_MUFFIN;ql=SI_FALSE,REGEN_MUFFIN",
             },
         },
+        // ["p1_thomas_boss"] = new List<Check>
+        // {
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676468,
+        //         ObjectIds = ["126", "127"], // TODO: the 2 objects have differing spawn conditions in their type
+        //         IsKeyItem = true,
+        //         FillWhenExcluded = FillMode.StatusUpgrade,
+        //         GISIdentifier = "HEART_FLORET_1",
+        //         OverrideType =
+        //             "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_FLORET_1,true;ql=SI_FALSE,HEART_FLORET_1",
+        //     },
+        // },
         ["p1_thomas_03"] = new List<Check>
         {
             new Check
