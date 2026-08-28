@@ -4025,6 +4025,18 @@ public class LocationMapping
                     "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_MUFFIN;ql=SI_FALSE,REGEN_MUFFIN",
             },
         },
+        ["p1_thomas_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676465,
+                ObjectIds = ["80"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_SLUSH",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_SLUSH;ql=SI_FALSE,REGEN_SLUSH",
+            },
+        },
         // ["p1_thomas_boss"] = new List<Check>
         // {
         //     new Check
@@ -4038,18 +4050,6 @@ public class LocationMapping
         //             "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_FLORET_1,true;ql=SI_FALSE,HEART_FLORET_1",
         //     },
         // },
-        ["p1_thomas_03"] = new List<Check>
-        {
-            new Check
-            {
-                ArchipelagoId = 7676465,
-                ObjectIds = ["80"],
-                IsKeyItem = false,
-                GISIdentifier = "REGEN_SLUSH",
-                OverrideType =
-                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_SLUSH;ql=SI_FALSE,REGEN_SLUSH",
-            },
-        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
