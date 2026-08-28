@@ -4050,6 +4050,264 @@ public class LocationMapping
         //             "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_FLORET_1,true;ql=SI_FALSE,HEART_FLORET_1",
         //     },
         // },
+        ["p1_museum"] = new List<Check> // TODO: Lunar artifacts aren't removed after selling
+        {
+            new Check
+            {
+                ArchipelagoId = 7676469,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4551] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4552] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4553] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_DRAKE",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676470,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4565] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4566] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4567] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_COMPASS",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676471,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4577] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4578] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4579] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_COMB",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676472,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4589] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4590] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4591] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_WATCH",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676473,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4603] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4604] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4605] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_GOBLET",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676474,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4618] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4619] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4620] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_FROG",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676475,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4636] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4637] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4638] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_VASE",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676476,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4650] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4651] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4652] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_TRIDENT",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676477,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4666] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4667] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4668] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_CROWN",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676478,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4684] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4685] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4686] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_MEDAL",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676479,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4698] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4699] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4700] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_KEY",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676480,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4712] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4713] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4714] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_EGG",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676481,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4721] = [["this Energy Gem", "%APPlayer%%APItem%"], ["GO,GP5", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_ASTRID_1,true"]],
+                },
+                GISIdentifier = "OXY_ASTRID_1",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            // new Check
+            // /* TODO:
+            // 1. 4719 ITEM_DONT_HAVE,int_list(25) causes repeated dialogue on following checks and prevents 7676483
+            // 2. replaced item is not shown properly 
+            // 3. item reappears on reentering screen
+            // */
+            // {
+            //     ArchipelagoId = 7676482,
+            //     ObjectIds = ["172"],
+            //     IsKeyItem = true,
+            //     FillWhenExcluded = FillMode.Always,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [4484] = [["an <#00ffff>antique cast iron</color>", "%APPlayer/my %antique <#00ffff>%APItem%</color>"]],
+            //         [4488] = [["cast iron", "%APItem%"]],
+            //         [4722] = [["this antique cast iron", "%APPlayer%%APItem%"]],
+            //         [4724] = [["GO,GP6", "GO,%BonusLine%"]],
+            //         [-1] = [["GIS,FILE_MARK_AP,AP_MUSUEM_CAST_IRON,true|ANY_alpha_tween,cast_iron,0,duration$0.25|particle_emitter,highlighter,stop|AT_effect_enable,iron_halo,off|DELAY,0.1|ANY_alpha_tween,iron_halo,0,duration$0.5|recycle,iron_npc"]],
+            //     },
+            //     GISIdentifier = "AP_MUSUEM_CAST_IRON",
+            //     OverrideType =
+            //         "name=cast_iron;loot=%ItemId%;sort=bg_tiles,12;use_all_bright",
+            // },
+            new Check
+            {
+                ArchipelagoId = 7676483,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4733] = [["this gift", "%APPlayer%%APItem%"], ["GO,GP7", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_ASTRID_2,true"]],
+                },
+                GISIdentifier = "HEART_ASTRID_2",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+        },
+        ["p1_museum_under"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676484,
+                ObjectIds = ["158"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_MUSEUM_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_MUSEUM_MOUSE_1;instruction=tmx(36/23)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676485,
+                ObjectIds = ["151"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_ASTRID_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_ASTRID_1,true;ql=SI_FALSE,HEART_ASTRID_1",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
