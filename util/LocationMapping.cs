@@ -4308,6 +4308,88 @@ public class LocationMapping
                     "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_ASTRID_1,true;ql=SI_FALSE,HEART_ASTRID_1",
             },
         },
+        ["p1_the_wall_bunkrooms"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676486,
+                ObjectIds = ["192"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_WALL_S_2",
+                OverrideType =
+                    "name=moon_box;type=P1_WOOD_S;ql=SI_FALSE,MOON_WALL_S_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_WALL_S_2|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_the_wall_dining"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676488,
+                ObjectIds = ["155"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_WALL_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_WALL_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_WALL_LOOT_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676490,
+                ObjectIds = ["149"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7853] = [["GO,GP1", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_WALL_1,true"]],
+                },
+                GISIdentifier = "HEART_WALL_1",
+                OverrideType =
+                    "name=chef;profile=waiter;voice=man,1;speech=WCHEF_02,WCHEF_02+3;behavior=action_only;face_right;use_all_bright",
+            },
+        },
+        ["p1_the_wall_storeroom"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676489,
+                ObjectIds = ["53"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_WALL_LOOT_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_WALL_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_WALL_LOOT_1",
+            },
+        },
+        ["p1_the_wall_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676487,
+                ObjectIds = ["61"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_WALL_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_WALL_1,true;ql=SI_FALSE,OXY_WALL_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676491,
+                ObjectIds = ["215"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7872] = [["a rock from her rock collection", "%APPlayer/her %%APItem% from her %APItem% collection"], ["GO,GP3", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,MOON_WALL_S_1,true"]],
+                },
+                GISIdentifier = "MOON_WALL_S_1",
+                OverrideType =
+                    "profile=daea_soldierf;voice=woman,1.03;behavior=stand;face_right;speech=KNIGHT_MOM_3,KNIGHT_MOM_3+2;ql=SI_TRUE,KMOM_2&OC_ABSENT,kmom_temp",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
