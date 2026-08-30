@@ -140,7 +140,8 @@ internal sealed class APCheckLocationPatches
 
         instructionsList.RemoveAll(instruction =>
             instruction.Contains("FILE_MARK_AP") || instruction.Contains("miceBoxbreak") ||
-            instruction.Contains("scorpBoxbreak") || instruction.Contains("AP_HINT"));
+            instruction.Contains("scorpBoxbreak") || instruction.Contains("brokemousebox") ||
+            instruction.Contains("AP_HINT"));
 
         instructions = string.Join("|", instructionsList.ToArray());
     }
