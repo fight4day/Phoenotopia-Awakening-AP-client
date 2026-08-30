@@ -3475,6 +3475,106 @@ public class LocationMapping
             },
         },
         // FIXME: from here on
+        ["p1_moonlight_ravine_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676332,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3477] = [["JUMP_TO,FISHPOLE_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,40,1;", ""],
+                              ["a <#00ffff>fishing rod</color>", "%APPlayer/our %<#00ffff>%APItem%</color>"]],
+                    [3478] = [["stick", "%APItem%"]],
+                    [3479] = [["a Fishing Rod", "%APPlayer%%APItem%"]],
+                    [3480] = [["ITEM_add,40,1;GO,FISHPOLE_GET", "FILE_MARK_AP,AP_RAVINE_SHOP_POLE|recycle,shop_1"]],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_POLE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_POLE;voice=woman,0.95;spacing=stand;shiny;name=shop_1",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676333,
+                ObjectIds = ["24"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3466] = [["<#00ffff>Cooked knife krill</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [3467] = [["a bundle of 3 Cooked Knife Krills", "%APPlayer%%APItem%"]],
+                    [3468] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,87,3;", ""],
+                        ["ITEM_add,87,3", "FILE_MARK_AP,AP_RAVINE_SHOP_KRILL|recycle,shop_2"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_KRILL",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_KRILL;spacing=left,0.1;name=shop_2",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676334,
+                ObjectIds = ["25"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3469] = [["<#00ffff>sushi</color>", "%APPlayer/our %<#00ffff>%APItem%</color>"]],
+                    [3470] = [["2 pieces of Sushi", "%APPlayer%%APItem%"]],
+                    [3471] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,79,2;", ""],
+                        ["ITEM_add,79,2", "FILE_MARK_AP,AP_RAVINE_SHOP_SUSHI|recycle,shop_3"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_SUSHI",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_SUSHI;spacing=left,0.1;face_right;name=shop_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676335,
+                ObjectIds = ["26"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3472] = [["A <#00ffff>fish skewer</color>", "%APPlayer/Our % <#00ffff>%APItem%</color>"]],
+                    [3473] = [["a Fish Skewer", "%APPlayer%%APItem%"]],
+                    [3474] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,84,1;", ""],
+                        ["ITEM_add,84,1", "FILE_MARK_AP,AP_RAVINE_SHOP_FISH|recycle,shop_4"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_FISH",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_FISH;spacing=left,0.1;name=shop_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676336,
+                ObjectIds = ["28"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_RAV_LOOT_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,REGEN_RAV_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_RAV_LOOT_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676337,
+                ObjectIds = ["219"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3483] = [["GO,GP4", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,MOON_RAVINE_4,true"]]
+                },
+                GISIdentifier = "MOON_RAVINE_4",
+                OverrideType =
+                    "profile=panselo_teen_boy;voice=man,1.1;speech=HIDDEN_MAN;behavior=stand;face_right;ql=SI_FALSE,MOON_RAVINE_4",
+            },
+        },
         ["p1_ex_cave_04"] = new List<Check>
         {
             new Check
