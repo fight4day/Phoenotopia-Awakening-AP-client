@@ -3756,7 +3756,7 @@ public class LocationMapping
                     "type=P1_WOOD_S;ql=SI_FALSE,REGEN_GEO_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_GEO_1;use_all_bright",
             },
         },
-        // ["p1_geo_head_office"] = new List<Check> // TODO: implement 7676516 (probably needs custom level)
+        // ["p1_geo_head_office"] = new List<Check> // TODO: implement 7676442 (probably needs custom level)
         // {
         //     new Check
         //     {
