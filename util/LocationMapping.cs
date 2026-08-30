@@ -3596,7 +3596,45 @@ public class LocationMapping
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
             },
         },
-        // FIXME: from here on
+        ["p1_atai_mansion_bedroom"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676557,
+                ObjectIds = ["75"],
+                IsKeyItem = true,
+                GISIdentifier = "AP_MANSION_LETTERS",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_MANSION_LETTERS",
+            },
+        },
+        ["p1_atai_mansion_paintings"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676558,
+                ObjectIds = ["31"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [2574] = [["money_adjust,P1_RAI,150|", ""]],
+                },
+                GISIdentifier = "MAYOR_QUEST_3",
+                OverrideType =
+                    "name=mikhail;profile=atai_grandpa;voice=man,0.98;speech=MIKHAIL_1;behavior=stand;face_right;floating;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676559,
+                ObjectIds = ["3-receive heart"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_ATAI_4",
+                OverrideType =
+                    "FILE_MARK_SI,HEART_ATAI_4,true",
+            },
+        },
         ["p1_moonlight_ravine_01"] = new List<Check>
         {
             new Check
