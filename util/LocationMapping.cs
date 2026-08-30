@@ -3396,10 +3396,10 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676321,
                 ObjectIds = ["117"],
-                IsKeyItem = true,
-                GISIdentifier = "LUNAR_DRAKE",
+                IsKeyItem = false,
+                GISIdentifier = "AP_LUNAR_DRAKE",
                 OverrideType =
-                    "type=P1_BANDIT_POT_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$LUNAR_DRAKE",
+                    "type=P1_BANDIT_POT_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_LUNAR_DRAKE",
             },
             new Check
             {
