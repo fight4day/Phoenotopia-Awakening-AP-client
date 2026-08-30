@@ -2646,6 +2646,16 @@ public class LocationMapping
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_1;ql=SI_FALSE,DAETAI_MONEY_1",
             },
+            new Check
+            {
+                ArchipelagoId = 7676186,
+                ObjectIds = ["188"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_1",
+                OverrideType =
+                    "name=moon_fish;face_right;initial_behavior=STATIC;type=fish;instruction=FISH_S;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_1|particle_emitter,highlighter,stop;ql=SI_FALSE,MOON_FISH_1",
+            },
         },
         ["p1_bridge_daetai_01a"] = new List<Check>
         {
@@ -2657,6 +2667,94 @@ public class LocationMapping
                 GISIdentifier = "DAETAI_MONEY_4",
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_4;ql=SI_FALSE,DAETAI_MONEY_4",
+            },
+        },
+        ["p1_bridge_daetai_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676185,
+                ObjectIds = ["239"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_BRIDGE_LOOT_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_BRIDGE_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_BRIDGE_LOOT_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676182,
+                ObjectIds = ["14"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_BRIDGE_LOOT_4",
+                OverrideType =
+                    "type=P1_WIDE_WOOD;ql=SI_FALSE,REGEN_BRIDGE_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_BRIDGE_LOOT_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676184,
+                ObjectIds = ["242"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAETAI_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAETAI_MOUSE_1;type=p_mouse;instruction=tmx(37/30)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676183,
+                ObjectIds = ["236"],
+                IsKeyItem = true,
+                GISIdentifier = "DAETAI_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_3;ql=SI_FALSE,DAETAI_MONEY_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676180,
+                ObjectIds = ["185"],
+                IsKeyItem = true,
+                GISIdentifier = "DAETAI_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_2;ql=SI_FALSE,DAETAI_MONEY_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676179,
+                ObjectIds = ["189"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAETAI_3",
+                OverrideType =
+                    "name=moon_pot;type=P1_TOWER_POT_L;ql=SI_FALSE,MOON_DAETAI_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAETAI_3|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_bridge_daetai_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676181,
+                ObjectIds = ["214"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAETAI_2",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAETAI_2;destroyed_GIS=particle_emitter,highlighter,stop|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAETAI_2",
+            },
+        },
+        ["p1_ex_geo_03c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676178,
+                ObjectIds = ["224"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3871] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_3",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_03",
             },
         },
         ["p1_boar_boy"] = new List<Check>
