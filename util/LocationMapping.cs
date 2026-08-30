@@ -3681,6 +3681,199 @@ public class LocationMapping
                     "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_LUNAR_CROWN",
             },
         },
+        ["p1_moonlight_ravine_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676349,
+                ObjectIds = ["103"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04a;ql=POC_ABSENT,mkelp_04a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676351,
+                ObjectIds = ["104"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04b;ql=POC_ABSENT,mkelp_04b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676354,
+                ObjectIds = ["105"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04c;ql=POC_ABSENT,mkelp_04c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676355,
+                ObjectIds = ["106"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04d;ql=POC_ABSENT,mkelp_04d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676350,
+                ObjectIds = ["36"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_RAVINE_2",
+                OverrideType =
+                    "name=moon_pot;type=P1_ANURI_CERAMIC_POT_S;ql=SI_FALSE,MOON_RAVINE_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_RAVINE_2|particle_emitter,highlighter,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676352,
+                ObjectIds = ["168"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_RAVINE_3",
+                OverrideType =
+                    "name=moon_pot2;type=P1_ANURI_CERAMIC_POT_L;ql=SI_FALSE,MOON_RAVINE_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_RAVINE_3|particle_emitter,highlighter2,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676353,
+                ObjectIds = ["35"],
+                IsKeyItem = true,
+                GISIdentifier = "RAVINE_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$RAVINE_MONEY_2;ql=SI_FALSE,RAVINE_MONEY_2",
+            },
+        },
+        ["p1_moonlight_ravine_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676356,
+                ObjectIds = ["97"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05a;ql=POC_ABSENT,mkelp_05a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676359,
+                ObjectIds = ["98"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05b;ql=POC_ABSENT,mkelp_05b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676361,
+                ObjectIds = ["99"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05c;ql=POC_ABSENT,mkelp_05c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676362,
+                ObjectIds = ["100"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05d;ql=POC_ABSENT,mkelp_05d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676357,
+                ObjectIds = ["164"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_RAVINE_LIZARD_1",
+                OverrideType =
+                    "type=p_lizard;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_RAVINE_LIZARD_1;instruction=tmx(18/30),tmx(23/32),tmx(18.875/30);sort=bg_tiles,6",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676358,
+                ObjectIds = ["163"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_LUNAR_TRIDENT",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_LUNAR_TRIDENT;angle=180;gravity=0;sort=bg_tiles,14",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676360,
+                ObjectIds = ["42"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_RAVINE_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_RAVINE_1,true;ql=SI_FALSE,OXY_RAVINE_1;gravity=0",
+            },
+        },
+        ["p1_moonlight_ravine_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676363,
+                ObjectIds = ["77"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06c;ql=POC_ABSENT,mkelp_06c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676365,
+                ObjectIds = ["75"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06a;ql=POC_ABSENT,mkelp_06a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676366,
+                ObjectIds = ["76"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06b;ql=POC_ABSENT,mkelp_06b",
+            },
+            new Check // TODO: modify so Bo is always there?
+            {
+                ArchipelagoId = 7676364,
+                ObjectIds = ["09-won race"],
+                IsKeyItem = true,
+                GISIdentifier = "BO_QUEST_2",
+                OverrideType =
+                    "FILE_MARK_SI,BO_QUEST_2,true|FILE_MARK_OC,bo_temp",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676367,
+                ObjectIds = ["73"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_4",
+                OverrideType =
+                    "name=moon_fish;initial_behavior=STATIC;type=fish;instruction=FISH_M;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_4|particle_emitter,highlighter,stop;ql=SI_FALSE,MOON_FISH_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676368,
+                ObjectIds = ["202"],
+                IsKeyItem = true,
+                GISIdentifier = "RAVINE_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$RAVINE_MONEY_3;ql=SI_FALSE,RAVINE_MONEY_3",
+            },
+        },
         ["p1_ex_cave_04"] = new List<Check>
         {
             new Check
