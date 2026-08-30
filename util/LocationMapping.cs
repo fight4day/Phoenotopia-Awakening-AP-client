@@ -169,6 +169,21 @@ public class LocationMapping
                 OverrideType =
                     "type=P1_WOOD_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$PANSELO_MONEY_7;ql=SI_FALSE,PANSELO_MONEY_7",
             },
+            new Check // TODO: make non-missable (via time travel?)
+            {
+                ArchipelagoId = 7676556,
+                ObjectIds = ["195"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [993] = [["this potato", "%APPlayer%%APItem%"], ["GO,994", "GO,996"]],
+                    [996] = [["ITEM_add,102,1", "FILE_MARK_AP,AP_HEADS_OR_TAILS"]],
+                },
+                GISIdentifier = "AP_HEADS_OR_TAILS",
+                OverrideType =
+                    "name=game_kid;voice=MAN,1.15;profile=seth;behavior=stand;speech=HEADS_OR_TAILS;use_all_bright",
+            },
         },
         ["p1_panselo_house_01"] = new List<Check>
         {
@@ -218,6 +233,11 @@ public class LocationMapping
             },
             new Check
             {
+                /* TODO:
+                1. GISIdentifier is not unique
+                2. Non-missable post-birdy via time travel?
+                3. Implement new post-birdy check 7676550 (id="80")
+                */
                 ArchipelagoId = 7676090,
                 ObjectIds = ["69"],
                 IsKeyItem = true,
@@ -308,7 +328,11 @@ public class LocationMapping
                 OverrideType =
                     "profile=item,%ItemId%;name=shop_3;speech=MERCHANT_TAO_POTATO",
             },
-            // TODO: GISIdentifiers of the following checks are not unique
+            /* TODO:
+            1. GISIdentifiers of the following checks are not unique 
+            2. Non-missable post-birdy via time travel?
+            3. Implement new post-birdy checks 7676551-7676555
+            */
             new Check
             {
                 ArchipelagoId = 7676084,
