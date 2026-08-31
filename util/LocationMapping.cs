@@ -1857,8 +1857,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1419] = [["||||", ";GIS,AP_HINT,7676224||||"], ["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
+                    [1419] = [["||||", ";GIS,AP_HINT,%APId%||||"], ["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
                     [1429] = [["How many are you looking to sell?", "For the first 4 I'll give you <#00ffff>%APPlayer%%APItem%</color>"]],
                     [1430] = [[",1432,1433", ""], ["25 R||Sell 8 Berry Fruits for 50 R||Sell 12 Berry Fruits for 75 R", "%APPlayer%%APItem%"]],
                     [1431] = [["money_adjust,P1_RAI,25", "FILE_MARK_AP,ATAI_MARKET_BERRY_SELL"]],
@@ -2044,8 +2043,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1586] = [["GIS,", "GIS,AP_HINT,7676225|"], ["A Milk", "%APPlayer%%APItem%"]],
+                    [1586] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["A Milk", "%APPlayer%%APItem%"]],
                     [1587] =
                     [
                         ["JUMP_TO,ATAI_BARTENDER+-2,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
@@ -2064,8 +2062,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1586] = [["GIS,", "GIS,AP_HINT,7676226|"], ["A Bottle Of Wine", "%APPlayer%%APItem%"]],
+                    [1586] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["A Bottle Of Wine", "%APPlayer%%APItem%"]],
                     [1597] = [["|ITEM_add,123,1", ""]],
                 },
                 GISIdentifier = "CH2_D3_GOT_WINE",
