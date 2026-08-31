@@ -3289,7 +3289,7 @@ public class LocationMapping
                 IsKeyItem = true,
                 GISIdentifier = "BANDIT_KEY_1_COLLECTED",
                 OverrideType =
-                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED,amt$1;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
+                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
             },
         },
         ["p1_bandit_lair_storeroom2"] = new List<Check>
