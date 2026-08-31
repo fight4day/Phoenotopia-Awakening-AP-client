@@ -5171,6 +5171,48 @@ public class LocationMapping
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_3;ql=SI_FALSE,DAEA_MONEY_3",
             },
         },
+        ["p1_daea_storage"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676382,
+                ObjectIds = ["156"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_1;ql=SI_FALSE,REGEN_DAEA_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676383,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_2;ql=SI_FALSE,REGEN_DAEA_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676384,
+                ObjectIds = ["159"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_2",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_2;instruction=tmx(-1/13)",
+            },
+        },
+        ["p1_daea_02"] = new List<Check>
+        {
+            new Check // TODO: modify so Bo is always there?
+            {
+                ArchipelagoId = 7676385,
+                ObjectIds = ["9-won race"],
+                IsKeyItem = true,
+                GISIdentifier = "BO_QUEST_3",
+                OverrideType =
+                    "FILE_MARK_SI,BO_QUEST_3,true|FILE_MARK_OC,bo_temp",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
