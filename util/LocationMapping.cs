@@ -2060,7 +2060,7 @@ public class LocationMapping
         },
         ["p1_atai_inn_01"] = new List<Check>
         {
-            new Check
+            new Check // TODO: dialogue resets for other item after buying one
             {
                 ArchipelagoId = 7676225,
                 ObjectIds = ["22"],
@@ -2080,7 +2080,7 @@ public class LocationMapping
                 OverrideType =
                     "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
             },
-            new Check
+            new Check // TODO: dialogue resets for other item after buying one
             {
                 ArchipelagoId = 7676226,
                 ObjectIds = ["22"],
