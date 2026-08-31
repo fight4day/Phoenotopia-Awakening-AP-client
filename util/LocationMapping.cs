@@ -3640,6 +3640,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676332,
+                HintWhenLoaded = true,
                 ObjectIds = ["21"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
@@ -3658,6 +3659,7 @@ public class LocationMapping
             new Check // TODO: item consists of multiple sprites, remove others
             {
                 ArchipelagoId = 7676333,
+                HintWhenLoaded = true,
                 ObjectIds = ["24"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -3676,6 +3678,7 @@ public class LocationMapping
             new Check // TODO: item consists of multiple sprites, remove others
             {
                 ArchipelagoId = 7676334,
+                HintWhenLoaded = true,
                 ObjectIds = ["25"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
@@ -3694,11 +3697,12 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676335,
+                HintWhenLoaded = true,
                 ObjectIds = ["26"],
                 IsKeyItem = false,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3472] = [["A <#00ffff>fish skewer</color>", "%APPlayer/Our % <#00ffff>%APItem%</color>"]],
+                    [3472] = [["A <#00ffff>fish skewer</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
                     [3473] = [["a Fish Skewer", "%APPlayer%%APItem%"]],
                     [3474] = [
                         ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,84,1;", ""],
@@ -4236,9 +4240,9 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676443,
-                ObjectIds = ["338"],
-                IsKeyItem = false, // Cannot be bought again even in vanilla
                 HintWhenLoaded = true,
+                ObjectIds = ["338"],
+                IsKeyItem = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
@@ -4254,10 +4258,10 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676444,
-                ObjectIds = ["336"],
-                IsKeyItem = false, // Cannot be bought again even in vanilla
-                FillWhenExcluded = FillMode.StatusUpgrade,
                 HintWhenLoaded = true,
+                ObjectIds = ["336"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3786] = [["That's a ", "That's %APPlayer/a %"], ["Heart Ruby", "%APItem%"], ["a beautiful red gem ", ""]],
@@ -4272,13 +4276,13 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676445,
-                ObjectIds = ["337"],
-                IsKeyItem = false, // Cannot be bought again even in vanilla
-                FillWhenExcluded = FillMode.StatusUpgrade,
                 HintWhenLoaded = true,
+                ObjectIds = ["337"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3790] = [["An elegant green", "%APPlayer/An % elegant"], ["Energy Gem", "%APItem%"]],
+                    [3790] = [["An elegant green", "%APPlayer/An %elegant"], ["Energy Gem", "%APItem%"]],
                     [3792] = [["an Energy Gem", "%APPlayer%%APItem%"]],
                     [3793] = [["GO,GP3;", "GO,%BonusLine%;"]],
                     [-1] = [["GIS,FILE_MARK_SI,OXY_GEO_1,true|recycle,shop_3"]],
@@ -4290,10 +4294,10 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676446,
+                HintWhenLoaded = true,
                 ObjectIds = ["339"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.Always,
-                HintWhenLoaded = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [3794] = [["A ", "%APPlayer/A %"], ["GEO jacket", "%APItem%"], ["armor", "item"]],
@@ -4922,7 +4926,7 @@ public class LocationMapping
         },
         ["p1_the_wall_01"] = new List<Check>
         {
-            new Check
+            new Check // TODO: first wall needs to be opened for this check
             {
                 ArchipelagoId = 7676487,
                 ObjectIds = ["61"],
@@ -4947,6 +4951,224 @@ public class LocationMapping
                 GISIdentifier = "MOON_WALL_S_1",
                 OverrideType =
                     "profile=daea_soldierf;voice=woman,1.03;behavior=stand;face_right;speech=KNIGHT_MOM_3,KNIGHT_MOM_3+2;ql=SI_TRUE,KMOM_2&OC_ABSENT,kmom_temp",
+            },
+        },
+        ["p1_daea_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676369,
+                ObjectIds = ["2-get emerald"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5064] = [["emerald", "%APItem%"]],
+                    [5065] = [["his emeralds", "%APPlayer/his %%APItem%"]],
+                    [5066] = [["his emeralds", "%APPlayer/his %%APItem%"]],
+                    [5069] = [["an emerald", "%APPlayer%%APItem%"]],
+                    [5075] = [["emeralds", "%APItem%"]],
+                },
+                GISIdentifier = "OXY_DAEA_3",
+                OverrideType =
+                    "FILE_MARK_SI,OXY_DAEA_3,true|recycle,fount_npc|FILE_MARK_OC,JUMP_TO,BIRD_LADY_2,IF_TRUE",
+            },
+        },
+        ["p1_ex_geo_09d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676370,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3818] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_9",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_09;sort=fg_tiles,1",
+            },
+        },
+        ["p1_daea_windmill_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676549,
+                ObjectIds = ["108"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_7",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAEA_TOWN_7;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_TOWN_7|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_daea_blacksmith"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676371,
+                HintWhenLoaded = true,
+                ObjectIds = ["97"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5364] = [["JUMP_TO,LAMP_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,32,1;", ""], ["the <#00ffff>crank lamp</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5365] = [["a Crank Lamp", "%APPlayer%%APItem%"]],
+                    [5366] = [["|ITEM_add,32,1;GO,LAMP_GET", ";GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_LAMP|recycle,shop_lamp"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_LAMP",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_LAMP;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_lamp",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676372,
+                HintWhenLoaded = true,
+                ObjectIds = ["85"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5367] = [["JUMP_TO,BAT3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(8);", ""],
+                              ["a very strong and powerful <#00ffff>steel bat</color>", "%APPlayer/a %very strong and powerful <#00ffff>%APItem%</color>"]],
+                    [5368] = [["a Steel Bat", "%APPlayer%%APItem%"]],
+                    [5369] = [["|ITEM_add,8,1;GO,BAT3_GET", ";GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_BAT|recycle,shop_bat"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_BAT",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_BAT;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_bat",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676373,
+                HintWhenLoaded = true,
+                ObjectIds = ["84"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5370] = [["JUMP_TO,ARMOR3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(12);", ""],
+                              ["that <#00ffff>jade hauberk</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5371] = [["a Jade Hauberk", "%APPlayer%%APItem%"]],
+                    [5372] = [["|ITEM_add,12,1;GO,ARMOR3_GET", ";GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_ARMOR|recycle,shop_armor"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_ARMOR",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_ARMOR;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_armor",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676374,
+                HintWhenLoaded = true,
+                ObjectIds = ["83"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5373] = [["JUMP_TO,CROSSBOW_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,37,1;", ""],
+                              ["a <#00ffff>civilian crossbow</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5374] = [["a Civilian Crossbow", "%APPlayer%%APItem%"]],
+                    [5375] = [["|ITEM_add,37,1;GO,CROSSBOW_GET", ";GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_BOW|recycle,shop_bow"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_BOW",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_BOW;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_bow",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676375,
+                HintWhenLoaded = true,
+                ObjectIds = ["86"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5376] = [["JUMP_TO,FISHPOLE_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,40,1;", ""],
+                              ["the <#00ffff>fishing rod</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5377] = [["a Fishing Rod", "%APPlayer%%APItem%"]],
+                    [5378] = [["|ITEM_add,40,1;GO,FISHPOLE_GET", ";GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_ROD|recycle,shop_rod"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_ROD",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_ROD;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_rod",
+            },
+        },
+        ["p1_daea_house"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676377,
+                ObjectIds = ["203"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5206] = [["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemode soup"]],
+                    [5208] = [["It seems I don't have 60 R", "It seems I've run out of soup"],
+                              ["I've got 40 R", "I've only got %APPlayer%%APItem%"]],
+                    [5209] = [["40 R", "%APPlayer%%APItem%"]],
+                    [5210] = [["40 R", "%APPlayer%%APItem%"]],
+                    [5212] = [["|money_adjust,P1_RAI,40", ""]],
+                },
+                GISIdentifier = "DAEA_MONEY_5",
+                OverrideType =
+                    "name=house_lady;profile=daea_woman;voice=woman,1;behavior=path,37,45;sort=fg_tiles,-1;speech=D_HOUSE_QUEST,D_HOUSE_QUEST+1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676378,
+                ObjectIds = ["1-MS gift"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4939] = [["rocks", "thingamabobs"]],
+                },
+                GISIdentifier = "MOON_DAEA_TOWN_5",
+                OverrideType =
+                    "FILE_MARK_SI,MOON_DAEA_TOWN_5,true",
+            },
+        },
+        ["p1_daea_01_alley"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676379,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_1",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAEA_TOWN_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_TOWN_1|particle_emitter,highlighter,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676380,
+                ObjectIds = ["23"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_1;instruction=tmx(16/22)",
+            },
+        },
+        ["p1_daea_dorm"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676381,
+                ObjectIds = ["186"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_3;ql=SI_FALSE,DAEA_MONEY_3",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
