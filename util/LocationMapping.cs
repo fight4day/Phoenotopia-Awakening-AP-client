@@ -4963,7 +4963,7 @@ public class LocationMapping
                 FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [5064] = [["emerald", "%APItem%"]],
+                    [5064] = [["GO,5065", "GIS,AP_HINT,7676369;GO,5065"], ["emerald", "%APItem%"]], // TODO:
                     [5065] = [["his emeralds", "%APPlayer/his %%APItem%"]],
                     [5066] = [["his emeralds", "%APPlayer/his %%APItem%"]],
                     [5069] = [["an emerald", "%APPlayer%%APItem%"]],
