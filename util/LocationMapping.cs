@@ -4321,6 +4321,7 @@ public class LocationMapping
         //     new Check
         //     {
         //         ArchipelagoId = 7676447,
+        //         HintWhenLoaded = true,
         //         ObjectIds = ["330", "340", "325"], // Loot
         //         // ObjectIds = ["343"], // Shelf
         //         IsKeyItem = true,
@@ -4440,7 +4441,8 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [5652] = [["your", "%APPlayer/your %"], ["Calory Slush", "%APItem%"]],
+                    [5652] = [["GO,5653", "GIS,AP_HINT,%APId%;GO,5653"],
+                              ["your", "%APPlayer/your %"], ["Calory Slush", "%APItem%"]],
                     [5654] = [["Calory Slush", "%APItem%"]],
                     [5655] = [["Calory Slush", "%APPlayer%%APItem%"]],
                     [5656] = [["GO,GP1;", "GO,%BonusLine%;"]],
@@ -4815,6 +4817,7 @@ public class LocationMapping
             // */
             // {
             //     ArchipelagoId = 7676482,
+            //     HintWhenLoaded = true,
             //     ObjectIds = ["172"],
             //     IsKeyItem = true,
             //     FillWhenExcluded = FillMode.Always,
@@ -4960,7 +4963,7 @@ public class LocationMapping
                 FillWhenExcluded = FillMode.StatusUpgrade,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [5064] = [["GO,5065", "GIS,AP_HINT,7676369;GO,5065"], ["emerald", "%APItem%"]], // TODO:
+                    [5064] = [["GO,5065", "GIS,AP_HINT,%APId%;GO,5065"], ["emerald", "%APItem%"]],
                     [5065] = [["his emeralds", "%APPlayer/his %%APItem%"]],
                     [5066] = [["his emeralds", "%APPlayer/his %%APItem%"]],
                     [5069] = [["an emerald", "%APPlayer%%APItem%"]],
@@ -5108,7 +5111,8 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [5206] = [["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemode soup"]],
+                    [5206] = [["ITEM_HAVE_COUNT,66,3", "ITEM_HAVE_COUNT,66,3;GIS,AP_HINT,%APId%"],
+                              ["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemode soup"]],
                     [5208] = [["It seems I don't have 60 R", "It seems I've run out of soup"],
                               ["I've got 40 R", "I've only got %APPlayer%%APItem%"]],
                     [5209] = [["40 R", "%APPlayer%%APItem%"]],
