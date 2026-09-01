@@ -31,6 +31,11 @@ internal sealed class APReplaceLootPatches
     {
         { 98, 217 },
         { 108, 218 },
+        { 115, 219 },
+        { 116, 220 },
+        { 119, 225 },
+        { 120, 226 },
+        { 121, 227 },
     };
 
     [HarmonyPatch(typeof(PT2), "Initialize")]
@@ -45,6 +50,12 @@ internal sealed class APReplaceLootPatches
             LoadSpriteFromResource("preludeOfPanseloUpgrade.png"),
             LoadSpriteFromResource("anuriPearlstoneNecklace.png"),
             LoadSpriteFromResource("ouroGuardKeyring.png"),
+            LoadSpriteFromResource("panseloTeleporterUnlock.png"),
+            LoadSpriteFromResource("ataiTeleporterUnlock.png"),
+            LoadSpriteFromResource("cosetteTeleporterUnlock.png"),
+            LoadSpriteFromResource("masterKeycardC.png"),
+            LoadSpriteFromResource("masterKeycardB.png"),
+            LoadSpriteFromResource("masterKeycardA.png"),
         ];
 
         Sprite[] originalSpriteLib = PT2.sprite_lib.all_item_sprites;
@@ -63,40 +74,94 @@ internal sealed class APReplaceLootPatches
     {
         ItemGridLogic.ItemOrToolDef[] apItems =
         [
-            CreateItemDef(
-                "Progressive Archipelago Item",
+            CreateItemDef( // 213
+                "Progression Archipelago Item",
                 FindSpriteIdByName("apSprite"),
                 "An item from another world",
                 "FREE"
             ),
-            CreateItemDef(
+            CreateItemDef( // 214
                 "Useful Archipelago Item",
                 FindSpriteIdByName("apSpriteUseful"),
                 "An item from another world",
                 "FREE"
             ),
-            CreateItemDef(
+            CreateItemDef( // 215
                 "Filler Archipelago Item",
                 FindSpriteIdByName("apSpriteFiller"),
                 "An item from another world",
                 "FREE"
             ),
-            CreateItemDef(
+            CreateItemDef( // 216
                 "Spell of Rejuvenation",
                 FindSpriteIdByName("preludeOfPanseloUpgrade"),
                 "Healing linked to a nostalgic song",
                 "FREE"
             ),
-            CreateItemDef(
+            CreateItemDef( // 217
                 "Anuri Pearlstone Necklace",
                 FindSpriteIdByName("anuriPearlstoneNecklace"),
                 "A necklace of small amber spheres boasting more technology than its simple appearance would suggest. Small glyphs at every sphere's core glows brighter the closer it approaches an Anuri door receptacle.",
                 "FREE;NO_DISCARD"
             ),
-            CreateItemDef(
+            CreateItemDef( // 218
                 "Ouro Guard Keyring",
                 FindSpriteIdByName("ouroGuardKeyring"),
                 "A keyring with irregularly shaped keys obtained from an Ouroboros guard. The key's shape is fashioned after a sand drake's head, with the stem resembling a tongue.",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 219
+                "Big Blue Golem Medallion",
+                FindSpriteIdByName("apSpriteFiller"),
+                "A medallion proving that you've passed a test in Thomas's Lab. The medallion is made from a section of circuit board and bears skillfully carved patterns. Perhaps a piece of art made by a golem? This one is colored blue",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 220
+                "Big Red Golem Medallion",
+                FindSpriteIdByName("apSpriteFiller"),
+                "A medallion proving that you've passed a test in Thomas's Lab. The medallion is made from a section of circuit board and bears skillfully carved patterns. Perhaps a piece of art made by a golem? This one is colored red",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 221
+                "Moonstone Bundle",
+                FindSpriteIdByName("apSpriteFiller"),
+                "a bundle of semi-transparent blue runestones, said to have been a core component in ancient technology. they are valued amongst enthusiasts for their faint luminescence and beauty.",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 222
+                "Panselo Franway Teleporter",
+                FindSpriteIdByName("panseloTeleporterUnlock"),
+                "Unlocking the Panselo Franway teleporter",
+                "FREE"
+            ),
+            CreateItemDef( // 223
+                "Atai Franway Teleporter",
+                FindSpriteIdByName("ataiTeleporterUnlock"),
+                "Unlocking the Atai Franway teleporter",
+                "FREE"
+            ),
+            CreateItemDef( // 224
+                "Cosette Franway Teleporter",
+                FindSpriteIdByName("cosetteTeleporterUnlock"),
+                "Unlocking the Cosette Franway teleporter",
+                "FREE"
+            ),
+            CreateItemDef( // 225
+                "Master Keycard C",
+                FindSpriteIdByName("masterKeycardC"),
+                "A hard, plastic keycard capable of opening the electronically locked doors within Daea's dungeons. This one is colored green and encrypted with permanent permissions to open level C doors.",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 226
+                "Master Keycard B",
+                FindSpriteIdByName("masterKeycardB"),
+                "A hard, plastic keycard capable of opening the electronically locked doors within Daea's dungeons. This one is colored blue and encrypted with permanent permissions to open level B doors.",
+                "FREE;NO_DISCARD"
+            ),
+            CreateItemDef( // 227
+                "Master Keycard A",
+                FindSpriteIdByName("masterKeycardA"),
+                "A hard, plastic keycard capable of opening the electronically locked doors within Daea's dungeons. This one is colored red and encrypted with permanent permissions to open level A doors.",
                 "FREE;NO_DISCARD"
             ),
         ];
@@ -427,6 +492,29 @@ internal sealed class APReplaceLootPatches
         if (!DungeonItemBundleReference.Keys.Contains(itemId)) return;
 
         __result = PT2.save_file.QL_EvaluateExpression($"ITEM_HAVE_COUNT,{DungeonItemBundleReference[itemId]},1");
+    }
+
+    [HarmonyPatch(typeof(SaveFile), "_QL_HandleItemsDontHave")]
+    [HarmonyPostfix] // Patch to handle functionality of dungeon item bundles
+    private static void QLHandleItemsDontHavePostfix(string[] args, ref bool __result)
+    {
+        if (!__result) return;
+
+        int[] itemIds = PT2.GIS_ParseIntList(args[1]);
+        bool foundReplacement = false;
+
+        for (int i = 0; i < itemIds.Length; i++)
+        {
+            if (!DungeonItemBundleReference.TryGetValue(itemIds[i], out int replacement)) continue;
+            itemIds[i] = replacement;
+            foundReplacement = true;
+        }
+
+        if (!foundReplacement) return;
+
+        string ids = string.Join("/", Array.ConvertAll(itemIds, n => n.ToString()));
+
+        __result = PT2.save_file.QL_EvaluateExpression($"ITEM_DONT_HAVE,int_list({ids})");
     }
 
     private static void ProcessAPItemAnimalLifeSmall(AnimalLifeSmallLogic __instance)

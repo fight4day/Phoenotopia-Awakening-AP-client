@@ -32,6 +32,8 @@ public class CutsceneAdjustmentPatches
         PT2.GIS_ProcessInstructions("FILE_MARK_SI,CH_2_C_LISA_ENLISTED,true", Vector3.zero);
         PT2.GIS_ProcessInstructions("FILE_MARK_SI,CH2_D2_GOT_ID_QUEST,true", Vector3.zero);
         PT2.GIS_ProcessInstructions("FILE_MARK_SI,CH2_E1_GOT_BOMB_QUEST,true", Vector3.zero);
+        PT2.GIS_ProcessInstructions("FILE_MARK_SI,SAW_TOWER_ILLUSION,true", Vector3.zero);
+        PT2.GIS_ProcessInstructions("FILE_MARK_SI,CH_3_LC_BART_DEBRIEF,true", Vector3.zero);
 
         if (PhoaAPClient.APConnection.SessionContext.Login.SlotData.TryGetValue("open_panselo_gates",
                 out var openPanseloGates) && (long)openPanseloGates == 1)
@@ -91,5 +93,17 @@ public class CutsceneAdjustmentPatches
     {
         if (message == "fx2")
             PT2.display_messages.DisplayMessage("Game saved!", DisplayMessagesLogic.MSG_TYPE.GALE_PLUS_STATUS);
+    }
+
+    [HarmonyPatch(typeof(PT2), "_GIS_HandleDisplaySmallMsg")]
+    [HarmonyPrefix] // Patch to remove the 'Keycard used' message when using Master Keycard
+    private static bool GISHandleDisplaySmallMsgPrefix(string[] args)
+    {
+        if (args[1] != "USED_ITEM" ||
+            args[3] != "USED_INVENTORY" ||
+            !(args[2] == "item/119" || args[2] == "item/120" || args[2] == "item/121")) return true;
+
+        return PhoaAPClient.APConnection.SessionContext.Login.SlotData.TryGetValue("bundle_keycards",
+            out var bundleGuardKeys) && (long)bundleGuardKeys == 0;
     }
 }

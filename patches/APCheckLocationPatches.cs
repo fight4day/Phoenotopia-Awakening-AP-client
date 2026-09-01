@@ -16,6 +16,7 @@ namespace PhoA_AP_client.patches;
 internal sealed class APCheckLocationPatches
 {
     private static readonly List<long> ChecksToHint = [];
+    private static int[] _apItemIds;
 
     private static readonly HashSet<string> ValidInstructionTypes =
     [
@@ -26,6 +27,38 @@ internal sealed class APCheckLocationPatches
         "FILE_MARK_AP",
         "AP_HINT"
     ];
+
+    [HarmonyPatch(typeof(DB), "_LoadItemDefinitions")]
+    [HarmonyPriority(Priority.Last)]
+    [HarmonyPostfix] // Patch to add AP item to item DB
+    private static void LoadItemDefinitionsPostfix()
+    {
+        string[] targets =
+        [
+            "Progression Archipelago Item",
+            "Useful Archipelago Item",
+            "Filler Archipelago Item",
+            "Panselo Franway Teleporter",
+            "Atai Franway Teleporter",
+            "Cosette Franway Teleporter",
+        ];
+
+        int[] ids = new int[targets.Length];
+        int matches = 0;
+
+        for (int i = 0; i < DB.ITEM_DEFS.Length; i++)
+        {
+            if (DB.ITEM_DEFS[i].item_name == null || !targets.Contains(DB.ITEM_DEFS[i].item_name)) continue;
+            ids[matches] = i;
+            matches++;
+        }
+
+        if (matches != targets.Length)
+            PhoaAPClient.Logger.LogWarning(
+                "Not all, or too many AP were found. Please report this bug to the developer of the AP implementation");
+
+        _apItemIds = ids;
+    }
 
     [HarmonyPatch(typeof(GaleInteracter), "_AttemptGrabbingLoot")]
     [HarmonyPrefix] // Patch to handle possible custom behaviour for AP
@@ -70,10 +103,7 @@ internal sealed class APCheckLocationPatches
     [HarmonyPrefix] // Patch to prevent AP items from being added to the inventory
     private static bool AddItemToolOrStatusIdToInventoryPrefix(int item_tool_id, int quantity, bool ignore_ADDED_GIS)
     {
-        int[] ids = FindAPItemIdsInItemDef();
-        if (ids.Contains(item_tool_id)) return false;
-
-        return true;
+        return !_apItemIds.Contains(item_tool_id);
     }
 
     [HarmonyPatch(typeof(PT2), "GIS_ProcessInstructions")]
@@ -191,33 +221,5 @@ internal sealed class APCheckLocationPatches
             PT2.sound_g.PlayGlobalCommonSfx(133, 1f, 1f, 2);
             PT2.display_messages.DisplayMessage(message.ToString(), DisplayMessagesLogic.MSG_TYPE.SMALL_ITEM_GET);
         });
-    }
-
-    private static int[] FindAPItemIdsInItemDef()
-    {
-        Dictionary<string, int> targets = new Dictionary<string, int>()
-        {
-            { "Progressive Archipelago Item", 0 },
-            { "Useful Archipelago Item", 1 },
-            { "Filler Archipelago Item", 2 },
-        };
-
-        int[] ids = new int[targets.Count];
-        int matches = 0;
-
-        for (int i = 0; i < DB.ITEM_DEFS.Length; i++)
-        {
-            if (DB.ITEM_DEFS[i].item_name != null && targets.TryGetValue(DB.ITEM_DEFS[i].item_name, out int index))
-            {
-                ids[index] = i;
-                matches++;
-            }
-        }
-
-        if (matches != 3)
-            PhoaAPClient.Logger.LogWarning(
-                "Not all, or too many AP were found. Please report this bug to the developer of the AP implementation");
-
-        return ids;
     }
 }
