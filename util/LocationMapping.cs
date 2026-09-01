@@ -5017,8 +5017,7 @@ public class LocationMapping
                 {
                     [5364] = [["JUMP_TO,LAMP_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,32,1;", ""], ["the <#00ffff>crank lamp</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
                     [5365] = [["a Crank Lamp", "%APPlayer%%APItem%"]],
-                    [5366] = [["|ITEM_add,32,1;GO,LAMP_GET", ";GO,%BonusLine%"]],
-                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_LAMP|recycle,shop_lamp"]],
+                    [5366] = [["ITEM_add,32,1;GO,LAMP_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_LAMP|recycle,shop_lamp"]],
                 },
                 GISIdentifier = "AP_DAEA_BLACKSMITH_LAMP",
                 OverrideType =
@@ -5036,8 +5035,7 @@ public class LocationMapping
                     [5367] = [["JUMP_TO,BAT3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(8);", ""],
                               ["a very strong and powerful <#00ffff>steel bat</color>", "%APPlayer/a %very strong and powerful <#00ffff>%APItem%</color>"]],
                     [5368] = [["a Steel Bat", "%APPlayer%%APItem%"]],
-                    [5369] = [["|ITEM_add,8,1;GO,BAT3_GET", ";GO,%BonusLine%"]],
-                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_BAT|recycle,shop_bat"]],
+                    [5369] = [["ITEM_add,8,1;GO,BAT3_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_BAT|recycle,shop_bat"]],
                 },
                 GISIdentifier = "AP_DAEA_BLACKSMITH_BAT",
                 OverrideType =
@@ -5055,8 +5053,7 @@ public class LocationMapping
                     [5370] = [["JUMP_TO,ARMOR3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(12);", ""],
                               ["that <#00ffff>jade hauberk</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
                     [5371] = [["a Jade Hauberk", "%APPlayer%%APItem%"]],
-                    [5372] = [["|ITEM_add,12,1;GO,ARMOR3_GET", ";GO,%BonusLine%"]],
-                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_ARMOR|recycle,shop_armor"]],
+                    [5372] = [["ITEM_add,12,1;GO,ARMOR3_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_ARMOR|recycle,shop_armor"]],
                 },
                 GISIdentifier = "AP_DAEA_BLACKSMITH_ARMOR",
                 OverrideType =
@@ -5074,8 +5071,7 @@ public class LocationMapping
                     [5373] = [["JUMP_TO,CROSSBOW_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,37,1;", ""],
                               ["a <#00ffff>civilian crossbow</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
                     [5374] = [["a Civilian Crossbow", "%APPlayer%%APItem%"]],
-                    [5375] = [["|ITEM_add,37,1;GO,CROSSBOW_GET", ";GO,%BonusLine%"]],
-                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_BOW|recycle,shop_bow"]],
+                    [5375] = [["ITEM_add,37,1;GO,CROSSBOW_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_BOW|recycle,shop_bow"]],
                 },
                 GISIdentifier = "AP_DAEA_BLACKSMITH_BOW",
                 OverrideType =
@@ -5093,8 +5089,7 @@ public class LocationMapping
                     [5376] = [["JUMP_TO,FISHPOLE_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,40,1;", ""],
                               ["the <#00ffff>fishing rod</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
                     [5377] = [["a Fishing Rod", "%APPlayer%%APItem%"]],
-                    [5378] = [["|ITEM_add,40,1;GO,FISHPOLE_GET", ";GO,%BonusLine%"]],
-                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_BLACKSMITH_ROD|recycle,shop_rod"]],
+                    [5378] = [["ITEM_add,40,1;GO,FISHPOLE_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_ROD|recycle,shop_rod"]],
                 },
                 GISIdentifier = "AP_DAEA_BLACKSMITH_ROD",
                 OverrideType =
