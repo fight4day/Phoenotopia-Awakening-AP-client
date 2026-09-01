@@ -5214,6 +5214,195 @@ public class LocationMapping
                     "FILE_MARK_SI,BO_QUEST_3,true|FILE_MARK_OC,bo_temp",
             },
         },
+        ["p1_daea_restaurant"] = new List<Check>
+        {
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676386,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5131] = [["The <#00ffff>deli sandwich</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5132] = [["a Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5133] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,46,1;", ""],
+                        ["ITEM_add,46,1", "FILE_MARK_AP,AP_DAEA_BL_SANDWICH"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5156] = [["The <#00ffff>deli sandwich</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5157] = [["a Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5158] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,46,1;", ""],
+                        ["ITEM_add,46,1", "FILE_MARK_AP,AP_DAEA_BL_SANDWICH"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SANDWICH",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676387,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["House Soup", "%APPlayer%%APItem%"]],
+                    [5134] = [["Our <#00ffff>house soup</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5135] = [["a bottle of House Soup", "%APPlayer%%APItem%"]],
+                    [5136] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,167,1;", ""],
+                        ["ITEM_add,167,1", "FILE_MARK_AP,AP_DAEA_BL_SOUP"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["House Soup", "%APPlayer%%APItem%"]],
+                    [5159] = [["Our <#00ffff>house soup</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5160] = [["a bottle of House Soup", "%APPlayer%%APItem%"]],
+                    [5161] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,167,1;", ""],
+                        ["ITEM_add,167,1", "FILE_MARK_AP,AP_DAEA_BL_SOUP"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SOUP",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676388,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5137] = [["The <#00ffff>Blue Lobster Special</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5138] = [["a Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5139] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,153,1;", ""],
+                        ["ITEM_add,153,1", "FILE_MARK_AP,AP_DAEA_BL_SPECIAL"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5162] = [["The <#00ffff>Blue Lobster Special</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5163] = [["a Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5164] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,153,1;", ""],
+                        ["ITEM_add,153,1", "FILE_MARK_AP,AP_DAEA_BL_SPECIAL"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SPECIAL",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676389,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Milk", "%APPlayer%%APItem%"]],
+                    [5140] = [["Fresh <#00ffff>milk</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5141] = [["a bottle of Milk", "%APPlayer%%APItem%"]],
+                    [5142] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
+                        ["ITEM_add,67,1", "FILE_MARK_AP,AP_DAEA_BL_MILK"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Milk", "%APPlayer%%APItem%"]],
+                    [5165] = [["Fresh <#00ffff>milk</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5166] = [["a bottle of Milk", "%APPlayer%%APItem%"]],
+                    [5167] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
+                        ["ITEM_add,67,1", "FILE_MARK_AP,AP_DAEA_BL_MILK"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_MILK",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676390,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Honey Brew", "%APPlayer%%APItem%"]],
+                    [5143] = [["The <#00ffff>Honey Brew</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5144] = [["a bottle of Honey Brew", "%APPlayer%%APItem%"]],
+                    [5145] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,54,1;", ""],
+                        ["ITEM_add,54,1", "FILE_MARK_AP,AP_DAEA_BL_HONEY"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Honey Brew", "%APPlayer%%APItem%"]],
+                    [5168] = [["The <#00ffff>Honey Brew</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5169] = [["a bottle of Honey Brew", "%APPlayer%%APItem%"]],
+                    [5170] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,54,1;", ""],
+                        ["ITEM_add,54,1", "FILE_MARK_AP,AP_DAEA_BL_HONEY"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_HONEY",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676391,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Grape Juice", "%APPlayer%%APItem%"]],
+                    [5146] = [["Fresh <#00ffff>grape juice</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5147] = [["a bottle of Grape Juice", "%APPlayer%%APItem%"]],
+                    [5148] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,206,1;", ""],
+                        ["ITEM_add,206,1", "FILE_MARK_AP,AP_DAEA_BL_GRAPE"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Grape Juice", "%APPlayer%%APItem%"]],
+                    [5171] = [["Fresh <#00ffff>grape juice</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5172] = [["a bottle of Grape Juice", "%APPlayer%%APItem%"]],
+                    [5173] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,206,1;", ""],
+                        ["ITEM_add,206,1", "FILE_MARK_AP,AP_DAEA_BL_GRAPE"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_GRAPE",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
