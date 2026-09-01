@@ -5112,7 +5112,7 @@ public class LocationMapping
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [5206] = [["ITEM_HAVE_COUNT,66,3", "ITEM_HAVE_COUNT,66,3;GIS,AP_HINT,%APId%"],
-                              ["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemode soup"]],
+                              ["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemade soup"]],
                     [5208] = [["It seems I don't have 60 R", "It seems I've run out of soup"],
                               ["I've got 40 R", "I've only got %APPlayer%%APItem%"]],
                     [5209] = [["40 R", "%APPlayer%%APItem%"]],
