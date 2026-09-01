@@ -2274,6 +2274,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676239,
+                HintWhenLoaded = true,
                 ObjectIds = ["140"],
                 IsKeyItem = false,
                 IsNpc = true,
@@ -2289,6 +2290,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676240,
+                HintWhenLoaded = true,
                 ObjectIds = ["142"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -2304,6 +2306,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676241,
+                HintWhenLoaded = true,
                 ObjectIds = ["143"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -4812,7 +4815,7 @@ public class LocationMapping
             // new Check
             // /* TODO:
             // 1. 4719 ITEM_DONT_HAVE,int_list(25) causes repeated dialogue on following checks and prevents 7676483
-            // 2. replaced item is not shown properly 
+            // 2. replaced item is not shown properly
             // 3. item reappears on reentering screen
             // */
             // {
@@ -5232,6 +5235,15 @@ public class LocationMapping
                 OverrideType =
                     "name=forte;profile=horn;voice=man,1;speech=FORTE_HARMO_6;behavior=action_only;face_right",
             },
+            new Check
+            {
+                ArchipelagoId = 7676411,
+                ObjectIds = ["247"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_6",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_6;ql=SI_FALSE,REGEN_DAEA_6",
+            },
         },
         ["p1_daea_restaurant"] = new List<Check>
         {
@@ -5508,6 +5520,130 @@ public class LocationMapping
                 GISIdentifier = "AP_DAEA_FOUNTAIN_ALL_SONGS",
                 OverrideType =
                     "CONTINUE_IF,SI_ALL_TRUE,FAUN_FOUNT_OU,FAUN_FOUNT_GE,FAUN_FOUNT_RO,FAUN_FOUNT_PA,FAUN_FOUNT_BA,FAUN_FOUNT_PH|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_FOUNTAIN_ALL_SONGS,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$2,deviation$vec3(1/1/1),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|common_sfx,5,pitch$0.7|DELAY,1.5|particle_emitter,highlighter,stop|light_change,faun_light,intensity$0|common_sfx,150",
+            },
+        },
+        ["p1_daea_grocer"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676404,
+                HintWhenLoaded = true,
+                ObjectIds = ["47"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4964] = [["An apple <#00ffff>puff pastry</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [4965] = [["a Puff Pastry", "%APPlayer%%APItem%"]],
+                    [4966] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,169,1;", ""],
+                              ["ITEM_add,169,1", "FILE_MARK_AP,AP_DAEA_BAKERY_PASTRY|recycle,shop_pastry"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_PASTRY",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=PUFF_PASTRY;spacing=left,0.2;name=shop_pastry",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676405,
+                HintWhenLoaded = true,
+                ObjectIds = ["38"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4961] = [["A pair of <#00ffff>strawberry macarons</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [4962] = [["2 Strawberry Macarons", "%APPlayer%%APItem%"]],
+                    [4963] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,171,2;", ""],
+                              ["ITEM_add,171,2", "FILE_MARK_AP,AP_DAEA_BAKERY_MACARON|recycle,shop_macaron"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_MACARON",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=SB_MACARON;face_right;spacing=left,0.2;name=shop_macaron",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676406,
+                HintWhenLoaded = true,
+                ObjectIds = ["39"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4958] = [["our famous <#00ffff>grape cake</color>", "%APPlayer/our %famous <#00ffff>%APItem%</color>"]],
+                    [4959] = [["a slice of Grape Cake", "%APPlayer%%APItem%"]],
+                    [4960] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,65,1;", ""],
+                              ["ITEM_add,65,1", "FILE_MARK_AP,AP_DAEA_BAKERY_CAKE|recycle,shop_cake"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_CAKE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GRAPE_CAKE;spacing=left,0.2;name=shop_cake",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676407,
+                HintWhenLoaded = true,
+                ObjectIds = ["37"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4955] = [["<#00ffff>chocolate</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [4956] = [["a box of 3 Chocolates", "%APPlayer%%APItem%"]],
+                    [4957] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,68,3;", ""],
+                              ["ITEM_add,68,3", "FILE_MARK_AP,AP_DAEA_BAKERY_CHOCOLATE|recycle,shop_chocolate"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_CHOCOLATE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DAEA_CHOCOLATE;sort=game_objects,41;spacing=left,0.2;name=shop_chocolate",
+            },
+        },
+        ["p1_daea_shooting_gallery"] = new List<Check>
+        {
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676408,
+                HintWhenLoaded = true,
+                ObjectIds = ["130"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5545] = [["GO,GP8", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_ARCHERY_1|AT_scale,duck,vec3(0/0/0),duration$0.25"]],
+                },
+                GISIdentifier = "AP_DAEA_ARCHERY_1",
+                OverrideType =
+                    "CustomAnimatedSprite;name=duck;loot=%ItemId%;sort=game_objects,14;color=ffffff",
+            },
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676409,
+                HintWhenLoaded = true,
+                ObjectIds = ["131"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5547] = [["GO,GP9", "GO,5548"]],
+                    [5548] = [["ITEM_add,3,1|", ""]],
+                },
+                GISIdentifier = "HEART_DAEA_1",
+                OverrideType =
+                    "CustomAnimatedSprite;name=heart;loot=%ItemId%;sort=game_objects,14;color=ffffff;ql=SI_FALSE,HEART_DAEA_1",
+            },
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676410,
+                HintWhenLoaded = true,
+                ObjectIds = ["133"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5550] = [["GO,GP10", "GO,5551"]],
+                    [5551] = [["ITEM_add,4,1|", ""]],
+                },
+                GISIdentifier = "OXY_DAEA_2",
+                OverrideType =
+                    "CustomAnimatedSprite;name=oxy;loot=%ItemId%;sort=game_objects,14;color=ffffff;ql=SI_FALSE,OXY_DAEA_2",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
