@@ -5213,6 +5213,30 @@ public class LocationMapping
                 OverrideType =
                     "FILE_MARK_SI,BO_QUEST_3,true|FILE_MARK_OC,bo_temp",
             },
+            new Check
+            {
+                ArchipelagoId = 7676393,
+                ObjectIds = ["7-troupe heart"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_DAEA_3",
+                OverrideType =
+                    "FILE_MARK_SI,HEART_DAEA_3,true",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676394,
+                ObjectIds = ["238"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [1356] = [["money_adjust,P1_RAI,35|", ""]],
+                },
+                GISIdentifier = "REGEN_TROUPE",
+                OverrideType =
+                    "name=forte;profile=horn;voice=man,1;speech=FORTE_HARMO_6;behavior=action_only;face_right",
+            },
         },
         ["p1_daea_restaurant"] = new List<Check>
         {
@@ -5401,6 +5425,31 @@ public class LocationMapping
                 GISIdentifier = "AP_DAEA_BL_GRAPE",
                 OverrideType =
                     "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+        },
+        ["p1_daea_02_alley_i"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676395,
+                ObjectIds = ["44"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_3",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_3;instruction=tmx(16/22)",
+            },
+        },
+        ["p1_daea_02_alley_ii"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676396,
+                ObjectIds = ["82"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_DAEA_2",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_DAEA_2,true;ql=SI_FALSE,HEART_DAEA_2",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
