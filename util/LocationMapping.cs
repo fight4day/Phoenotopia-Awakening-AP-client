@@ -5646,6 +5646,168 @@ public class LocationMapping
                     "CustomAnimatedSprite;name=oxy;loot=%ItemId%;sort=game_objects,14;color=ffffff;ql=SI_FALSE,OXY_DAEA_2",
             },
         },
+        ["p1_daea_tunnel_01"] = new List<Check>
+        {
+            // TODO: implement followup check 7676413
+            // new Check
+            // {
+            //     ArchipelagoId = 7676412,
+            //     ObjectIds = ["232"],
+            //     IsKeyItem = true,
+            //     FillWhenExcluded = FillMode.Always,
+            //     IsNpc = true,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5495] = [["JUMP_TO,MASTER_TERAKA,IF_TRUE|ITEM_DONT_HAVE,int_list(16);", ""]], // TODO: what to do about conditional if player has quest reward?
+            //         [5491] = [["GO,5492", "GO,%BonusLine%"]],
+            //         [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_TERAKA"]],
+            //     },
+            //     GISIdentifier = "AP_DAEA_TERAKA",
+            //     OverrideType =
+            //         "name=teraka;profile=daea_dojo_master;speech=loop,TERAKA_AFTER,TERAKA_AFTER+2;voice=man,0.95;behavior=stand;face_right;use_all_bright;spacing=right,0.6",
+            // },
+            new Check
+            {
+                ArchipelagoId = 7676414,
+                ObjectIds = ["241"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5400] = [["GO,5401", "GIS,AP_HINT,%APId%;GO,5401"],
+                              ["our <*_><i>very hot</i>,<*_> <#00ffff>spicy noodles</color>", "%APPlayer/our %<*_><i>very hot</i>,<*_> <#00ffff>%APItem%</color>"]],
+                    [5401] = [["Spicy Noodles", "%APPlayer%%APItem%"]],
+                    [5402] =
+                    [
+                        ["JUMP_TO,NOODLE_SHOP+1,IF_FALSE|ITEM_CAN_ADD,152,1;", ""],
+                        ["ITEM_add,152,1", "FILE_MARK_AP,AP_DAEA_NOODLES"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_NOODLES",
+                OverrideType =
+                    "name=noodle_girl;profile=moon_woman;speech=NOODLE_SHOP+5;voice=woman,1.02;behavior=stand;use_all_bright;sort=bg_tiles,3;floating;talk_range=1.25;face_right",
+            },
+        },
+        ["p1_daea_tunnel_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676415,
+                ObjectIds = ["166"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_3;ql=SI_FALSE,REGEN_DAEA_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676416,
+                ObjectIds = ["167"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_4",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_4;ql=SI_FALSE,REGEN_DAEA_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676417,
+                ObjectIds = ["160"],
+                IsKeyItem = false,
+                GISIdentifier = "DAEA_MONEY_4",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_4;ql=SI_FALSE,DAEA_MONEY_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676418,
+                ObjectIds = ["168"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_5",
+                OverrideType =
+                    "type=P1_WOOD_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_5;ql=SI_FALSE,REGEN_DAEA_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676419,
+                ObjectIds = ["1-1st ingredient reward"],
+                IsKeyItem = false,
+                GISIdentifier = "BASIL_1",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,BASIL_1|ITEM_remove,86,1|FILE_MARK_SI,BASIL_1,true",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676420,
+                ObjectIds = ["2-2nd ingredient reward"],
+                IsKeyItem = false,
+                GISIdentifier = "BASIL_2",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,BASIL_2|ITEM_remove,180,1|FILE_MARK_SI,BASIL_2,true",
+            },
+            new Check // NOTE: already implemented but not in apworld yet
+            {
+                ArchipelagoId = 7676421,
+                ObjectIds = ["48"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5027] = [["ITEM_add,5,1|", ""]],
+                },
+                GISIdentifier = "MOON_DAEA_TOWN_6",
+                OverrideType =
+                    "name=basil;profile=daea_chef;speech=CHEF_BASIL;behavior=action_talk;spacing=left,0.5;long_talker",
+            },
+            new Check // NOTE: already implemented but not in apworld yet
+            {
+                ArchipelagoId = 7676422,
+                ObjectIds = ["3-get elixir"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5040] = [["JUMP_AT_END,5042,IF_FALSE|ITEM_CAN_ADD,187,1", ""]],
+                },
+                GISIdentifier = "AP_DAEA_BASIL_ELIXIR",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DAEA_BASIL_ELIXIR|FILE_MARK_SI,BASIL_COOKING,false|DELAY,0.5|common_sfx,162",
+            },
+        },
+        ["p1_daea_tunnel_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676423,
+                ObjectIds = ["87"],
+                IsKeyItem = false,
+                GISIdentifier = "DAEA_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_1;ql=SI_FALSE,DAEA_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676424,
+                ObjectIds = ["7-receive Ms"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_4",
+                OverrideType =
+                    "FILE_MARK_SI,MOON_DAEA_TOWN_4,true",
+            },
+        },
+        ["p1_dungeon_10a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676425,
+                ObjectIds = ["82"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_BOSS_KATASH",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_BOSS_KATASH,true;ql=SI_FALSE,HEART_BOSS_KATASH",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
