@@ -5914,6 +5914,324 @@ public class LocationMapping
                     "id=%ItemId%;collected_GIS=FILE_MARK_SI,MOON_DAEA_SEWS_3,true;ql=SI_FALSE,MOON_DAEA_SEWS_3",
             },
         },
+        ["p1_dungeon_01a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676501,
+                ObjectIds = ["94"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_2",
+                OverrideType =
+                    "name=SHINY_LOOT;type=P1_WOOD_S;ql=SI_FALSE,MOON_JAIL_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676502,
+                ObjectIds = ["99"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_1",
+            },
+        },
+        ["p1_dungeon_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676503,
+                ObjectIds = ["3-replenish C access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_C_1",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676504,
+                ObjectIds = ["3-replenish C access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_C_2",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676505,
+                ObjectIds = ["3-replenish C access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_C_3",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676506,
+                ObjectIds = ["3-replenish C access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_C_4",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676507,
+                ObjectIds = ["3-replenish C access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_C_5",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676508,
+                ObjectIds = ["4-replenish B access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_B_1",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676509,
+                ObjectIds = ["4-replenish B access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_B_2",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676510,
+                ObjectIds = ["4-replenish B access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_B_3",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676511,
+                ObjectIds = ["4-replenish B access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_B_4",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676512,
+                ObjectIds = ["4-replenish B access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_B_5",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676513,
+                ObjectIds = ["5-replenish A access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_A_1",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676514,
+                ObjectIds = ["5-replenish A access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_A_2",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676515,
+                ObjectIds = ["5-replenish A access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_A_3",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676516,
+                ObjectIds = ["5-replenish A access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_A_4",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676517,
+                ObjectIds = ["5-replenish A access"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DUNGEON_KEYCARD_A_5",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676518,
+                ObjectIds = ["85"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_1;ql=SI_FALSE,JAIL_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676519,
+                ObjectIds = ["87"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_1",
+                OverrideType =
+                    "type=P1_CHEST_S;ql=SI_FALSE,MOON_JAIL_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676520,
+                ObjectIds = ["86"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_2;ql=SI_FALSE,JAIL_MONEY_2",
+            },
+        },
+        ["p1_dungeon_03a1"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676521,
+                ObjectIds = ["84"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_3",
+            },
+        },
+        ["p1_dungeon_03a2"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676522,
+                ObjectIds = ["93"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_3;ql=SI_FALSE,JAIL_MONEY_3",
+            },
+        },
+        ["p1_dungeon_03c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676523,
+                ObjectIds = ["10"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_2",
+            },
+        },
+        ["p1_dungeon_04a1"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676524,
+                ObjectIds = ["103"],
+                IsKeyItem = false,
+                GISIdentifier = "p1d_04a1egg",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=OC_ABSENT,p1d_04a1egg;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_OC$p1d_04a1egg",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676525,
+                ObjectIds = ["99"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_3",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,MOON_JAIL_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_3",
+            },
+        },
+        ["p1_dungeon_04c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676526,
+                ObjectIds = ["93"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_4",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676527,
+                ObjectIds = ["55"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_JAIL_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_JAIL_1,true;ql=SI_FALSE,OXY_JAIL_1;gravity=0",
+            },
+        },
+        ["p1_dungeon_05d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676528,
+                ObjectIds = ["25"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [6391] = [["the ''<#00ffff>Sonic Spear</color>''", "%APPlayer/the %''<#00ffff>%APItem%</color>''"]],
+                    [6396] = [["GO,6397", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,DUNGEON_ARC_OVER,true|black_bars_out"]]
+                },
+                GISIdentifier = "DUNGEON_ARC_OVER",
+                OverrideType =
+                    "name=thomas;voice=man,1;profile=thomas;speech=line,THOMAS_JAIL_1,THOMAS_JAIL_2;face_right",
+            },
+        },
+        ["p1_dungeon_10b"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676529,
+                ObjectIds = ["63"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_1A",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_TOWER_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_1A",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676530,
+                ObjectIds = ["61"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_1B",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_TOWER_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_1B",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676531,
+                ObjectIds = ["77"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LIZARD_1",
+                OverrideType =
+                    "type=p_lizard;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LIZARD_1;instruction=tmx(41/39),tmx(48/42),tmx(47.875/39)",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
