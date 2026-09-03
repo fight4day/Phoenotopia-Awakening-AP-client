@@ -5712,7 +5712,7 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676417,
                 ObjectIds = ["160"],
-                IsKeyItem = false,
+                IsKeyItem = true,
                 GISIdentifier = "DAEA_MONEY_4",
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_4;ql=SI_FALSE,DAEA_MONEY_4",
@@ -5779,7 +5779,7 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676423,
                 ObjectIds = ["87"],
-                IsKeyItem = false,
+                IsKeyItem = true,
                 GISIdentifier = "DAEA_MONEY_1",
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_1;ql=SI_FALSE,DAEA_MONEY_1",
@@ -5806,6 +5806,112 @@ public class LocationMapping
                 GISIdentifier = "HEART_BOSS_KATASH",
                 OverrideType =
                     "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_BOSS_KATASH,true;ql=SI_FALSE,HEART_BOSS_KATASH",
+            },
+        },
+        ["p1_daea_sewers_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676492,
+                ObjectIds = ["18", "19", "20", "21"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_1",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_1;instruction=tmx(47/18)",
+            },
+        },
+        ["p1_daea_sewers_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676493,
+                ObjectIds = ["33"],
+                IsKeyItem = true,
+                GISIdentifier = "SEWER_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$SEWER_MONEY_1;ql=SI_FALSE,SEWER_MONEY_1",
+            },
+        },
+        ["p1_daea_sewers_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676494,
+                ObjectIds = ["51"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_2",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_2;instruction=tmx(38/24)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676495,
+                ObjectIds = ["50"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,MOON_DAEA_SEWS_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_SEWS_1",
+            },
+        },
+        ["p1_daea_sewers_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676496,
+                ObjectIds = ["38"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_3",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_3;instruction=tmx(18/16)",
+            },
+        },
+        ["p1_daea_sewers_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676497,
+                ObjectIds = ["13", "14", "15", "16"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_4",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_4;instruction=tmx(10/19)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676498,
+                ObjectIds = ["38"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_SEWERS_1",
+                OverrideType =
+                    "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_SEWERS_1,true;ql=SI_FALSE,HEART_SEWERS_1",
+            },
+        },
+        ["p1_daea_sewers_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676499,
+                ObjectIds = ["3-spawn moonstone"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_2",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,MOON_DAEA_SEWS_2|SPAWN_loot,%ItemId%,pos$name(slime1),loot_GIS_MARK_SI$MOON_DAEA_SEWS_2",
+            },
+        },
+        ["p1_daea_sewers_09"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676500,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_3",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,MOON_DAEA_SEWS_3,true;ql=SI_FALSE,MOON_DAEA_SEWS_3",
             },
         },
         ["p1_bandit_lair_boss"] = new List<Check>
