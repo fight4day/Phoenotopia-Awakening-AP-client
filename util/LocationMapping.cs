@@ -6232,15 +6232,197 @@ public class LocationMapping
                     "type=p_lizard;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LIZARD_1;instruction=tmx(41/39),tmx(48/42),tmx(47.875/39)",
             },
         },
-        ["p1_bandit_lair_boss"] = new List<Check>
+        ["p1_towers_00"] = new List<Check>
         {
-            
+            new Check
+            {
+                ArchipelagoId = 7676532,
+                ObjectIds = ["1-got guards wich"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [6448] = [["&ITEM_CAN_ADD,46,1", ""]],
+                    [6449] = [["my sandwich", "%APPlayer/my %%APItem%"]],
+                },
+                GISIdentifier = "GOT_GUARD_WICH",
+                OverrideType =
+                    "FILE_MARK_SI,GOT_GUARD_WICH,true",
+            },
+        },
+        ["p1_towers_00_ex"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676533,
+                ObjectIds = ["127"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_TOWER_2",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_TOWER_2,true;ql=SI_FALSE,HEART_TOWER_2",
+            },
+        },
+        ["p1_towers_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676534,
+                ObjectIds = ["89"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_1",
+                OverrideType =
+                    "type=P1_TOWER_POT_S;ql=SI_FALSE,MOON_TOWER_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_TOWER_1;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676535,
+                ObjectIds = ["293"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_TOWER_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_TOWER_LOOT_2",
+            },
+        },
+        ["p1_towers_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676536,
+                ObjectIds = ["277"],
+                IsKeyItem = true,
+                GISIdentifier = "p1_t3_r5",
+                OverrideType =
+                    "type=P1_TOWER_POT_L;use_all_bright;ql=OC_ABSENT,p1_t3_r5;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_OC$p1_t3_r5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676537,
+                ObjectIds = ["107"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_4",
+                OverrideType =
+                    "type=CHANDELIER;name=chandelier3;ql=SI_FALSE,MOON_TOWER_4;GIS=DELAY,1|SPAWN_loot,%ItemId%,pos$tmx(80.5/32),loot_GIS_MARK_SI$MOON_TOWER_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676538,
+                ObjectIds = ["286"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_1;ql=SI_FALSE,TOWER_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676539,
+                ObjectIds = ["94"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_TOWER_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_TOWER_1,true;ql=SI_FALSE,OXY_TOWER_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676540,
+                ObjectIds = ["285"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_TOWER_LOOT_3",
+                OverrideType =
+                    "type=P1_TOWER_POT_S;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_TOWER_LOOT_3",
+            },
+        },
+        ["p1_towers_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676541,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_TOWER_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_TOWER_1,true;ql=SI_FALSE,HEART_TOWER_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676542,
+                ObjectIds = ["111"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_2",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,MOON_TOWER_2,true;ql=SI_FALSE,MOON_TOWER_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676543,
+                ObjectIds = ["296"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;use_all_bright;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_2;ql=SI_FALSE,TOWER_MONEY_2",
+            },
+        },
+        ["p1_towers_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676544,
+                ObjectIds = ["300"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_3",
+                OverrideType =
+                    "type=P1_TOWER_POT_L;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_3;ql=SI_FALSE,TOWER_MONEY_3;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676545,
+                ObjectIds = ["291"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_3",
+                OverrideType =
+                    "name=e4;type=p1_kobold;instruction=tmx(79.5/25),tmx(23/26),tmx(27/43),tmx(79.5/43);defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_TOWER_3|particle_emitter,moon_highlighter,stop",
+            },
+        },
+        ["p1_tower_boss"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676546,
+                ObjectIds = ["261"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4A",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4A",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676547,
+                ObjectIds = ["260"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4B",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4B",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676548,
+                ObjectIds = ["262"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4C",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4C",
+            },
             new Check
             {
                 ArchipelagoId = 1,
                 ObjectIds = [],
                 IsKeyItem = true,
-                GISIdentifier = "BOSS_DRAKE_DEFEATED",
+                GISIdentifier = "DEFEATED_KATASH", // TODO: not releasing
                 OverrideType =
                     "",
             },
