@@ -3596,6 +3596,9 @@ public class LocationMapping
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
             },
         },
+        // ["p1_bandit_lair_shrine2"] = new List<Check> // TODO: Atri checks 7676327-7676329
+        // {
+        // },
         ["p1_atai_mansion_bedroom"] = new List<Check>
         {
             new Check
