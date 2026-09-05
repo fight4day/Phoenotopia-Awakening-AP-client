@@ -355,6 +355,11 @@ public class ItemHandler
 
     private static string GetGisCmdsFromOverwriteType(Check check)
     {
+        if (check.IsGisPack)
+        {
+            return check.OverrideType;
+        }
+
         string[] overwriteData = check.OverrideType.Split(';');
         string gisCmds = "";
 

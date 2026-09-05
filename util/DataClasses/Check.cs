@@ -18,6 +18,7 @@ public class Check
     public bool IsKeyItem { get; set; }
     public FillMode FillWhenExcluded { get; set; } = FillMode.Never;
     public bool IsNpc { get; set; }
+    public bool IsGisPack { get; set; }
     public int? CompletionDialogId { get; set; }
     public Dictionary<int, List<string[]>> DialogReplacements { get; set; }
     public string GISIdentifier { get; set; }
