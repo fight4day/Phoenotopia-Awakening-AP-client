@@ -355,11 +355,9 @@ public class ItemHandler
 
     private static string GetGisCmdsFromOverwriteType(Check check)
     {
-        if (check.ObjectIds.Length > 0 && check.ObjectIds[0].Contains("-"))
-        {
-            // GIS Pack
+        // GIS Pack
+        if (check.ObjectIds.Any(id => id.Contains("-")))
             return check.OverrideType;
-        }
 
         string[] overwriteData = check.OverrideType.Split(';');
         string gisCmds = "";
