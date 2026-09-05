@@ -3474,6 +3474,159 @@ public class LocationMapping
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
             },
         },
+        ["p1_dungeon_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676503,
+                ObjectIds = ["9"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_1",
+                OverrideType =
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },    
+            new Check
+            {
+                ArchipelagoId = 7676504,
+                ObjectIds = ["9"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_2",
+                OverrideType =
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676505,
+                ObjectIds = ["9"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_3",
+                OverrideType =
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676506,
+                ObjectIds = ["9"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_4",
+                OverrideType =
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676507,
+                ObjectIds = ["9"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_5",
+                OverrideType =
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676508,
+                ObjectIds = ["12"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_1",
+                OverrideType =
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676509,
+                ObjectIds = ["12"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_2",
+                OverrideType =
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676510,
+                ObjectIds = ["12"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_3",
+                OverrideType =
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676511,
+                ObjectIds = ["12"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_4",
+                OverrideType =
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676512,
+                ObjectIds = ["12"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_5",
+                OverrideType =
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676513,
+                ObjectIds = ["15"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_1",
+                OverrideType =
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676514,
+                ObjectIds = ["15"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_2",
+                OverrideType =
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676515,
+                ObjectIds = ["15"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_3",
+                OverrideType =
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676516,
+                ObjectIds = ["15"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_4",
+                OverrideType =
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676517,
+                ObjectIds = ["15"],
+                IsKeyItem = false,
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_5",
+                OverrideType =
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
+            },
+        },
         ["p1_bandit_lair_boss"] = new List<Check>
         {
             
