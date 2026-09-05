@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +17,20 @@ namespace PhoA_AP_client.patches;
 internal sealed class APCheckLocationPatches
 {
     private static readonly List<long> ChecksToHint = [];
+    private static int[] _apItemIds;
+
+    private class KeycardData
+    {
+        public long ID { get; set; }
+        public HashSet<long> LocationIDs { get; set; }
+    }
+
+    private static readonly Dictionary<string, KeycardData> KeycardChecks = new()
+    {
+        { "C", new KeycardData { ID = 119, LocationIDs = [7676503, 7676504, 7676505, 7676506, 7676507] } },
+        { "B", new KeycardData { ID = 120, LocationIDs = [7676508, 7676509, 7676510, 7676511, 7676512] } },
+        { "A", new KeycardData { ID = 121, LocationIDs = [7676513, 7676514, 7676515, 7676516, 7676517] } },
+    };
 
     private static readonly HashSet<string> ValidInstructionTypes =
     [
@@ -24,8 +39,41 @@ internal sealed class APCheckLocationPatches
         "FILE_MARK_POC",
         "POC_WRITE",
         "FILE_MARK_AP",
-        "AP_HINT"
+        "AP_HINT",
+        "AP_HANDLE_KEYCARDS",
     ];
+
+    [HarmonyPatch(typeof(DB), "_LoadItemDefinitions")]
+    [HarmonyPriority(Priority.Last)]
+    [HarmonyPostfix] // Patch to add AP item to item DB
+    private static void LoadItemDefinitionsPostfix()
+    {
+        string[] targets =
+        [
+            "Progression Archipelago Item",
+            "Useful Archipelago Item",
+            "Filler Archipelago Item",
+            "Panselo Franway Teleporter",
+            "Atai Franway Teleporter",
+            "Cosette Franway Teleporter",
+        ];
+
+        int[] ids = new int[targets.Length];
+        int matches = 0;
+
+        for (int i = 0; i < DB.ITEM_DEFS.Length; i++)
+        {
+            if (DB.ITEM_DEFS[i].item_name == null || !targets.Contains(DB.ITEM_DEFS[i].item_name)) continue;
+            ids[matches] = i;
+            matches++;
+        }
+
+        if (matches != targets.Length)
+            PhoaAPClient.Logger.LogWarning(
+                "Not all, or too many AP were found. Please report this bug to the developer of the AP implementation");
+
+        _apItemIds = ids;
+    }
 
     [HarmonyPatch(typeof(GaleInteracter), "_AttemptGrabbingLoot")]
     [HarmonyPrefix] // Patch to handle possible custom behaviour for AP
@@ -70,10 +118,7 @@ internal sealed class APCheckLocationPatches
     [HarmonyPrefix] // Patch to prevent AP items from being added to the inventory
     private static bool AddItemToolOrStatusIdToInventoryPrefix(int item_tool_id, int quantity, bool ignore_ADDED_GIS)
     {
-        int[] ids = FindAPItemIdsInItemDef();
-        if (ids.Contains(item_tool_id)) return false;
-
-        return true;
+        return !_apItemIds.Contains(item_tool_id);
     }
 
     [HarmonyPatch(typeof(PT2), "GIS_ProcessInstructions")]
@@ -92,6 +137,12 @@ internal sealed class APCheckLocationPatches
             if (!ValidInstructionTypes.Contains(instructionType)) continue;
 
             if (!APHelpers.IsConnectedToAP()) continue;
+
+            if (instructionType.StartsWith("AP_HANDLE_KEYCARDS"))
+            {
+                HandleKeycards(instructionParts[1]);
+                continue;
+            }
 
             if (instructionType.StartsWith("AP_HINT"))
             {
@@ -141,7 +192,7 @@ internal sealed class APCheckLocationPatches
         instructionsList.RemoveAll(instruction =>
             instruction.Contains("FILE_MARK_AP") || instruction.Contains("miceBoxbreak") ||
             instruction.Contains("scorpBoxbreak") || instruction.Contains("brokemousebox") ||
-            instruction.Contains("AP_HINT"));
+            instruction.Contains("AP_HINT") || instruction.Contains("AP_HANDLE_KEYCARDS"));
 
         instructions = string.Join("|", instructionsList.ToArray());
     }
@@ -194,31 +245,37 @@ internal sealed class APCheckLocationPatches
         });
     }
 
-    private static int[] FindAPItemIdsInItemDef()
+    private static void HandleKeycards(string keycardType)
     {
-        Dictionary<string, int> targets = new Dictionary<string, int>()
+        if (!KeycardChecks[keycardType].LocationIDs.All(location =>
+                PhoaAPClient.APConnection.SessionContext.Session.Locations.AllLocationsChecked.Contains(location)))
         {
-            { "Progressive Archipelago Item", 0 },
-            { "Useful Archipelago Item", 1 },
-            { "Filler Archipelago Item", 2 },
-        };
-
-        int[] ids = new int[targets.Count];
-        int matches = 0;
-
-        for (int i = 0; i < DB.ITEM_DEFS.Length; i++)
-        {
-            if (DB.ITEM_DEFS[i].item_name != null && targets.TryGetValue(DB.ITEM_DEFS[i].item_name, out int index))
-            {
-                ids[index] = i;
-                matches++;
-            }
+            PT2.GIS_ProcessInstructions($"FILE_MARK_AP,AP_KEYCARD_{keycardType}_1", Vector3.zero);
+            PT2.juicer.J_QueueUp_GIS_Commands(0.4f, $"FILE_MARK_AP,AP_KEYCARD_{keycardType}_2");
+            PT2.juicer.J_QueueUp_GIS_Commands(0.8f, $"FILE_MARK_AP,AP_KEYCARD_{keycardType}_3");
+            PT2.juicer.J_QueueUp_GIS_Commands(1.2f, $"FILE_MARK_AP,AP_KEYCARD_{keycardType}_4");
+            PT2.juicer.J_QueueUp_GIS_Commands(1.6f, $"FILE_MARK_AP,AP_KEYCARD_{keycardType}_5");
+            return;
         }
 
-        if (matches != 3)
-            PhoaAPClient.Logger.LogWarning(
-                "Not all, or too many AP were found. Please report this bug to the developer of the AP implementation");
+        if (PhoaAPClient.APConnection.SessionContext.Login.SlotData.TryGetValue("bundle_keycards",
+                out var openPanseloGates) && (long)openPanseloGates >= 1)
+            return;
 
-        return ids;
+        int amountOfKeycardsAcquired = PhoaAPClient.APConnection.SessionContext.Session.Items.AllItemsReceived
+            .Count(item => item.ItemName == $"Keycard {keycardType}");
+
+        int[] inventoryItemIds = AccessTools.FieldRefAccess<SaveFile, int[]>(PT2.save_file, "_item_IDs");
+        int[] inventoryItemCounts = AccessTools.FieldRefAccess<SaveFile, int[]>(PT2.save_file, "_item_ID_count");
+        int itemInventoryId = Array.FindIndex(inventoryItemIds, itemId => itemId == KeycardChecks[keycardType].ID);
+        int keycardsInInventory = itemInventoryId >= 0 ? inventoryItemCounts[itemInventoryId] : 0;
+
+        float timer = 0.0f;
+        while (keycardsInInventory < amountOfKeycardsAcquired)
+        {
+            PT2.juicer.J_QueueUp_GIS_Commands(timer, $"ITEM_add,{KeycardChecks[keycardType].ID},1");
+            timer += 0.4f;
+            keycardsInInventory++;
+        }
     }
 }

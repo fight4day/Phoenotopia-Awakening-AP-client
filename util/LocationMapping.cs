@@ -5944,137 +5944,152 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676503,
-                ObjectIds = ["3-replenish C access"],
+                ObjectIds = ["9"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_C_1",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_1",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
-            },
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
+            },    
             new Check
             {
                 ArchipelagoId = 7676504,
-                ObjectIds = ["3-replenish C access"],
+                ObjectIds = ["9"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_C_2",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_2",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676505,
-                ObjectIds = ["3-replenish C access"],
+                ObjectIds = ["9"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_C_3",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_3",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676506,
-                ObjectIds = ["3-replenish C access"],
+                ObjectIds = ["9"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_C_4",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_4",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676507,
-                ObjectIds = ["3-replenish C access"],
+                ObjectIds = ["9"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_C_5",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_C_5",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_C_5",
+                    "voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676508,
-                ObjectIds = ["4-replenish B access"],
+                ObjectIds = ["12"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_B_1",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_1",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676509,
-                ObjectIds = ["4-replenish B access"],
+                ObjectIds = ["12"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_B_2",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_2",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676510,
-                ObjectIds = ["4-replenish B access"],
+                ObjectIds = ["12"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_B_3",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_3",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676511,
-                ObjectIds = ["4-replenish B access"],
+                ObjectIds = ["12"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_B_4",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_4",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676512,
-                ObjectIds = ["4-replenish B access"],
+                ObjectIds = ["12"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_B_5",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_B_5",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_B_5",
+                    "voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676513,
-                ObjectIds = ["5-replenish A access"],
+                ObjectIds = ["15"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_A_1",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_1",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676514,
-                ObjectIds = ["5-replenish A access"],
+                ObjectIds = ["15"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_A_2",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_2",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676515,
-                ObjectIds = ["5-replenish A access"],
+                ObjectIds = ["15"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_A_3",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_3",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676516,
-                ObjectIds = ["5-replenish A access"],
+                ObjectIds = ["15"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_A_4",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_4",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
             new Check
             {
                 ArchipelagoId = 7676517,
-                ObjectIds = ["5-replenish A access"],
+                ObjectIds = ["15"],
                 IsKeyItem = false,
-                GISIdentifier = "AP_DUNGEON_KEYCARD_A_5",
+                IsNpc = true,
+                GISIdentifier = "AP_KEYCARD_A_5",
                 OverrideType =
-                    "FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_1|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_2|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_3|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_4|DELAY,0.4|FILE_MARK_AP,AP_DUNGEON_KEYCARD_A_5",
+                    "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
             new Check
             {

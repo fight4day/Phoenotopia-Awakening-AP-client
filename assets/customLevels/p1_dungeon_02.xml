@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="64" height="32" tilewidth="16" tileheight="16" infinite="0" nextobjectid="89">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
+  <image source="../../Textures/tiles.PNG" width="2048" height="2048"/>
+ </tileset>
+ <layer name="back" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlc1OAjEQgOdB4A3AQAweDEQeAzgYE0/eSOTnoIfxTXiUfQqjRryQeCZBJVEOTksLs7XbhYXwY2aSL23Zmd356KYLICEhISEhIbFKPBA3p8fNJrHu/bL2If6H7z8sAVyWAd5ryagc4srA18E6ui+qnH/kHzH/6BD8aY6r8Fb6kxvzH51DnYh8I/MfMH9NqC7kT/3gus4+/3YFkOP2Z+E5Pv9r6peIfGPSPRWhOp8/PV8zJhpFgNcy1Imoyeat4vy6zQ35Ux5ynP7QEMtz/FH5T862j89/XFnSKCx7bbJ5qxDPy+CPLgF/vf/tSjIqxz03VJj3KpE0/yfm/MzmL5v7u/sfy3k8gchi/fnzXFz/4QWg9Q/VWX/+vNj+F9n+s7l9/7e4/5Dm38kBdIke8VPVa+zT/Da39OffP7OO+qxuVtUj2t924W/O2wWeMwrZOa3x+X9SvxPqfUrjF3FH36+pWXNfx1/XUT6aEe6p7iOna73+5tugCfnzPDpLE/3Nebsg5ZzW+Pz7edp36v2b6OXn625+vma+A9dfXZ8RHZOv6qgeZzW/v/k2aEL+PG8U8M8S/PzbNRv0vE3/vbrv838U//35p/nsyl9CQkJCQkLiuOMXg1wVPQ==
+  </data>
+ </layer>
+ <layer name="back" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlGtOwlAQhWchvQkrMIXEX7RLEdAdqDzURB130qW4Cv4BugETRfGFjwO32Id1WhWwMfMlw9w7zZk7p7eBSFEURVGUIpz99QCKUjKaVaIWYhuxYzNjz6jzlkuVLA3qQUrHcd16HfyOEea/QFxW7R6ZsedRjn9Jt57Jl0OzZvOBITpEHJmPunz/gm61E3+mv0GBFEV6PGD+R8STiWqSf0mXN2t85qx1sU4RQ/frd45npUKaNXy+1J55/d48/PjJ2gtqr569/2GdeFC3dWTGfn7/ku6nsxaZ97s94/2uNu23hVxZ1E7hgVM+jrE/8a3/hpfs3bDvJZB00nll8992iJ7hseMQd7Ge2jX1nMj/wKUWgmax8L+XodsPddJ5ZfM/xvy3mPkOgcwT5HvH1mP+z9P+JyndONTN6tJ5ZfO/i5m7hnjqE7fxH94x8z31TOL+g7T/65juxknqpPNW4V9RFEVRFEVRlP/NOyRl2P0=
+  </data>
+ </layer>
+ <layer name="back" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztz8sJgDAQBcCUYg2Cl/RiC/ZgJzYmnuxDBE+CEEVNxBl47Gl/IQAAKfrcBwBQjDYe54m+0ozx/vBNc/1u31d0TRi2WuW9JI9S/5/iuVyZsdr//8Se1DkAAMD/LDHRVOg=
+  </data>
+ </layer>
+ <layer name="back" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztld1Kw0AQhfd1dq03FoS0Nz5DSouCFz6DkgiCML6Zz1BRWlD0DfyjufBCnJkGtkZNd6OlsZwPhtkz+8McNmyMAQAAAEAIF+tuAICWMHPhkVljcmuIMwXukXW0bo9/xYz9F+Ldbo6nGDK+05zvM2vhne47DQrVoTz2zcPpjtdFwBnv3bCzD7f9+LazUO98XbuMVfn/L0ycBoXqGPKt7/dxvTWs8v6L0v99z0dZbw1Tq0Eyfk4+6+p8U+56Pn5Lyv0M7Hw85DyymrU/rlMa2euB06Bj9n6SeF2db9rvWVKvYxmz36vS/zXnG6uZRHOdxhH+5X2eOg164b5eE6/lWzjf9Xrxbea3/eipb/Y4Ln86W9bL+W8Vv6Ll31DXUx0p9zNw8/GQ88hpJtFcp3SD32oAAAAAAABAMz4A5r+H2w==
+  </data>
+ </layer>
+ <layer name="front" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztluENgyAQhW8UhyDtj/7pIraOwiiOwiTVDbpCX5OzIUZog0glvku+AIfx7pk7pD2LtIQQQggh5CduRuRuxCr+3A5GrhO6J5g79Tnfp89/9mY+hzj231qXQI6NFDDEGTfUYVNBXl3t+hdqWLRmg2utx+L657lOffJlLbH+SdGA93Zv/RjH/GqD8SQ1Xqx+Unq4Qv19Tv0PrS+MRUzj2dR4Mf34pn3WZHdo0Njk7P/aLHf/12a5+782i+l/nrB/wfmyDtkz0Bj8/6+5/3lscjcrxNH1E0IIIYQcihduNfVo
+  </data>
+ </layer>
+ <layer name="front" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0UEKwjAUhOE5SHOBlF7IjbdwV8k51YWX0F2KL7TIswsXYo2Q/4PwQlPIDJEAAAAAoB23qFTWoZ9nWcv3qzuTP6tl77IuGX3e5/6TvPf+9d/S3539hV2c5zrr2pZ5z4N0GZRsvs2wxX2n+Isbge8bO+nYKdlMtbPUkK3/ZN1zo/3HYO8f7P1Dm/2z9Z+se260PwAAAOp7AHdfPlE=
+  </data>
+ </layer>
+ <objectgroup name="meta" visible="0">
+  <object id="1" name="config" type="id=0;follow=horizontal;zoom_allowance=1" x="-32" y="128" width="992" height="224"/>
+  <object id="2" name="GIS_PACK" x="384" y="48" width="64" height="64">
+   <properties>
+    <property name="1-room_cleared" value="DELAY,1|CONTINUE_IF,ENEMY_COUNT_EQS,EnemyBowKnight,0&amp;ENEMY_COUNT_EQS,EnemySpearKnight,0|uncommon_sfx,hint_bell|puzzle,id$1,msg$FLIP_ON|FILE_MARK_SI,DUNGEON_TERMINAL_CLEAR,true|music_adjust,mini_boss2,vol$0"/>
+    <property name="2-start music" value="black_bars_out|music_adjust,all,vol$0|music_adjust,dungeon,vol$1,rate$10,restart"/>
+    <property name="3-replenish C access" value="AP_HANDLE_KEYCARDS,C"/> <!-- ABORT_IF,ITEM_HAVE_COUNT,119,5|ITEM_add,119,1|DELAY,0.4|GIS_PAK,3 -->
+    <property name="4-replenish B access" value="AP_HANDLE_KEYCARDS,B"/> <!-- ABORT_IF,ITEM_HAVE_COUNT,120,5|ITEM_add,120,1|DELAY,0.4|GIS_PAK,4 -->
+    <property name="5-replenish A access" value="AP_HANDLE_KEYCARDS,A"/> <!-- ABORT_IF,ITEM_HAVE_COUNT,121,5|ITEM_add,121,1|DELAY,0.4|GIS_PAK,5 -->
+    <property name="6-first heart symbols" value="display_symbol,name(soldierC)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED|DELAY,0.25|display_symbol,name(soldierC)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED|DELAY,0.25|display_symbol,name(soldierC)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED"/>
+    <property name="7-second heart symbols" value="display_symbol,name(soldierB)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED|DELAY,0.25|display_symbol,name(soldierB)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED|DELAY,0.25|display_symbol,name(soldierB)+vec3(0/1.5/0),HEART,STAY_IN_PLACE_FLASH_RED"/>
+    <property name="8-sweat drops on C" value="DELAY,1.2|particle_sweat,name(soldierC)+vec3(0/0.5/0)|DELAY,0.4|particle_sweat,name(soldierC)+vec3(0/0.5/0)|DELAY,0.4|particle_sweat,name(soldierC)+vec3(0/0.5/0)"/>
+    <property name="9-black_bars_out" value="black_bars_out"/>
+   </properties>
+  </object>
+  <object id="3" name="music" x="480" y="48" width="64" height="64">
+   <properties>
+    <property name="0 - after fight &amp; soldier C not placed" value="ql=SI_TRUE,SOLDIER_C_ALLIED&amp;SI_TRUE,DUNGEON_TERMINAL_CLEAR&amp;SI_FALSE,SOLDIER_C_PLACED;dungeon,vol=0"/>
+    <property name="1 - miniboss fight" value="ql=SI_TRUE,SOLDIER_C_ALLIED&amp;SI_FALSE,DUNGEON_TERMINAL_CLEAR;mini_boss2;dungeon,vol=0"/>
+   </properties>
+  </object>
+  <object id="34" name="lighting" type="shader=diffuse;intensity=1.2;gales_light_power=5" x="288" y="48" width="80" height="48"/>
+  <object id="76" name="config" type="id=1;follow=point;zoom_allowance=1" x="224" y="128" width="464" height="224"/>
+ </objectgroup>
+ <objectgroup name="solid_collisions" visible="0">
+  <object id="17" type="profile=WOOD" x="-144" y="320" width="1168" height="208"/>
+  <object id="18" x="208" y="0" width="48" height="256"/>
+  <object id="19" x="256" y="0" width="400" height="160"/>
+  <object id="20" x="656" y="0" width="48" height="256"/>
+  <object id="21" x="704" y="0" width="320" height="208"/>
+  <object id="22" x="912" y="208" width="112" height="112"/>
+  <object id="23" type="profile=WOOD" x="288" y="224">
+   <polyline points="0,0 336,0"/>
+  </object>
+  <object id="24" type="profile=WOOD" x="432" y="272">
+   <polyline points="0,0 48,0"/>
+  </object>
+  <object id="57" x="16" y="0" width="192" height="208"/>
+  <object id="58" x="-144" y="0" width="160" height="320"/>
+ </objectgroup>
+ <objectgroup name="objects" visible="0">
+  <object id="4" name="door" type="profile=NONE_FRONT;open=P1_dungeon_01;id=5" x="448" y="288" width="16" height="32"/>
+  <object id="5" name="end_door" type="id=5;facing=keep" x="440" y="288" width="32" height="32"/>
+  <object id="6" name="end_door" type="id=0;facing=keep" x="440" y="288" width="32" height="32"/>
+  <object id="7" name="puzzle" type="type=p_liftdoor;profile=-5;puzzle_id=1;instruction=42,17,42,13.5;ql=SI_TRUE,DUNGEON_TERMINAL_CLEAR" x="672" y="240" width="16" height="80"/>
+  <object id="66" name="puzzle" type="type=p_liftdoor;profile=-5;puzzle_id=2;instruction=14,17,14,13.5" x="224" y="240" width="16" height="80"/>
+  <object id="85" name="L" type="type=P1_CHEST_S;destroyed_GIS=SPAWN_pickup,P1_RAI,35|FILE_MARK_SI,JAIL_MONEY_1,true;ql=SI_FALSE,JAIL_MONEY_1" x="64" y="304" width="16" height="16"/>
+  <object id="86" name="L" type="type=P1_CHEST_S;destroyed_GIS=SPAWN_pickup,P1_RAI,35|FILE_MARK_SI,JAIL_MONEY_2,true;ql=SI_FALSE,JAIL_MONEY_2" x="144" y="304" width="16" height="16"/>
+  <object id="87" name="L" type="type=P1_CHEST_S;ql=SI_FALSE,MOON_JAIL_1;destroyed_GIS=SPAWN_loot,5,loot_GIS_MARK_SI$MOON_JAIL_1" x="104" y="304" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="objects_lights" visible="0">
+  <object id="41" name="bulb2" type="intensity=8;z=-7;range=10;color=ffcdff;diameter=90" x="384" y="144" width="144" height="96">
+   <ellipse/>
+  </object>
+  <object id="42" name="bulb2" type="intensity=6;z=-8;range=10;color=ffa359;diameter=70" x="400" y="224" width="112" height="96">
+   <ellipse/>
+  </object>
+  <object id="44" name="bulb" type="intensity=2.5;color=ff9311;range=4;z=-1" x="320" y="237" width="48" height="48">
+   <ellipse/>
+  </object>
+  <object id="45" name="bulb" type="intensity=2.5;color=ff9311;range=4;z=-1" x="544" y="237" width="48" height="48">
+   <ellipse/>
+  </object>
+  <object id="46" name="bulb2" type="intensity=8;z=-8;range=10;color=ffcdff;diameter=50" x="512" y="192" width="112" height="96">
+   <ellipse/>
+  </object>
+  <object id="47" name="bulb2" type="intensity=8;z=-8;range=10;color=ffcdff;diameter=50" x="288" y="192" width="112" height="96">
+   <ellipse/>
+  </object>
+  <object id="48" name="bulb" type="intensity=5;color=ffa359;range=4;z=-2" x="432" y="288" width="48" height="64">
+   <ellipse/>
+  </object>
+  <object id="54" name="bulb" type="intensity=2;color=00ddff;range=4;z=-1" x="720" y="256" width="64" height="64">
+   <ellipse/>
+  </object>
+  <object id="55" name="bulb" type="intensity=3;color=00ddff;range=4;z=-1.5" x="768" y="256" width="80" height="64">
+   <ellipse/>
+  </object>
+  <object id="56" name="bulb" type="intensity=2;color=00ddff;range=4;z=-1" x="832" y="256" width="64" height="64">
+   <ellipse/>
+  </object>
+  <object id="74" name="bulb2" type="intensity=6;z=-8;range=10;color=cece25;diameter=80" x="48" y="224" width="128" height="96">
+   <ellipse/>
+  </object>
+  <object id="77" name="AT" type="anim=41;ql=SI_TRUE,DUNGEON_ARC_OVER;sort=bg_tiles,20" x="735" y="272" width="144" height="48"/>
+  <object id="78" name="AT" type="sprite=38;sort=fg_tiles,100;scale=vec3(1.5/1/1);color=ffdce1;alpha=0.1;use_all_bright" x="703" y="192" width="208" height="160">
+   <ellipse/>
+  </object>
+  <object id="79" name="AT" type="sprite=38;sort=fg_tiles,100;scale=vec3(3/1/1);color=ffa359;alpha=0.2;use_all_bright" x="271" y="192" width="368" height="144">
+   <ellipse/>
+  </object>
+  <object id="80" name="AT" type="sprite=0;color=2e2838;sort=bg_tiles,-1;scale=adapt" x="-96" y="0" width="96" height="512"/>
+  <object id="81" name="AT" type="sprite=38;sort=fg_tiles,100;scale=vec3(1.5/1/1);color=ffdce1;alpha=0.1;use_all_bright" x="15" y="192" width="192" height="160">
+   <ellipse/>
+  </object>
+  <object id="88" name="AT" type="sprite=38;sort=bg_tiles,100;scale=vec3(0.85/0.25/1);color=000000;alpha=0.2;use_all_bright;ql=SI_FALSE,MOON_JAIL_1" x="32" y="272" width="160" height="80">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects_b4_arc_end" visible="0">
+  <properties>
+   <property name="ql" value="SI_FALSE,DUNGEON_ARC_OVER"/>
+  </properties>
+  <object id="8" name="trigger" type="remove;GIS=cutscene,line$SOLDIER_C_CUTSCENE_2;ql=SI_FALSE,SOLDIER_C_PLACED&amp;SI_TRUE,SOLDIER_C_ALLIED" x="720" y="128" width="16" height="272"/>
+  <object id="9" name="npc" type="voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;face_right;ql=SI_FALSE,SOLDIER_C_PLACED" x="608" y="-32" width="16" height="32"/>
+  <object id="10" name="npc" type="voice=woman,1.0;profile=atai_soldierf;speech=SOLDIER_C_HELP;behavior=stand;name=soldierC;ql=SI_TRUE,SOLDIER_C_PLACED" x="744" y="288" width="16" height="32"/>
+  <object id="11" name="trigger" type="remove;GIS=cutscene,line$SOLDIER_B_CUTSCENE_2;ql=SI_FALSE,SOLDIER_B_PLACED&amp;SI_TRUE,SOLDIER_B_ALLIED" x="704" y="128" width="16" height="272"/>
+  <object id="12" name="npc" type="voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;face_right;ql=SI_FALSE,SOLDIER_B_PLACED" x="560" y="-32" width="16" height="32"/>
+  <object id="13" name="npc" type="voice=man,1.0;profile=atai_soldierm;speech=SOLDIER_B_HELP;behavior=stand;name=soldierB;ql=SI_TRUE,SOLDIER_B_PLACED" x="800" y="288" width="16" height="32"/>
+  <object id="14" name="trigger" type="remove;GIS=cutscene,line$SOLDIER_A_CUTSCENE_2;ql=SI_FALSE,SOLDIER_A_PLACED&amp;SI_TRUE,SOLDIER_A_ALLIED" x="704" y="144" width="16" height="272"/>
+  <object id="15" name="npc" type="voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED" x="512" y="-32" width="16" height="32"/>
+  <object id="16" name="npc" type="voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;ql=SI_TRUE,SOLDIER_A_PLACED" x="856" y="288" width="16" height="32"/>
+ </objectgroup>
+ <objectgroup name="objects_b4_terminal_clear" visible="0">
+  <properties>
+   <property name="ql" value="SI_FALSE,DUNGEON_TERMINAL_CLEAR&amp;SI_TRUE,SOLDIER_C_ALLIED"/>
+  </properties>
+  <object id="25" name="enemy" type="type=p1_spearknight;face_right;defeated_GIS=GIS_PACK,1;ql=SI_FALSE,DUNGEON_TERMINAL_CLEAR" x="384" y="288" width="32" height="32"/>
+  <object id="26" name="enemy" type="type=p1_bowknight;instruction=sniper;face_right;defeated_GIS=GIS_PACK,1;ql=SI_FALSE,DUNGEON_TERMINAL_CLEAR" x="336" y="192" width="32" height="32"/>
+  <object id="27" name="enemy" type="type=p1_bowknight;instruction=sniper;defeated_GIS=GIS_PACK,1;ql=SI_FALSE,DUNGEON_TERMINAL_CLEAR" x="576" y="192" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="objects_after_arc_end" visible="0">
+  <properties>
+   <property name="ql" value="SI_TRUE,DUNGEON_ARC_OVER"/>
+  </properties>
+  <object id="28" name="npc" type="profile=!;timeout=1;spacing=stand;speech=DUNGEON_COMP_C" x="744" y="288" width="16" height="32"/>
+  <object id="29" name="npc" type="profile=!;timeout=1;spacing=stand;speech=DUNGEON_COMP_B" x="796" y="288" width="24" height="32"/>
+  <object id="30" name="npc" type="profile=!;timeout=1;spacing=stand;speech=DUNGEON_COMP_A" x="856" y="288" width="16" height="32"/>
+  <object id="31" name="npc" type="name=thomas;voice=man,1;profile=thomas;speech=loop,THOMAS_JAIL_3,THOMAS_JAIL_4,THOMAS_JAIL_5;face_right;ql=SI_FALSE,TOWER_ARC_OVER;spacing=left,1" x="704" y="288" width="16" height="32"/>
+  <object id="32" name="npc" type="name=billy;voice=robot,1;profile=billy;speech=SILENT_GREET;face_right;ql=SI_FALSE,TOWER_ARC_OVER;spacing=left,1" x="656" y="-32" width="16" height="32"/>
+ </objectgroup>
+ <objectgroup name="objects_song_stone" visible="0">
+  <object id="59" name="AT" type="name=song_statue;color=A482D0;sprite=46;sort=bg_tiles,2" x="440" y="240" width="32" height="32"/>
+  <object id="60" name="AT" type="name=statue_white;sprite=61;sort=bg_tiles,1;use_all_bright" x="440" y="240" width="32" height="32"/>
+  <object id="61" name="song_field" type="remove;name=song_field;free_form=LUNNNDR;GIS=common_sfx,150|DELAY,1.5|uncommon_sfx,weight_switch_pressed_forever|puzzle,id$2,msg$FLIP_ON" x="240" y="-112" width="432" height="224"/>
+  <object id="62" name="AT" type="name=wall_graphic1;sprite=26;sort=bg_tiles,4;use_all_bright" x="425" y="240" width="32" height="32"/>
+  <object id="63" name="puzzle" type="type=p_hitswitch;angle=270;profile=-4;trigger_once;GIS=ACTIVATE:common_sfx,9|cam_config_change,id$1,transition$instant|AT_move,wall_graphic1,name(wall_graphic1)+vec3(0/-2/0)|AT_move,wall_graphic2,name(wall_graphic2)+vec3(0/-2/0)|DELAY,1|common_sfx,7|put,song_field,name(song_field)+vec3(0/-15/0)|put,song_hint_sign,name(song_hint_sign)+vec3(0/-20/0)|DELAY,0.5|cam_config_change,id$0,transition$smooth" x="712" y="208" width="16" height="32"/>
+  <object id="69" name="AT" type="name=wall_graphic2;sprite=26;sort=bg_tiles,4;use_all_bright" x="455" y="240" width="32" height="32"/>
+  <object id="70" name="AT" type="sprite=26;sort=bg_tiles,-1" x="463" y="240" width="32" height="32"/>
+  <object id="75" name="npc" type="name=song_hint_sign;voice=static;profile=!;speech=DUNGEON_02_HINT;behavior=stand;spacing=stand" x="464" y="-64" width="16" height="16"/>
+ </objectgroup>
+</map>

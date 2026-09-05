@@ -44,19 +44,7 @@
 
     <ItemGroup>
         <EmbeddedResource Include="assets/data/savepointdata.json"/>
-        <EmbeddedResource Include="assets/apSprite.png"/>
-        <EmbeddedResource Include="assets/apSpriteUseful.png"/>
-        <EmbeddedResource Include="assets/apSpriteFiller.png"/>
-        <EmbeddedResource Include="assets/preludeOfPanseloUpgrade.png"/>
-        <EmbeddedResource Include="assets/anuriPearlstoneNecklace.png"/>
-        <EmbeddedResource Include="assets/ouroGuardKeyring.png"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="assets\customlevels\*.xml"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="assets\data\"/>
+        <EmbeddedResource Include="assets/customsprites/*.png"/>
+        <EmbeddedResource Include="assets/customlevels/*.xml"/>
     </ItemGroup>
 </Project>

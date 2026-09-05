@@ -11,7 +11,7 @@ namespace PhoA_AP_client.AP;
 
 public class DialogHandler
 {
-    private List<DialogPatch> _dialogPatches = new();
+    private readonly List<DialogPatch> _dialogPatches = [];
 
     public void AddDialogPatch(
         Dictionary<int, List<string[]>> dialogPatches,
@@ -100,7 +100,8 @@ public class DialogHandler
             {
                 foreach (Group group in match.Groups)
                     replacement = replacement
-                        .Replace($"%APPlayer/{group.Value}%", playerName.IsNullOrWhiteSpace() ? group.Value : playerName);
+                        .Replace($"%APPlayer/{group.Value}%",
+                            playerName.IsNullOrWhiteSpace() ? group.Value : playerName);
             }
 
             dialog = dialog.Replace(dialogReplacement[0], replacement);
