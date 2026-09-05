@@ -3,3 +3,5 @@ bin
 lib
 obj
 Folder.DotSettings.user
+*.sln
+*.slnx

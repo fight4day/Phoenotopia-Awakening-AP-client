@@ -57,7 +57,7 @@ public class DialogHandler
                 {
                     int lineToAlter = int.Parse(lines[targetLineId].Split(',')[2]);
                     lines[lineToAlter] = ApplyReplacements(lines[lineToAlter], dialogReplacements.Value, playerName,
-                        itemName, bonusLineId);
+                        itemName, bonusLineId, dialogPatch.ArchipelagoId);
                     continue;
                 }
 
@@ -66,7 +66,7 @@ public class DialogHandler
                 int originalDialogId = lines.Count - 1;
 
                 lines.Add(
-                    ApplyReplacements(originalDialog, dialogReplacements.Value, playerName, itemName, bonusLineId));
+                    ApplyReplacements(originalDialog, dialogReplacements.Value, playerName, itemName, bonusLineId, dialogPatch.ArchipelagoId));
                 int alteredDialogId = lines.Count - 1;
 
                 string newLine = $"GO_AP,{originalDialogId},{alteredDialogId},{dialogPatch.ArchipelagoId}";
@@ -85,14 +85,15 @@ public class DialogHandler
     }
 
     private string ApplyReplacements(string dialog, List<string[]> replacements, string playerName,
-        string itemName, int bonusLineId)
+        string itemName, int bonusLineId, long archipelagoId)
     {
         foreach (string[] dialogReplacement in replacements)
         {
             string replacement = dialogReplacement[1]
                 .Replace("%APPlayer%", playerName)
                 .Replace("%APItem%", itemName)
-                .Replace("%BonusLine%", bonusLineId > -1 ? bonusLineId.ToString() : "UnknownLine");
+                .Replace("%BonusLine%", bonusLineId > -1 ? bonusLineId.ToString() : "UnknownLine")
+                .Replace("%APId%", $"{archipelagoId}");
 
             Match match = Regex.Match(dialogReplacement[1], @"%APPlayer/(.+?)%");
             if (match.Success)

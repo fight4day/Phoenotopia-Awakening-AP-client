@@ -169,6 +169,21 @@ public class LocationMapping
                 OverrideType =
                     "type=P1_WOOD_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$PANSELO_MONEY_7;ql=SI_FALSE,PANSELO_MONEY_7",
             },
+            new Check // TODO: make non-missable (via time travel?)
+            {
+                ArchipelagoId = 7676556,
+                ObjectIds = ["195"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [993] = [["this potato", "%APPlayer%%APItem%"], ["GO,994", "GO,996"]],
+                    [996] = [["ITEM_add,102,1", "FILE_MARK_AP,AP_HEADS_OR_TAILS"]],
+                },
+                GISIdentifier = "AP_HEADS_OR_TAILS",
+                OverrideType =
+                    "name=game_kid;voice=MAN,1.15;profile=seth;behavior=stand;speech=HEADS_OR_TAILS;use_all_bright",
+            },
         },
         ["p1_panselo_house_01"] = new List<Check>
         {
@@ -218,6 +233,11 @@ public class LocationMapping
             },
             new Check
             {
+                /* TODO:
+                1. GISIdentifier is not unique
+                2. Non-missable post-birdy via time travel?
+                3. Implement new post-birdy check 7676550 (id="80")
+                */
                 ArchipelagoId = 7676090,
                 ObjectIds = ["69"],
                 IsKeyItem = true,
@@ -308,7 +328,11 @@ public class LocationMapping
                 OverrideType =
                     "profile=item,%ItemId%;name=shop_3;speech=MERCHANT_TAO_POTATO",
             },
-            // TODO: GISIdentifiers of the following checks are not unique
+            /* TODO:
+            1. GISIdentifiers of the following checks are not unique 
+            2. Non-missable post-birdy via time travel?
+            3. Implement new post-birdy checks 7676551-7676555
+            */
             new Check
             {
                 ArchipelagoId = 7676084,
@@ -1038,7 +1062,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3847] = [["|ITEM_add,140,1", ""]],
+                    [3847] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
                 },
                 GISIdentifier = "GEO_TICKET_1",
                 OverrideType =
@@ -1544,7 +1568,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    [3864] = [["|ITEM_add,140,1", ""]],
+                    [3864] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
                 },
                 GISIdentifier = "GEO_TICKET_2",
                 OverrideType =
@@ -1857,8 +1881,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1419] = [["||||", ";GIS,AP_HINT,7676224||||"], ["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
+                    [1419] = [["||||", ";GIS,AP_HINT,%APId%||||"], ["25 RIN", "<#00ffff>%APPlayer%%APItem%</color>"]],
                     [1429] = [["How many are you looking to sell?", "For the first 4 I'll give you <#00ffff>%APPlayer%%APItem%</color>"]],
                     [1430] = [[",1432,1433", ""], ["25 R||Sell 8 Berry Fruits for 50 R||Sell 12 Berry Fruits for 75 R", "%APPlayer%%APItem%"]],
                     [1431] = [["money_adjust,P1_RAI,25", "FILE_MARK_AP,ATAI_MARKET_BERRY_SELL"]],
@@ -2036,7 +2059,7 @@ public class LocationMapping
         },
         ["p1_atai_inn_01"] = new List<Check>
         {
-            new Check
+            new Check // TODO: dialogue resets for other item after buying one
             {
                 ArchipelagoId = 7676225,
                 ObjectIds = ["22"],
@@ -2044,8 +2067,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1586] = [["GIS,", "GIS,AP_HINT,7676225|"], ["A Milk", "%APPlayer%%APItem%"]],
+                    [1586] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["A Milk", "%APPlayer%%APItem%"]],
                     [1587] =
                     [
                         ["JUMP_TO,ATAI_BARTENDER+-2,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
@@ -2056,7 +2078,7 @@ public class LocationMapping
                 OverrideType =
                     "name=bartender;voice=man,.95;profile=atai_barkeep;speech=ATAI_BARTENDER;behavior=stand;floating;sort=bg_tiles,7;spacing=left,0.5",
             },
-            new Check
+            new Check // TODO: dialogue resets for other item after buying one
             {
                 ArchipelagoId = 7676226,
                 ObjectIds = ["22"],
@@ -2064,8 +2086,7 @@ public class LocationMapping
                 IsNpc = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
-                    // NOTE: If APId ever changes, it should also change in the dialog!
-                    [1586] = [["GIS,", "GIS,AP_HINT,7676226|"], ["A Bottle Of Wine", "%APPlayer%%APItem%"]],
+                    [1586] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["A Bottle Of Wine", "%APPlayer%%APItem%"]],
                     [1597] = [["|ITEM_add,123,1", ""]],
                 },
                 GISIdentifier = "CH2_D3_GOT_WINE",
@@ -2253,6 +2274,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676239,
+                HintWhenLoaded = true,
                 ObjectIds = ["140"],
                 IsKeyItem = false,
                 IsNpc = true,
@@ -2268,6 +2290,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676240,
+                HintWhenLoaded = true,
                 ObjectIds = ["142"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -2283,6 +2306,7 @@ public class LocationMapping
             new Check
             {
                 ArchipelagoId = 7676241,
+                HintWhenLoaded = true,
                 ObjectIds = ["143"],
                 IsKeyItem = true,
                 IsNpc = true,
@@ -2646,6 +2670,16 @@ public class LocationMapping
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_1;ql=SI_FALSE,DAETAI_MONEY_1",
             },
+            new Check
+            {
+                ArchipelagoId = 7676186,
+                ObjectIds = ["188"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_1",
+                OverrideType =
+                    "name=moon_fish;face_right;initial_behavior=STATIC;type=fish;instruction=FISH_S;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_1|particle_emitter,highlighter,stop;ql=SI_FALSE,MOON_FISH_1",
+            },
         },
         ["p1_bridge_daetai_01a"] = new List<Check>
         {
@@ -2657,6 +2691,94 @@ public class LocationMapping
                 GISIdentifier = "DAETAI_MONEY_4",
                 OverrideType =
                     "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_4;ql=SI_FALSE,DAETAI_MONEY_4",
+            },
+        },
+        ["p1_bridge_daetai_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676185,
+                ObjectIds = ["239"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_BRIDGE_LOOT_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_BRIDGE_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_BRIDGE_LOOT_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676182,
+                ObjectIds = ["14"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_BRIDGE_LOOT_4",
+                OverrideType =
+                    "type=P1_WIDE_WOOD;ql=SI_FALSE,REGEN_BRIDGE_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_BRIDGE_LOOT_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676184,
+                ObjectIds = ["242"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAETAI_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAETAI_MOUSE_1;type=p_mouse;instruction=tmx(37/30)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676183,
+                ObjectIds = ["236"],
+                IsKeyItem = true,
+                GISIdentifier = "DAETAI_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_3;ql=SI_FALSE,DAETAI_MONEY_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676180,
+                ObjectIds = ["185"],
+                IsKeyItem = true,
+                GISIdentifier = "DAETAI_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAETAI_MONEY_2;ql=SI_FALSE,DAETAI_MONEY_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676179,
+                ObjectIds = ["189"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAETAI_3",
+                OverrideType =
+                    "name=moon_pot;type=P1_TOWER_POT_L;ql=SI_FALSE,MOON_DAETAI_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAETAI_3|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_bridge_daetai_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676181,
+                ObjectIds = ["214"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAETAI_2",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAETAI_2;destroyed_GIS=particle_emitter,highlighter,stop|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAETAI_2",
+            },
+        },
+        ["p1_ex_geo_03c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676178,
+                ObjectIds = ["224"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3871] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_3",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_03",
             },
         },
         ["p1_boar_boy"] = new List<Check>
@@ -3167,7 +3289,7 @@ public class LocationMapping
                 IsKeyItem = true,
                 GISIdentifier = "BANDIT_KEY_1_COLLECTED",
                 OverrideType =
-                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED,amt$1;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
+                    "name=guardA;type=p1_ninja;initial_behavior=shine;defeated_GIS=FILE_MARK_OC,beat_key_bandit1|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$BANDIT_KEY_1_COLLECTED;ql=SI_FALSE,BANDIT_KEY_1_COLLECTED;face_right",
             },
         },
         ["p1_bandit_lair_storeroom2"] = new List<Check>
@@ -3396,10 +3518,10 @@ public class LocationMapping
             {
                 ArchipelagoId = 7676321,
                 ObjectIds = ["117"],
-                IsKeyItem = true,
-                GISIdentifier = "LUNAR_DRAKE",
+                IsKeyItem = false,
+                GISIdentifier = "AP_LUNAR_DRAKE",
                 OverrideType =
-                    "type=P1_BANDIT_POT_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$LUNAR_DRAKE",
+                    "type=P1_BANDIT_POT_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_LUNAR_DRAKE",
             },
             new Check
             {
@@ -3472,6 +3594,2349 @@ public class LocationMapping
                 GISIdentifier = "RALA_KEY_GET",
                 OverrideType =
                     "profile=rala;speech=RALA_THE_BANDIT;name=gamer;voice=woman,0.95;behavior=stand;spacing=left,1.5;use_all_bright",
+            },
+        },
+        // ["p1_bandit_lair_shrine2"] = new List<Check> // TODO: Atri checks 7676327-7676329
+        // {
+        // },
+        ["p1_atai_mansion_bedroom"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676557,
+                ObjectIds = ["75"],
+                IsKeyItem = true,
+                GISIdentifier = "AP_MANSION_LETTERS",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_MANSION_LETTERS",
+            },
+        },
+        ["p1_atai_mansion_paintings"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676558,
+                ObjectIds = ["31"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [2574] = [["money_adjust,P1_RAI,150|", ""]],
+                },
+                GISIdentifier = "MAYOR_QUEST_3",
+                OverrideType =
+                    "name=mikhail;profile=atai_grandpa;voice=man,0.98;speech=MIKHAIL_1;behavior=stand;face_right;floating;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676559,
+                ObjectIds = ["3-receive heart"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_ATAI_4",
+                OverrideType =
+                    "FILE_MARK_SI,HEART_ATAI_4,true",
+            },
+        },
+        ["p1_moonlight_ravine_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676332,
+                HintWhenLoaded = true,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3477] = [["JUMP_TO,FISHPOLE_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,40,1;", ""],
+                              ["a <#00ffff>fishing rod</color>", "%APPlayer/our %<#00ffff>%APItem%</color>"]],
+                    [3478] = [["stick", "%APItem%"]],
+                    [3479] = [["a Fishing Rod", "%APPlayer%%APItem%"]],
+                    [3480] = [["ITEM_add,40,1;GO,FISHPOLE_GET", "FILE_MARK_AP,AP_RAVINE_SHOP_POLE|recycle,shop_1"]],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_POLE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_POLE;voice=woman,0.95;spacing=stand;shiny;name=shop_1",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676333,
+                HintWhenLoaded = true,
+                ObjectIds = ["24"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3466] = [["<#00ffff>Cooked knife krill</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [3467] = [["a bundle of 3 Cooked Knife Krills", "%APPlayer%%APItem%"]],
+                    [3468] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,87,3;", ""],
+                        ["ITEM_add,87,3", "FILE_MARK_AP,AP_RAVINE_SHOP_KRILL|recycle,shop_2"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_KRILL",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_KRILL;spacing=left,0.1;name=shop_2",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676334,
+                HintWhenLoaded = true,
+                ObjectIds = ["25"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3469] = [["<#00ffff>sushi</color>", "%APPlayer/our %<#00ffff>%APItem%</color>"]],
+                    [3470] = [["2 pieces of Sushi", "%APPlayer%%APItem%"]],
+                    [3471] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,79,2;", ""],
+                        ["ITEM_add,79,2", "FILE_MARK_AP,AP_RAVINE_SHOP_SUSHI|recycle,shop_3"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_SUSHI",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_SUSHI;spacing=left,0.1;face_right;name=shop_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676335,
+                HintWhenLoaded = true,
+                ObjectIds = ["26"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3472] = [["A <#00ffff>fish skewer</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [3473] = [["a Fish Skewer", "%APPlayer%%APItem%"]],
+                    [3474] = [
+                        ["JUMP_TO,MERCHANT_MOON_REJECTED+1,IF_FALSE|ITEM_CAN_ADD,84,1;", ""],
+                        ["ITEM_add,84,1", "FILE_MARK_AP,AP_RAVINE_SHOP_FISH|recycle,shop_4"],
+                    ],
+                },
+                GISIdentifier = "AP_RAVINE_SHOP_FISH",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=MERCHANT_MOON_FISH;spacing=left,0.1;name=shop_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676336,
+                ObjectIds = ["28"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_RAV_LOOT_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,REGEN_RAV_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_RAV_LOOT_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676337,
+                ObjectIds = ["219"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3483] = [["GO,GP4", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,MOON_RAVINE_4,true"]]
+                },
+                GISIdentifier = "MOON_RAVINE_4",
+                OverrideType =
+                    "profile=panselo_teen_boy;voice=man,1.1;speech=HIDDEN_MAN;behavior=stand;face_right;ql=SI_FALSE,MOON_RAVINE_4",
+            },
+        },
+        ["p1_moonlight_ravine_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676338,
+                ObjectIds = ["137"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_02d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_02d;ql=POC_ABSENT,mkelp_02d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676339,
+                ObjectIds = ["134"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_02a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_02a;ql=POC_ABSENT,mkelp_02a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676340,
+                ObjectIds = ["135"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_02b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_02b;ql=POC_ABSENT,mkelp_02b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676342,
+                ObjectIds = ["136"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_02c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_02c;ql=POC_ABSENT,mkelp_02c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676341,
+                ObjectIds = ["34"],
+                IsKeyItem = true,
+                GISIdentifier = "RAVINE_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$RAVINE_MONEY_1;ql=SI_FALSE,RAVINE_MONEY_1",
+            },
+        },
+        ["p1_moonlight_ravine_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676343,
+                ObjectIds = ["124"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_03a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_03a;ql=POC_ABSENT,mkelp_03a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676344,
+                ObjectIds = ["125"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_03b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_03b;ql=POC_ABSENT,mkelp_03b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676346,
+                ObjectIds = ["127"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_03d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_03d;ql=POC_ABSENT,mkelp_03d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676347,
+                ObjectIds = ["126"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_03c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_03c;ql=POC_ABSENT,mkelp_03c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676345,
+                ObjectIds = ["33"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_RAVINE_1",
+                OverrideType =
+                    "type=P1_ANURI_CERAMIC_POT_S;ql=SI_FALSE,MOON_RAVINE_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_RAVINE_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676348,
+                ObjectIds = ["172"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_LUNAR_CROWN",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_LUNAR_CROWN",
+            },
+        },
+        ["p1_moonlight_ravine_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676349,
+                ObjectIds = ["103"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04a;ql=POC_ABSENT,mkelp_04a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676351,
+                ObjectIds = ["104"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04b;ql=POC_ABSENT,mkelp_04b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676354,
+                ObjectIds = ["105"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04c;ql=POC_ABSENT,mkelp_04c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676355,
+                ObjectIds = ["106"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_04d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_04d;ql=POC_ABSENT,mkelp_04d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676350,
+                ObjectIds = ["36"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_RAVINE_2",
+                OverrideType =
+                    "name=moon_pot;type=P1_ANURI_CERAMIC_POT_S;ql=SI_FALSE,MOON_RAVINE_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_RAVINE_2|particle_emitter,highlighter,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676352,
+                ObjectIds = ["168"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_RAVINE_3",
+                OverrideType =
+                    "name=moon_pot2;type=P1_ANURI_CERAMIC_POT_L;ql=SI_FALSE,MOON_RAVINE_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_RAVINE_3|particle_emitter,highlighter2,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676353,
+                ObjectIds = ["35"],
+                IsKeyItem = true,
+                GISIdentifier = "RAVINE_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$RAVINE_MONEY_2;ql=SI_FALSE,RAVINE_MONEY_2",
+            },
+        },
+        ["p1_moonlight_ravine_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676356,
+                ObjectIds = ["97"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05a;ql=POC_ABSENT,mkelp_05a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676359,
+                ObjectIds = ["98"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05b;ql=POC_ABSENT,mkelp_05b",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676361,
+                ObjectIds = ["99"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05c;ql=POC_ABSENT,mkelp_05c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676362,
+                ObjectIds = ["100"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_05d",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_05d;ql=POC_ABSENT,mkelp_05d",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676357,
+                ObjectIds = ["164"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_RAVINE_LIZARD_1",
+                OverrideType =
+                    "type=p_lizard;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_RAVINE_LIZARD_1;instruction=tmx(18/30),tmx(23/32),tmx(18.875/30);sort=bg_tiles,6",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676358,
+                ObjectIds = ["163"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_LUNAR_TRIDENT",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_AP,AP_LUNAR_TRIDENT;angle=180;gravity=0;sort=bg_tiles,14",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676360,
+                ObjectIds = ["42"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_RAVINE_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_RAVINE_1,true;ql=SI_FALSE,OXY_RAVINE_1;gravity=0",
+            },
+        },
+        ["p1_moonlight_ravine_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676363,
+                ObjectIds = ["77"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06c",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06c;ql=POC_ABSENT,mkelp_06c",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676365,
+                ObjectIds = ["75"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06a",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06a;ql=POC_ABSENT,mkelp_06a",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676366,
+                ObjectIds = ["76"],
+                IsKeyItem = false,
+                GISIdentifier = "mkelp_06b",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_POC,mkelp_06b;ql=POC_ABSENT,mkelp_06b",
+            },
+            new Check // TODO: modify so Bo is always there?
+            {
+                ArchipelagoId = 7676364,
+                ObjectIds = ["09-won race"],
+                IsKeyItem = true,
+                GISIdentifier = "BO_QUEST_2",
+                OverrideType =
+                    "FILE_MARK_SI,BO_QUEST_2,true|FILE_MARK_OC,bo_temp",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676367,
+                ObjectIds = ["73"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_4",
+                OverrideType =
+                    "name=moon_fish;initial_behavior=STATIC;type=fish;instruction=FISH_M;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_4|particle_emitter,highlighter,stop;ql=SI_FALSE,MOON_FISH_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676368,
+                ObjectIds = ["202"],
+                IsKeyItem = true,
+                GISIdentifier = "RAVINE_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$RAVINE_MONEY_3;ql=SI_FALSE,RAVINE_MONEY_3",
+            },
+        },
+        ["p1_ex_cave_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676426,
+                ObjectIds = ["274"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_2;ql=SI_FALSE,DAEA_MONEY_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676427,
+                ObjectIds = ["273"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_DAEA_4",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_DAEA_4,true;ql=SI_FALSE,OXY_DAEA_4",
+            },
+        },
+        // ["p1_ex_forest_03"] = new List<Check>
+        // {
+        //     new Check // TODO: needs custom level
+        //     {
+        //         ArchipelagoId = 7676428,
+        //         ObjectIds = ["301"],
+        //         IsKeyItem = true,
+        //         GISIdentifier = "PERRO_3",
+        //         OverrideType =
+        //             "id=%ItemId%;collected_GIS=FILE_MARK_SI,PERRO_3,true;ql=AP_SETTING_TRUE,PERRO&SI_FALSE,PERRO_3",
+        //     },
+        // },
+        ["p1_ex_ouroboros_05a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676429,
+                ObjectIds = ["154"],
+                IsKeyItem = true,
+                GISIdentifier = "OURO_SCROLL_5",
+                OverrideType =
+                    "id=%ItemId%;use_all_bright;collected_GIS=FILE_MARK_SI,OURO_SCROLL_5,true;ql=SI_FALSE,OURO_SCROLL_5",
+            },
+        },
+        ["p1_ex_geo_06d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676430,
+                ObjectIds = ["84"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3839] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_6",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_06+3,GEO_ROBOT_06+5,GEO_ROBOT_06+6",
+            },
+        },
+        ["p1_ex_geo_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676431,
+                ObjectIds = ["288"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7390] = [["GO,PLANTO_REWARD+-1", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_PLANTO_3"]],
+                },
+                GISIdentifier = "AP_PLANTO_3",
+                DifferingInGameIdentifier = "PLANTO_3",
+                OverrideType =
+                    "name=planto;profile=planto;voice=man,0.85;speech=PLANTO_P3;behavior=action_only;ql=SI_FALSE,PLANTO_3;floating;sort=bg_tiles,-1;talk_range=4;spacing=stand",
+            },
+        },
+        ["p1_frans_base"] = new List<Check> // TODO: implement gift checks 7676438 to 7676441 + make non-missable
+        {
+            new Check
+            {
+                ArchipelagoId = 7676432,
+                ObjectIds = ["393"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9404] = [["my extremely precious voucher for one free <#00ffff>pocket expansion</color> at Tailoring Tracy's", "%APPlayer/my %extremely precious %APItem%"]],
+                    [9405] = [["Tailoring Tracy's is GREAT!<*_>", "%APItem% is GREAT!<*_> And so is Tailoring Tracy's!"]],
+                    [9409] = [["use it", "keep %APItem%"]],
+                    [9410] = [["GO,9411", "GO,9412"]],
+                    [9412] = [["ITEM_add,164,1|", ""], ["voucher", "%APItem%"]],
+                },
+                GISIdentifier = "FRAN_QUEST_2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_2;behavior=path,33,42;use_all_bright;sort=fg_tiles,101",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676434,
+                ObjectIds = ["411"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9517] = [["GO,9518", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,FRAN_VOUCHER2,true"]],
+                },
+                GISIdentifier = "FRAN_VOUCHER2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_20_30;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676436,
+                ObjectIds = ["418"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9572] = [["the ", "%APPlayer/the %"], ["Moon Crystal", "%APItem%"]],
+                    [9574] = [["GO,GP9", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_FRAN_BATCH_4"]],
+                },
+                GISIdentifier = "AP_FRAN_BATCH_4",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_40_50;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676437,
+                ObjectIds = ["422"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9610] = [["the ", "%APPlayer/the %"], ["Heart Ruby", "%APItem%"]],
+                    [9611] = [["Heart Rubies", "of them"]],
+                    [9613] = [["Heart Ruby", "of them"], ["GO,GP6", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_FRAN_2,true|FILE_MARK_OC,turned_50"]],
+                },
+                GISIdentifier = "HEART_FRAN_2",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_40_50;face_right;ql=OC_EXISTS,turned_50",
+            },
+        },
+        ["p1_fran_geo_outside"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676433,
+                ObjectIds = ["206"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9494] = [["GO,GP2", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_FRAN_1,true|black_bars_out"]],
+                },
+                GISIdentifier = "HEART_FRAN_1",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_10_20;behavior=stand;face_right;ql=END_DOOR_ID_EQS,99",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676435,
+                ObjectIds = ["228"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [9543] = [["GO,GP8", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_FRAN_1,true"]],
+                },
+                GISIdentifier = "OXY_FRAN_1",
+                OverrideType =
+                    "name=fran;profile=fran;voice=woman,1;speech=FRAN_30_40;behavior=stand;face_right;ql=END_DOOR_ID_EQS,98",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676451,
+                ObjectIds = ["212"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_FISH_6",
+                OverrideType =
+                    "name=moon_fish;face_right;initial_behavior=STATIC;type=fish;instruction=FISH_M;defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_FISH_6|particle_emitter,fish_highlighter,stop;ql=ALWAYS_TRUE",
+            },
+        },
+        ["p1_geo_base"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676443,
+                HintWhenLoaded = true,
+                ObjectIds = ["338"],
+                IsKeyItem = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3782] = [["is a most", "is %APPlayer/a %most"], ["golden egg", "%APItem%"]],
+                    [3784] = [["a Golden Egg", "%APPlayer%%APItem%"]],
+                    [3785] = [["JUMP_TO,GEO_EXCHANGE_NO+4,IF_FALSE|ITEM_CAN_ADD,95,1;", ""],
+                              ["GO,GP1;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_SI,GEO_EGG_1,true|recycle,shop_1"]],
+                },
+                GISIdentifier = "GEO_EGG_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_EGG;spacing=stand;talk_range=0.75;shiny;name=shop_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676444,
+                HintWhenLoaded = true,
+                ObjectIds = ["336"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3786] = [["That's a ", "That's %APPlayer/a %"], ["Heart Ruby", "%APItem%"], ["a beautiful red gem ", ""]],
+                    [3788] = [["a Heart Ruby", "%APPlayer%%APItem%"]],
+                    [3789] = [["GO,GP2;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_GEO_1,true|recycle,shop_2"]],
+                },
+                GISIdentifier = "HEART_GEO_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_HEART;spacing=stand;talk_range=0.75;shiny;name=shop_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676445,
+                HintWhenLoaded = true,
+                ObjectIds = ["337"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3790] = [["An elegant green", "%APPlayer/An %elegant"], ["Energy Gem", "%APItem%"]],
+                    [3792] = [["an Energy Gem", "%APPlayer%%APItem%"]],
+                    [3793] = [["GO,GP3;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_GEO_1,true|recycle,shop_3"]],
+                },
+                GISIdentifier = "OXY_GEO_1",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_OXY;spacing=stand;talk_range=0.75;shiny;name=shop_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676446,
+                HintWhenLoaded = true,
+                ObjectIds = ["339"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3794] = [["A ", "%APPlayer/A %"], ["GEO jacket", "%APItem%"], ["armor", "item"]],
+                    [3796] = [["a GEO Jacket", "%APPlayer%%APItem%"]],
+                    [3797] = [["JUMP_TO,GEO_EXCHANGE_NO+2,IF_TRUE|ITEM_HAVE,int_list(13);", ""], ["GEO jacket", "%APItem%"]],
+                    [3798] = [["GO,GP4", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_GEO_JACKET|recycle,shop_4"]],
+                },
+                GISIdentifier = "AP_GEO_JACKET",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GEO_EXCHANGE_ARMOR;shiny;spacing=stand;talk_range=0.75;name=shop_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676449,
+                ObjectIds = ["431"],
+                GISIdentifier = "REGEN_GEO_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,REGEN_GEO_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_GEO_1;use_all_bright",
+            },
+        },
+        // ["p1_geo_head_office"] = new List<Check> // TODO: implement 7676442 (probably needs custom level)
+        // {
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676447,
+        //         HintWhenLoaded = true,
+        //         ObjectIds = ["330", "340", "325"], // Loot
+        //         // ObjectIds = ["343"], // Shelf
+        //         IsKeyItem = true,
+        //         FillWhenExcluded = FillMode.Always,
+        //         IsNpc = true,
+        //         DialogReplacements = new Dictionary<int, List<string[]>>
+        //         {
+        //             [3687] = [["Ask about earrings", "Ask about %APPlayer%%APItem%"]],
+        //             [3688] = [["Ask about earrings", "Ask about %APPlayer%%APItem%"],
+        //                       ["Trade Antique Pin for earrings", "Trade Antique Pin for %APPlayer%%APItem%"]],
+        //             [3689] = [["they", "that item"]],
+        //             [3690] = [["They're supposed to be <#00ffff>lucky earrings</color>,<*_> but I don't feel any special resonance from them.", "It's supposed to be lucky <#00ffff>%APItem%</color>,<*_> but I don't feel any special resonance from it."]],
+        //             [3691] = [["Do they", "Does it"]],
+        //             [3692] = [["these earrings", "%APItem%"]],
+        //             [3694] = [["Trade Antique Pin for earrings", "Trade Antique Pin for %APPlayer%%APItem%"]],
+        //             [3731] = [["<#00ffff>lucky earrings</color>", "lucky <#00ffff>%APItem%</color>"],
+        //                       ["GO,GP8", "GO,%BonusLine%"]],
+        //             [-1] = [["GIS,ITEM_remove,141,1|FILE_MARK_AP,AP_LUCKY_EARRINGS,true|black_bars_out|recycle,shelf_npc|DELAY,0.1|ANY_alpha_tween,earrings,0|AT_effect_enable,earring_halo,off|ANY_alpha_tween,earring_halo,0|particle_emitter,highlighter,stop"]],
+        //         },
+        //         GISIdentifier = "AP_LUCKY_EARRINGS",
+        //         OverrideType =
+        //             "name=earrings;loot=%ItemId%;sort=bg_tiles,12;use_all_bright", // Loot // TODO: showing the corresponding item doesn't work yet
+        //             // "name=shelf_npc;profile=!;voice=woman,1;speech=GEO_SHELF;behavior=stand;spacing=left,0.5;floating", // Shelf
+        //     },
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676448,
+        //         ObjectIds = ["343"],
+        //         IsKeyItem = true,
+        //         FillWhenExcluded = FillMode.StatusUpgrade,
+        //         IsNpc = true,
+        //         DialogReplacements = new Dictionary<int, List<string[]>>
+        //         {
+        //             // [3730] = [["JUMP_TO,3732,IF_TRUE|ITEM_HAVE,int_list(26)", ""]], // TODO: how to implement conditional? can only get via conditional
+        //             [3732] = [["GO,GP9", "GO,%BonusLine%"]],
+        //             [-1] = [["ITEM_remove,141,1|FILE_MARK_SI,HEART_GEO_2,true|black_bars_out"]],
+        //         },
+        //         GISIdentifier = "HEART_GEO_2",
+        //         OverrideType =
+        //             "name=shelf_npc;profile=!;voice=woman,1;speech=GEO_SHELF;behavior=stand;spacing=left,0.5;floating",
+        //     },
+        // },
+        ["p1_ex_geo_07a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676450,
+                ObjectIds = ["189"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3809] = [["Receive your ticket now", "Receive %APPlayer/your %%APItem% now"]],
+                    [3810] = [["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_7",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_07",
+            },
+        },
+        ["p1_thomas_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676452,
+                ObjectIds = ["7"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Prevent correct answer until gift is earned
+                    [5585] = [["CHOICE,5586,5587,THOMAS_OPEN_1ST||||...||Visiting||Safety inspection||Internship", "CHOICE,5586,5587||||...||Visiting||Safety inspection"]],
+                    [5589] = [["money_adjust,P1_RAI,50|", ""]],
+                },
+                GISIdentifier = "RECEIVED_THOMAS_BRIBE",
+                OverrideType =
+                    "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            },
+            // new Check
+            // {
+            //     ArchipelagoId = 7676466,
+            //     ObjectIds = ["7"],
+            //     IsNpc = true,
+            //     FillWhenExcluded = FillMode.StatusUpgrade,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5610] = [["shiny blue rock", "mystery item"]],
+            //         [5612] = [["GO,GP0", "GO,%BonusLine%"]], // TODO: GP0 calls both GP1 & GP2 which each have a CONTINUE_IF. How to model in dialogue?
+            //         [-1] = [["GIS,CONTINUE_IF,OC_EXISTS,exchange_blue|FILE_MARK_SI,MOON_THOMAS_2,true|ITEM_remove,115,1"]],
+            //     },
+            //     GISIdentifier = "MOON_THOMAS_2",
+            //     OverrideType =
+            //         "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            // },
+            // new Check
+            // {
+            //     ArchipelagoId = 7676467,
+            //     ObjectIds = ["7"],
+            //     IsNpc = true,
+            //     FillWhenExcluded = FillMode.StatusUpgrade,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5610] = [["shiny blue rock", "mystery item"]],
+            //         [5612] = [["GO,GP0", "GO,%BonusLine%"]], // TODO: GP0 calls both GP1 & GP2 which each have a CONTINUE_IF. How to model in dialogue?
+            //         [-1] = [["GIS,CONTINUE_IF,OC_EXISTS,exchange_red|FILE_MARK_SI,MOON_THOMAS_1,true|ITEM_remove,116,1"]],
+            //     },
+            //     GISIdentifier = "MOON_THOMAS_1",
+            //     OverrideType =
+            //         "name=robot;voice=robot,1;profile=arch;speech=ARCH_0;floating;sort=bg_tiles,14;spacing=left,0.25;ql=SI_FALSE,THOMAS_NAPPED",
+            // },
+        },
+        ["p1_thomas_02x"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676453,
+                ObjectIds = ["214"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5652] = [["GO,5653", "GIS,AP_HINT,%APId%;GO,5653"],
+                              ["your", "%APPlayer/your %"], ["Calory Slush", "%APItem%"]],
+                    [5654] = [["Calory Slush", "%APItem%"]],
+                    [5655] = [["Calory Slush", "%APPlayer%%APItem%"]],
+                    [5656] = [["GO,GP1;", "GO,%BonusLine%;"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_CALORY_SLUSH"]],
+                },
+                GISIdentifier = "AP_CALORY_SLUSH",
+                OverrideType =
+                    "name=vend_machine;voice=robot,0.75;profile=!;speech=VENDING_1_SLUSH;spacing=auto,0.1",
+            },
+        },
+        ["p1_thomas_song"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676454,
+                ObjectIds = ["70"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_THOMAS_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_THOMAS_1,true;ql=SI_FALSE,OXY_THOMAS_1",
+            },
+        },
+        ["p1_thomas_test_11"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676455,
+                ObjectIds = ["14"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_1",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_1;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_1,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_12"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676456,
+                ObjectIds = ["19"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_2",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_2;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_2,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_13"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676457,
+                ObjectIds = ["5"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_3",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_3;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_3,true|GIS_PACK,1;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_14"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676458,
+                ObjectIds = ["8"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_BLUE_KEY_4",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_BLUE_KEY_4;collected_GIS=FILE_MARK_SI,THOMAS_BLUE_KEY_4,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_21"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676459,
+                ObjectIds = ["7"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_1",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_1;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_1,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_test_22"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676460,
+                ObjectIds = ["9"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_2",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_2;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_2,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_23"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676461,
+                ObjectIds = ["5"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_3",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_3;name=KEY_CARD;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_3,true|GIS_PACK,1",
+            },
+        },
+        ["p1_thomas_test_24"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676462,
+                ObjectIds = ["8"],
+                IsKeyItem = true,
+                GISIdentifier = "THOMAS_RED_KEY_4",
+                OverrideType =
+                    "id=%ItemId%;ql=SI_FALSE,THOMAS_RED_KEY_4;collected_GIS=FILE_MARK_SI,THOMAS_RED_KEY_4,true;name=KEY_CARD",
+            },
+        },
+        ["p1_thomas_speed"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676463,
+                ObjectIds = ["73"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_THOMAS_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_THOMAS_1,true;ql=SI_FALSE,HEART_THOMAS_1",
+            },
+        },
+        ["p1_thomas_test_32"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676464,
+                ObjectIds = ["56"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_MUFFIN",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_MUFFIN;ql=SI_FALSE,REGEN_MUFFIN",
+            },
+        },
+        ["p1_thomas_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676465,
+                ObjectIds = ["80"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_SLUSH",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_SLUSH;ql=SI_FALSE,REGEN_SLUSH",
+            },
+        },
+        // ["p1_thomas_boss"] = new List<Check>
+        // {
+        //     new Check
+        //     {
+        //         ArchipelagoId = 7676468,
+        //         ObjectIds = ["126", "127"], // TODO: the 2 objects have differing spawn conditions in their type
+        //         IsKeyItem = true,
+        //         FillWhenExcluded = FillMode.StatusUpgrade,
+        //         GISIdentifier = "HEART_FLORET_1",
+        //         OverrideType =
+        //             "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_FLORET_1,true;ql=SI_FALSE,HEART_FLORET_1",
+        //     },
+        // },
+        ["p1_museum"] = new List<Check> // TODO: Lunar artifacts aren't removed after selling
+        {
+            new Check
+            {
+                ArchipelagoId = 7676469,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4551] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4552] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4553] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_DRAKE",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676470,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4565] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4566] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4567] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_COMPASS",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676471,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4577] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4578] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4579] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_COMB",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676472,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4589] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4590] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4591] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_WATCH",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676473,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4603] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4604] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4605] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_GOBLET",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676474,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4618] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4619] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4620] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_FROG",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676475,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4636] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4637] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4638] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_VASE",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676476,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4650] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4651] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4652] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_TRIDENT",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676477,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4666] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4667] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4668] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_CROWN",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676478,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4684] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4685] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4686] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_MEDAL",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676479,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4698] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4699] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4700] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_KEY",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676480,
+                ObjectIds = ["109"],
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4712] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4713] = [["40 R", "%APPlayer%%APItem%"]],
+                    [4714] = [["your money", "%APPlayer/your %%APItem%"], ["money_adjust,P1_RAI,40|", ""]],
+                },
+                GISIdentifier = "MUSEUM_EGG",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676481,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4721] = [["this Energy Gem", "%APPlayer%%APItem%"], ["GO,GP5", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,OXY_ASTRID_1,true"]],
+                },
+                GISIdentifier = "OXY_ASTRID_1",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+            // new Check
+            // /* TODO:
+            // 1. 4719 ITEM_DONT_HAVE,int_list(25) causes repeated dialogue on following checks and prevents 7676483
+            // 2. replaced item is not shown properly
+            // 3. item reappears on reentering screen
+            // */
+            // {
+            //     ArchipelagoId = 7676482,
+            //     HintWhenLoaded = true,
+            //     ObjectIds = ["172"],
+            //     IsKeyItem = true,
+            //     FillWhenExcluded = FillMode.Always,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [4484] = [["an <#00ffff>antique cast iron</color>", "%APPlayer/my %antique <#00ffff>%APItem%</color>"]],
+            //         [4488] = [["cast iron", "%APItem%"]],
+            //         [4722] = [["this antique cast iron", "%APPlayer%%APItem%"]],
+            //         [4724] = [["GO,GP6", "GO,%BonusLine%"]],
+            //         [-1] = [["GIS,FILE_MARK_AP,AP_MUSUEM_CAST_IRON,true|ANY_alpha_tween,cast_iron,0,duration$0.25|particle_emitter,highlighter,stop|AT_effect_enable,iron_halo,off|DELAY,0.1|ANY_alpha_tween,iron_halo,0,duration$0.5|recycle,iron_npc"]],
+            //     },
+            //     GISIdentifier = "AP_MUSUEM_CAST_IRON",
+            //     OverrideType =
+            //         "name=cast_iron;loot=%ItemId%;sort=bg_tiles,12;use_all_bright",
+            // },
+            new Check
+            {
+                ArchipelagoId = 7676483,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4733] = [["this gift", "%APPlayer%%APItem%"], ["GO,GP7", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_ASTRID_2,true"]],
+                },
+                GISIdentifier = "HEART_ASTRID_2",
+                OverrideType =
+                    "name=collector;profile=moon_scholar;voice=woman,0.98;speech=MEET_ASTRID_1;behavior=stand;spacing=left,0.75",
+            },
+        },
+        ["p1_museum_under"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676484,
+                ObjectIds = ["158"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_MUSEUM_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_MUSEUM_MOUSE_1;instruction=tmx(36/23)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676485,
+                ObjectIds = ["151"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_ASTRID_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_ASTRID_1,true;ql=SI_FALSE,HEART_ASTRID_1",
+            },
+        },
+        ["p1_the_wall_bunkrooms"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676486,
+                ObjectIds = ["192"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_WALL_S_2",
+                OverrideType =
+                    "name=moon_box;type=P1_WOOD_S;ql=SI_FALSE,MOON_WALL_S_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_WALL_S_2|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_the_wall_dining"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676488,
+                ObjectIds = ["155"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_WALL_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_WALL_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_WALL_LOOT_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676490,
+                ObjectIds = ["149"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7853] = [["GO,GP1", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,HEART_WALL_1,true"]],
+                },
+                GISIdentifier = "HEART_WALL_1",
+                OverrideType =
+                    "name=chef;profile=waiter;voice=man,1;speech=WCHEF_02,WCHEF_02+3;behavior=action_only;face_right;use_all_bright",
+            },
+        },
+        ["p1_the_wall_storeroom"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676489,
+                ObjectIds = ["53"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_WALL_LOOT_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_WALL_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_WALL_LOOT_1",
+            },
+        },
+        ["p1_the_wall_01"] = new List<Check>
+        {
+            new Check // TODO: first wall needs to be opened for this check
+            {
+                ArchipelagoId = 7676487,
+                ObjectIds = ["61"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_WALL_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_WALL_1,true;ql=SI_FALSE,OXY_WALL_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676491,
+                ObjectIds = ["215"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [7872] = [["a rock from her rock collection", "%APPlayer/her %%APItem% from her %APItem% collection"], ["GO,GP3", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,MOON_WALL_S_1,true"]],
+                },
+                GISIdentifier = "MOON_WALL_S_1",
+                OverrideType =
+                    "profile=daea_soldierf;voice=woman,1.03;behavior=stand;face_right;speech=KNIGHT_MOM_3,KNIGHT_MOM_3+2;ql=SI_TRUE,KMOM_2&OC_ABSENT,kmom_temp",
+            },
+        },
+        ["p1_daea_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676369,
+                ObjectIds = ["2-get emerald"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5064] = [["GO,5065", "GIS,AP_HINT,%APId%;GO,5065"], ["emerald", "%APItem%"]],
+                    [5065] = [["his emeralds", "%APPlayer/his %%APItem%"]],
+                    [5066] = [["his emeralds", "%APPlayer/his %%APItem%"]],
+                    [5069] = [["an emerald", "%APPlayer%%APItem%"]],
+                    [5075] = [["emeralds", "%APItem%"]],
+                },
+                GISIdentifier = "OXY_DAEA_3",
+                OverrideType =
+                    "FILE_MARK_SI,OXY_DAEA_3,true|recycle,fount_npc|FILE_MARK_OC,JUMP_TO,BIRD_LADY_2,IF_TRUE",
+            },
+        },
+        ["p1_ex_geo_09d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676370,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [3818] = [["Here's your ticket", "Here's %APPlayer/your %%APItem%"], ["|ITEM_add,140,1", ""]],
+                },
+                GISIdentifier = "GEO_TICKET_9",
+                OverrideType =
+                    "name=geo_bot;voice=robot,1;profile=green_robot;behavior=stand;speech=GEO_ROBOT_09;sort=fg_tiles,1",
+            },
+        },
+        ["p1_daea_windmill_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676549,
+                ObjectIds = ["108"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_7",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAEA_TOWN_7;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_TOWN_7|particle_emitter,highlighter,stop",
+            },
+        },
+        ["p1_daea_blacksmith"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676371,
+                HintWhenLoaded = true,
+                ObjectIds = ["97"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5364] = [["JUMP_TO,LAMP_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,32,1;", ""], ["the <#00ffff>crank lamp</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5365] = [["a Crank Lamp", "%APPlayer%%APItem%"]],
+                    [5366] = [["ITEM_add,32,1;GO,LAMP_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_LAMP|recycle,shop_lamp"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_LAMP",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_LAMP;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_lamp",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676372,
+                HintWhenLoaded = true,
+                ObjectIds = ["85"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5367] = [["JUMP_TO,BAT3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(8);", ""],
+                              ["a very strong and powerful <#00ffff>steel bat</color>", "%APPlayer/a %very strong and powerful <#00ffff>%APItem%</color>"]],
+                    [5368] = [["a Steel Bat", "%APPlayer%%APItem%"]],
+                    [5369] = [["ITEM_add,8,1;GO,BAT3_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_BAT|recycle,shop_bat"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_BAT",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_BAT;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_bat",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676373,
+                HintWhenLoaded = true,
+                ObjectIds = ["84"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5370] = [["JUMP_TO,ARMOR3_GET+-1,IF_TRUE|ITEM_HAVE,int_list(12);", ""],
+                              ["that <#00ffff>jade hauberk</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5371] = [["a Jade Hauberk", "%APPlayer%%APItem%"]],
+                    [5372] = [["ITEM_add,12,1;GO,ARMOR3_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_ARMOR|recycle,shop_armor"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_ARMOR",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_ARMOR;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_armor",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676374,
+                HintWhenLoaded = true,
+                ObjectIds = ["83"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5373] = [["JUMP_TO,CROSSBOW_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,37,1;", ""],
+                              ["a <#00ffff>civilian crossbow</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5374] = [["a Civilian Crossbow", "%APPlayer%%APItem%"]],
+                    [5375] = [["ITEM_add,37,1;GO,CROSSBOW_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_BOW|recycle,shop_bow"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_BOW",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_BOW;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_bow",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676375,
+                HintWhenLoaded = true,
+                ObjectIds = ["86"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5376] = [["JUMP_TO,FISHPOLE_GET+-1,IF_TRUE|ITEM_HAVE_COUNT,40,1;", ""],
+                              ["the <#00ffff>fishing rod</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [5377] = [["a Fishing Rod", "%APPlayer%%APItem%"]],
+                    [5378] = [["ITEM_add,40,1;GO,FISHPOLE_GET", "FILE_MARK_AP,AP_DAEA_BLACKSMITH_ROD|recycle,shop_rod"]],
+                },
+                GISIdentifier = "AP_DAEA_BLACKSMITH_ROD",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DSHOP_ROD;shiny;use_all_bright;floating;spacing=right,0.1;name=shop_rod",
+            },
+        },
+        ["p1_daea_house"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676377,
+                ObjectIds = ["203"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5206] = [["ITEM_HAVE_COUNT,66,3", "ITEM_HAVE_COUNT,66,3;GIS,AP_HINT,%APId%"],
+                              ["60 R", "%APPlayer%%APItem% and a bowl of my scrumptious homemade soup"]],
+                    [5208] = [["It seems I don't have 60 R", "It seems I've run out of soup"],
+                              ["I've got 40 R", "I've only got %APPlayer%%APItem%"]],
+                    [5209] = [["40 R", "%APPlayer%%APItem%"]],
+                    [5210] = [["40 R", "%APPlayer%%APItem%"]],
+                    [5212] = [["|money_adjust,P1_RAI,40", ""]],
+                },
+                GISIdentifier = "DAEA_MONEY_5",
+                OverrideType =
+                    "name=house_lady;profile=daea_woman;voice=woman,1;behavior=path,37,45;sort=fg_tiles,-1;speech=D_HOUSE_QUEST,D_HOUSE_QUEST+1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676378,
+                ObjectIds = ["1-MS gift"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4939] = [["rocks", "thingamabobs"]],
+                },
+                GISIdentifier = "MOON_DAEA_TOWN_5",
+                OverrideType =
+                    "FILE_MARK_SI,MOON_DAEA_TOWN_5,true",
+            },
+        },
+        ["p1_daea_01_alley"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676379,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_1",
+                OverrideType =
+                    "name=moon_pot;type=P1_BANDIT_POT_S;ql=SI_FALSE,MOON_DAEA_TOWN_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_TOWN_1|particle_emitter,highlighter,stop",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676380,
+                ObjectIds = ["23"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_1",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_1;instruction=tmx(16/22)",
+            },
+        },
+        ["p1_daea_dorm"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676381,
+                ObjectIds = ["186"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_3;ql=SI_FALSE,DAEA_MONEY_3",
+            },
+        },
+        ["p1_daea_storage"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676382,
+                ObjectIds = ["156"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_1;ql=SI_FALSE,REGEN_DAEA_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676383,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_2;ql=SI_FALSE,REGEN_DAEA_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676384,
+                ObjectIds = ["159"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_2",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_2;instruction=tmx(-1/13)",
+            },
+        },
+        ["p1_daea_02"] = new List<Check>
+        {
+            new Check // TODO: modify so Bo is always there?
+            {
+                ArchipelagoId = 7676385,
+                ObjectIds = ["9-won race"],
+                IsKeyItem = true,
+                GISIdentifier = "BO_QUEST_3",
+                OverrideType =
+                    "FILE_MARK_SI,BO_QUEST_3,true|FILE_MARK_OC,bo_temp",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676393,
+                ObjectIds = ["7-troupe heart"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_DAEA_3",
+                OverrideType =
+                    "FILE_MARK_SI,HEART_DAEA_3,true",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676394,
+                ObjectIds = ["238"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [1356] = [["money_adjust,P1_RAI,35|", ""]],
+                },
+                GISIdentifier = "REGEN_TROUPE",
+                OverrideType =
+                    "name=forte;profile=horn;voice=man,1;speech=FORTE_HARMO_6;behavior=action_only;face_right",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676411,
+                ObjectIds = ["247"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_6",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_6;ql=SI_FALSE,REGEN_DAEA_6",
+            },
+        },
+        ["p1_daea_restaurant"] = new List<Check>
+        {
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676386,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5131] = [["The <#00ffff>deli sandwich</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5132] = [["a Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5133] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,46,1;", ""],
+                        ["ITEM_add,46,1", "FILE_MARK_AP,AP_DAEA_BL_SANDWICH"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5156] = [["The <#00ffff>deli sandwich</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5157] = [["a Deli Sandwich", "%APPlayer%%APItem%"]],
+                    [5158] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,46,1;", ""],
+                        ["ITEM_add,46,1", "FILE_MARK_AP,AP_DAEA_BL_SANDWICH"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SANDWICH",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676387,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["House Soup", "%APPlayer%%APItem%"]],
+                    [5134] = [["Our <#00ffff>house soup</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5135] = [["a bottle of House Soup", "%APPlayer%%APItem%"]],
+                    [5136] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,167,1;", ""],
+                        ["ITEM_add,167,1", "FILE_MARK_AP,AP_DAEA_BL_SOUP"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["House Soup", "%APPlayer%%APItem%"]],
+                    [5159] = [["Our <#00ffff>house soup</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5160] = [["a bottle of House Soup", "%APPlayer%%APItem%"]],
+                    [5161] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,167,1;", ""],
+                        ["ITEM_add,167,1", "FILE_MARK_AP,AP_DAEA_BL_SOUP"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SOUP",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5129 & 5154 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676388,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5129] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5137] = [["The <#00ffff>Blue Lobster Special</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5138] = [["a Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5139] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,153,1;", ""],
+                        ["ITEM_add,153,1", "FILE_MARK_AP,AP_DAEA_BL_SPECIAL"]
+                    ],
+                    // Discount
+                    [5154] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5162] = [["The <#00ffff>Blue Lobster Special</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5163] = [["a Blue Lobster Special", "%APPlayer%%APItem%"]],
+                    [5164] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,153,1;", ""],
+                        ["ITEM_add,153,1", "FILE_MARK_AP,AP_DAEA_BL_SPECIAL"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_SPECIAL",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676389,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Milk", "%APPlayer%%APItem%"]],
+                    [5140] = [["Fresh <#00ffff>milk</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5141] = [["a bottle of Milk", "%APPlayer%%APItem%"]],
+                    [5142] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
+                        ["ITEM_add,67,1", "FILE_MARK_AP,AP_DAEA_BL_MILK"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Milk", "%APPlayer%%APItem%"]],
+                    [5165] = [["Fresh <#00ffff>milk</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5166] = [["a bottle of Milk", "%APPlayer%%APItem%"]],
+                    [5167] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,67,1;", ""],
+                        ["ITEM_add,67,1", "FILE_MARK_AP,AP_DAEA_BL_MILK"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_MILK",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676390,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Honey Brew", "%APPlayer%%APItem%"]],
+                    [5143] = [["The <#00ffff>Honey Brew</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5144] = [["a bottle of Honey Brew", "%APPlayer%%APItem%"]],
+                    [5145] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,54,1;", ""],
+                        ["ITEM_add,54,1", "FILE_MARK_AP,AP_DAEA_BL_HONEY"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Honey Brew", "%APPlayer%%APItem%"]],
+                    [5168] = [["The <#00ffff>Honey Brew</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [5169] = [["a bottle of Honey Brew", "%APPlayer%%APItem%"]],
+                    [5170] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,54,1;", ""],
+                        ["ITEM_add,54,1", "FILE_MARK_AP,AP_DAEA_BL_HONEY"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_HONEY",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+            new Check // TODO: 5130 & 5155 dialogue resets for other items after buying one
+            {
+                ArchipelagoId = 7676391,
+                ObjectIds = ["157"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    // Regular
+                    [5130] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Grape Juice", "%APPlayer%%APItem%"]],
+                    [5146] = [["Fresh <#00ffff>grape juice</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5147] = [["a bottle of Grape Juice", "%APPlayer%%APItem%"]],
+                    [5148] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,206,1;", ""],
+                        ["ITEM_add,206,1", "FILE_MARK_AP,AP_DAEA_BL_GRAPE"]
+                    ],
+                    // Discount
+                    [5155] = [["GIS,", "GIS,AP_HINT,%APId%|"], ["Grape Juice", "%APPlayer%%APItem%"]],
+                    [5171] = [["Fresh <#00ffff>grape juice</color>", "%APPlayer/Our %fresh <#00ffff>%APItem%</color>"]],
+                    [5172] = [["a bottle of Grape Juice", "%APPlayer%%APItem%"]],
+                    [5173] =
+                    [
+                        ["JUMP_TO,LOBSTER_MENU+1,IF_FALSE|ITEM_CAN_ADD,206,1;", ""],
+                        ["ITEM_add,206,1", "FILE_MARK_AP,AP_DAEA_BL_GRAPE"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_BL_GRAPE",
+                OverrideType =
+                    "name=bartender;profile=daea_bartender;voice=man,0.95;speech=LOBSTER_MENU+2;behavior=action_only;face_right;floating;spacing=right,0.2;ql=SI_FALSE,BL_DISCOUNT",
+            },
+        },
+        ["p1_daea_02_alley_i"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676395,
+                ObjectIds = ["44"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_MOUSE_3",
+                OverrideType =
+                    "name=mouse2;type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_MOUSE_3;instruction=tmx(16/22)",
+            },
+        },
+        ["p1_daea_02_alley_ii"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676396,
+                ObjectIds = ["82"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_DAEA_2",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_DAEA_2,true;ql=SI_FALSE,HEART_DAEA_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676397,
+                ObjectIds = ["106"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_OU",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_OU;remove;name=song_field;desired_song=0;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_OU,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_OU,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676398,
+                ObjectIds = ["107"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_GE",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_GE;remove;name=song_field;desired_song=1;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_GE,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_GE,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676399,
+                ObjectIds = ["108"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_RO",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_RO;remove;name=song_field;desired_song=2;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_RO,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_RO,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676400,
+                ObjectIds = ["109"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_PA",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_PA;remove;name=song_field;desired_song=3;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_PA,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_PA,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676401,
+                ObjectIds = ["110"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_BA",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_BA;remove;name=song_field;desired_song=4;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_BA,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_BA,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676402,
+                ObjectIds = ["111"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_FAUN_FOUNT_PH",
+                OverrideType =
+                    "ql=SI_FALSE,FAUN_FOUNT_PH;remove;name=song_field;desired_song=5;GIS=common_sfx,150|FILE_MARK_SI,FAUN_FOUNT_PH,true|DELAY,2.5|GIS_PACK,2|DELAY,2.5|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_FAUN_FOUNT_PH,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$-1,deviation$vec3(0.7/0.7/0.7),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|DELAY,0.5|GIS_PACK,3|GIS_PACK,4",
+            },
+            new Check // TODO: theoretically missable if you leave the room before picking up the item
+            {
+                ArchipelagoId = 7676403,
+                ObjectIds = ["4-final money"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_FOUNTAIN_ALL_SONGS",
+                OverrideType =
+                    "CONTINUE_IF,SI_ALL_TRUE,FAUN_FOUNT_OU,FAUN_FOUNT_GE,FAUN_FOUNT_RO,FAUN_FOUNT_PA,FAUN_FOUNT_BA,FAUN_FOUNT_PH|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_FOUNTAIN_ALL_SONGS,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$2,deviation$vec3(1/1/1),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|common_sfx,5,pitch$0.7|DELAY,1.5|particle_emitter,highlighter,stop|light_change,faun_light,intensity$0|common_sfx,150",
+            },
+        },
+        ["p1_daea_grocer"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676404,
+                HintWhenLoaded = true,
+                ObjectIds = ["47"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4964] = [["An apple <#00ffff>puff pastry</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [4965] = [["a Puff Pastry", "%APPlayer%%APItem%"]],
+                    [4966] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,169,1;", ""],
+                              ["ITEM_add,169,1", "FILE_MARK_AP,AP_DAEA_BAKERY_PASTRY|recycle,shop_pastry"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_PASTRY",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=PUFF_PASTRY;spacing=left,0.2;name=shop_pastry",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676405,
+                HintWhenLoaded = true,
+                ObjectIds = ["38"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4961] = [["A pair of <#00ffff>strawberry macarons</color>", "%APPlayer/Our %<#00ffff>%APItem%</color>"]],
+                    [4962] = [["2 Strawberry Macarons", "%APPlayer%%APItem%"]],
+                    [4963] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,171,2;", ""],
+                              ["ITEM_add,171,2", "FILE_MARK_AP,AP_DAEA_BAKERY_MACARON|recycle,shop_macaron"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_MACARON",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=SB_MACARON;face_right;spacing=left,0.2;name=shop_macaron",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676406,
+                HintWhenLoaded = true,
+                ObjectIds = ["39"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4958] = [["our famous <#00ffff>grape cake</color>", "%APPlayer/our %famous <#00ffff>%APItem%</color>"]],
+                    [4959] = [["a slice of Grape Cake", "%APPlayer%%APItem%"]],
+                    [4960] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,65,1;", ""],
+                              ["ITEM_add,65,1", "FILE_MARK_AP,AP_DAEA_BAKERY_CAKE|recycle,shop_cake"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_CAKE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=GRAPE_CAKE;spacing=left,0.2;name=shop_cake",
+            },
+            new Check // TODO: item consists of multiple sprites, remove others
+            {
+                ArchipelagoId = 7676407,
+                HintWhenLoaded = true,
+                ObjectIds = ["37"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [4955] = [["<#00ffff>chocolate</color>", "%APPlayer%<#00ffff>%APItem%</color>"]],
+                    [4956] = [["a box of 3 Chocolates", "%APPlayer%%APItem%"]],
+                    [4957] = [["JUMP_TO,DAEA_BAKER,IF_FALSE|ITEM_CAN_ADD,68,3;", ""],
+                              ["ITEM_add,68,3", "FILE_MARK_AP,AP_DAEA_BAKERY_CHOCOLATE|recycle,shop_chocolate"]],
+                },
+                GISIdentifier = "AP_DAEA_BAKERY_CHOCOLATE",
+                OverrideType =
+                    "profile=item,%ItemId%;speech=DAEA_CHOCOLATE;sort=game_objects,41;spacing=left,0.2;name=shop_chocolate",
+            },
+        },
+        ["p1_daea_shooting_gallery"] = new List<Check>
+        {
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676408,
+                HintWhenLoaded = true,
+                ObjectIds = ["130"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5545] = [["GO,GP8", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_ARCHERY_1|AT_scale,duck,vec3(0/0/0),duration$0.25"]],
+                },
+                GISIdentifier = "AP_DAEA_ARCHERY_1",
+                OverrideType =
+                    "CustomAnimatedSprite;name=duck;loot=%ItemId%;sort=game_objects,14;color=ffffff",
+            },
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676409,
+                HintWhenLoaded = true,
+                ObjectIds = ["131"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5547] = [["GO,GP9", "GO,5548"]],
+                    [5548] = [["ITEM_add,3,1|", ""]],
+                },
+                GISIdentifier = "HEART_DAEA_1",
+                OverrideType =
+                    "CustomAnimatedSprite;name=heart;loot=%ItemId%;sort=game_objects,14;color=ffffff;ql=SI_FALSE,HEART_DAEA_1",
+            },
+            new Check // TODO: replaced item is not shown properly
+            {
+                ArchipelagoId = 7676410,
+                HintWhenLoaded = true,
+                ObjectIds = ["133"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5550] = [["GO,GP10", "GO,5551"]],
+                    [5551] = [["ITEM_add,4,1|", ""]],
+                },
+                GISIdentifier = "OXY_DAEA_2",
+                OverrideType =
+                    "CustomAnimatedSprite;name=oxy;loot=%ItemId%;sort=game_objects,14;color=ffffff;ql=SI_FALSE,OXY_DAEA_2",
+            },
+        },
+        ["p1_daea_tunnel_01"] = new List<Check>
+        {
+            // TODO: implement followup check 7676413
+            // new Check
+            // {
+            //     ArchipelagoId = 7676412,
+            //     ObjectIds = ["232"],
+            //     IsKeyItem = true,
+            //     FillWhenExcluded = FillMode.Always,
+            //     IsNpc = true,
+            //     DialogReplacements = new Dictionary<int, List<string[]>>
+            //     {
+            //         [5495] = [["JUMP_TO,MASTER_TERAKA,IF_TRUE|ITEM_DONT_HAVE,int_list(16);", ""]], // TODO: what to do about conditional if player has quest reward?
+            //         [5491] = [["GO,5492", "GO,%BonusLine%"]],
+            //         [-1] = [["GIS,FILE_MARK_AP,AP_DAEA_TERAKA"]],
+            //     },
+            //     GISIdentifier = "AP_DAEA_TERAKA",
+            //     OverrideType =
+            //         "name=teraka;profile=daea_dojo_master;speech=loop,TERAKA_AFTER,TERAKA_AFTER+2;voice=man,0.95;behavior=stand;face_right;use_all_bright;spacing=right,0.6",
+            // },
+            new Check
+            {
+                ArchipelagoId = 7676414,
+                ObjectIds = ["241"],
+                IsKeyItem = false,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5400] = [["GO,5401", "GIS,AP_HINT,%APId%;GO,5401"],
+                              ["our <*_><i>very hot</i>,<*_> <#00ffff>spicy noodles</color>", "%APPlayer/our %<*_><i>very hot</i>,<*_> <#00ffff>%APItem%</color>"]],
+                    [5401] = [["Spicy Noodles", "%APPlayer%%APItem%"]],
+                    [5402] =
+                    [
+                        ["JUMP_TO,NOODLE_SHOP+1,IF_FALSE|ITEM_CAN_ADD,152,1;", ""],
+                        ["ITEM_add,152,1", "FILE_MARK_AP,AP_DAEA_NOODLES"]
+                    ],
+                },
+                GISIdentifier = "AP_DAEA_NOODLES",
+                OverrideType =
+                    "name=noodle_girl;profile=moon_woman;speech=NOODLE_SHOP+5;voice=woman,1.02;behavior=stand;use_all_bright;sort=bg_tiles,3;floating;talk_range=1.25;face_right",
+            },
+        },
+        ["p1_daea_tunnel_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676415,
+                ObjectIds = ["166"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_3;ql=SI_FALSE,REGEN_DAEA_3",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676416,
+                ObjectIds = ["167"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_4",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_4;ql=SI_FALSE,REGEN_DAEA_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676417,
+                ObjectIds = ["160"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_4",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_4;ql=SI_FALSE,DAEA_MONEY_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676418,
+                ObjectIds = ["168"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_DAEA_5",
+                OverrideType =
+                    "type=P1_WOOD_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_DAEA_5;ql=SI_FALSE,REGEN_DAEA_5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676419,
+                ObjectIds = ["1-1st ingredient reward"],
+                IsKeyItem = false,
+                GISIdentifier = "BASIL_1",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,BASIL_1|ITEM_remove,86,1|FILE_MARK_SI,BASIL_1,true",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676420,
+                ObjectIds = ["2-2nd ingredient reward"],
+                IsKeyItem = false,
+                GISIdentifier = "BASIL_2",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,BASIL_2|ITEM_remove,180,1|FILE_MARK_SI,BASIL_2,true",
+            },
+            new Check // NOTE: already implemented but not in apworld yet
+            {
+                ArchipelagoId = 7676421,
+                ObjectIds = ["48"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5027] = [["ITEM_add,5,1|", ""]],
+                },
+                GISIdentifier = "MOON_DAEA_TOWN_6",
+                OverrideType =
+                    "name=basil;profile=daea_chef;speech=CHEF_BASIL;behavior=action_talk;spacing=left,0.5;long_talker",
+            },
+            new Check // NOTE: already implemented but not in apworld yet
+            {
+                ArchipelagoId = 7676422,
+                ObjectIds = ["3-get elixir"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [5040] = [["JUMP_AT_END,5042,IF_FALSE|ITEM_CAN_ADD,187,1", ""]],
+                },
+                GISIdentifier = "AP_DAEA_BASIL_ELIXIR",
+                OverrideType =
+                    "FILE_MARK_AP,AP_DAEA_BASIL_ELIXIR|FILE_MARK_SI,BASIL_COOKING,false|DELAY,0.5|common_sfx,162",
+            },
+        },
+        ["p1_daea_tunnel_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676423,
+                ObjectIds = ["87"],
+                IsKeyItem = true,
+                GISIdentifier = "DAEA_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$DAEA_MONEY_1;ql=SI_FALSE,DAEA_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676424,
+                ObjectIds = ["7-receive Ms"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_TOWN_4",
+                OverrideType =
+                    "FILE_MARK_SI,MOON_DAEA_TOWN_4,true",
+            },
+        },
+        ["p1_dungeon_10a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676425,
+                ObjectIds = ["82"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_BOSS_KATASH",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_BOSS_KATASH,true;ql=SI_FALSE,HEART_BOSS_KATASH",
+            },
+        },
+        ["p1_daea_sewers_01"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676492,
+                ObjectIds = ["18", "19", "20", "21"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_1",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_1;instruction=tmx(47/18)",
+            },
+        },
+        ["p1_daea_sewers_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676493,
+                ObjectIds = ["33"],
+                IsKeyItem = true,
+                GISIdentifier = "SEWER_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$SEWER_MONEY_1;ql=SI_FALSE,SEWER_MONEY_1",
+            },
+        },
+        ["p1_daea_sewers_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676494,
+                ObjectIds = ["51"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_2",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_2;instruction=tmx(38/24)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676495,
+                ObjectIds = ["50"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_1",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,MOON_DAEA_SEWS_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_DAEA_SEWS_1",
+            },
+        },
+        ["p1_daea_sewers_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676496,
+                ObjectIds = ["38"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_3",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_3;instruction=tmx(18/16)",
+            },
+        },
+        ["p1_daea_sewers_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676497,
+                ObjectIds = ["13", "14", "15", "16"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_DAEA_SEWERS_MOUSE_4",
+                OverrideType =
+                    "type=p_mouse;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_SEWERS_MOUSE_4;instruction=tmx(10/19)",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676498,
+                ObjectIds = ["38"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_SEWERS_1",
+                OverrideType =
+                    "name=heart;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_SEWERS_1,true;ql=SI_FALSE,HEART_SEWERS_1",
+            },
+        },
+        ["p1_daea_sewers_06"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676499,
+                ObjectIds = ["3-spawn moonstone"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_2",
+                OverrideType =
+                    "CONTINUE_IF,SI_FALSE,MOON_DAEA_SEWS_2|SPAWN_loot,%ItemId%,pos$name(slime1),loot_GIS_MARK_SI$MOON_DAEA_SEWS_2",
+            },
+        },
+        ["p1_daea_sewers_09"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676500,
+                ObjectIds = ["21"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_DAEA_SEWS_3",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,MOON_DAEA_SEWS_3,true;ql=SI_FALSE,MOON_DAEA_SEWS_3",
+            },
+        },
+        ["p1_dungeon_01a"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676501,
+                ObjectIds = ["94"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_2",
+                OverrideType =
+                    "name=SHINY_LOOT;type=P1_WOOD_S;ql=SI_FALSE,MOON_JAIL_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676502,
+                ObjectIds = ["99"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_1",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_1",
             },
         },
         ["p1_dungeon_02"] = new List<Check>
@@ -3626,16 +6091,356 @@ public class LocationMapping
                 OverrideType =
                     "voice=woman,1.0;profile=soldierf;speech=SOLDIER_A_HELP;behavior=stand;name=soldierA;face_right;ql=SI_FALSE,SOLDIER_A_PLACED",
             },
+            new Check
+            {
+                ArchipelagoId = 7676518,
+                ObjectIds = ["85"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_1;ql=SI_FALSE,JAIL_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676519,
+                ObjectIds = ["87"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_1",
+                OverrideType =
+                    "type=P1_CHEST_S;ql=SI_FALSE,MOON_JAIL_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676520,
+                ObjectIds = ["86"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_2;ql=SI_FALSE,JAIL_MONEY_2",
+            },
         },
-        ["p1_bandit_lair_boss"] = new List<Check>
+        ["p1_dungeon_03a1"] = new List<Check>
         {
-            
+            new Check
+            {
+                ArchipelagoId = 7676521,
+                ObjectIds = ["84"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_3",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_3",
+            },
+        },
+        ["p1_dungeon_03a2"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676522,
+                ObjectIds = ["93"],
+                IsKeyItem = true,
+                GISIdentifier = "JAIL_MONEY_3",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$JAIL_MONEY_3;ql=SI_FALSE,JAIL_MONEY_3",
+            },
+        },
+        ["p1_dungeon_03c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676523,
+                ObjectIds = ["10"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_2",
+            },
+        },
+        ["p1_dungeon_04a1"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676524,
+                ObjectIds = ["103"],
+                IsKeyItem = false,
+                GISIdentifier = "p1d_04a1egg",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=OC_ABSENT,p1d_04a1egg;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_OC$p1d_04a1egg",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676525,
+                ObjectIds = ["99"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_JAIL_3",
+                OverrideType =
+                    "type=P1_WOOD_S;ql=SI_FALSE,MOON_JAIL_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_JAIL_3",
+            },
+        },
+        ["p1_dungeon_04c"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676526,
+                ObjectIds = ["93"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_JAIL_LOOT_4",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_JAIL_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_JAIL_LOOT_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676527,
+                ObjectIds = ["55"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_JAIL_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_JAIL_1,true;ql=SI_FALSE,OXY_JAIL_1;gravity=0",
+            },
+        },
+        ["p1_dungeon_05d"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676528,
+                ObjectIds = ["25"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.Always,
+                IsNpc = true,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [6391] = [["the ''<#00ffff>Sonic Spear</color>''", "%APPlayer/the %''<#00ffff>%APItem%</color>''"]],
+                    [6396] = [["GO,6397", "GO,%BonusLine%"]],
+                    [-1] = [["GIS,FILE_MARK_SI,DUNGEON_ARC_OVER,true|black_bars_out"]]
+                },
+                GISIdentifier = "DUNGEON_ARC_OVER",
+                OverrideType =
+                    "name=thomas;voice=man,1;profile=thomas;speech=line,THOMAS_JAIL_1,THOMAS_JAIL_2;face_right",
+            },
+        },
+        ["p1_dungeon_10b"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676529,
+                ObjectIds = ["63"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_1A",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_TOWER_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_1A",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676530,
+                ObjectIds = ["61"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_1B",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;ql=SI_FALSE,REGEN_TOWER_LOOT_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_1B",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676531,
+                ObjectIds = ["77"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LIZARD_1",
+                OverrideType =
+                    "type=p_lizard;GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LIZARD_1;instruction=tmx(41/39),tmx(48/42),tmx(47.875/39)",
+            },
+        },
+        ["p1_towers_00"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676532,
+                ObjectIds = ["1-got guards wich"],
+                IsKeyItem = false,
+                DialogReplacements = new Dictionary<int, List<string[]>>
+                {
+                    [6448] = [["&ITEM_CAN_ADD,46,1", ""]],
+                    [6449] = [["my sandwich", "%APPlayer/my %%APItem%"]],
+                },
+                GISIdentifier = "GOT_GUARD_WICH",
+                OverrideType =
+                    "FILE_MARK_SI,GOT_GUARD_WICH,true",
+            },
+        },
+        ["p1_towers_00_ex"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676533,
+                ObjectIds = ["127"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_TOWER_2",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_TOWER_2,true;ql=SI_FALSE,HEART_TOWER_2",
+            },
+        },
+        ["p1_towers_02"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676534,
+                ObjectIds = ["89"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_1",
+                OverrideType =
+                    "type=P1_TOWER_POT_S;ql=SI_FALSE,MOON_TOWER_1;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_TOWER_1;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676535,
+                ObjectIds = ["293"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_TOWER_LOOT_2",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_2;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_TOWER_LOOT_2",
+            },
+        },
+        ["p1_towers_03"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676536,
+                ObjectIds = ["277"],
+                IsKeyItem = true,
+                GISIdentifier = "p1_t3_r5",
+                OverrideType =
+                    "type=P1_TOWER_POT_L;use_all_bright;ql=OC_ABSENT,p1_t3_r5;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_OC$p1_t3_r5",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676537,
+                ObjectIds = ["107"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_4",
+                OverrideType =
+                    "type=CHANDELIER;name=chandelier3;ql=SI_FALSE,MOON_TOWER_4;GIS=DELAY,1|SPAWN_loot,%ItemId%,pos$tmx(80.5/32),loot_GIS_MARK_SI$MOON_TOWER_4",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676538,
+                ObjectIds = ["286"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_1",
+                OverrideType =
+                    "type=P1_CHEST_S;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_1;ql=SI_FALSE,TOWER_MONEY_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676539,
+                ObjectIds = ["94"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "OXY_TOWER_1",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,OXY_TOWER_1,true;ql=SI_FALSE,OXY_TOWER_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676540,
+                ObjectIds = ["285"],
+                IsKeyItem = false,
+                GISIdentifier = "REGEN_TOWER_LOOT_3",
+                OverrideType =
+                    "type=P1_TOWER_POT_S;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_3;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$REGEN_TOWER_LOOT_3",
+            },
+        },
+        ["p1_towers_04"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676541,
+                ObjectIds = ["109"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "HEART_TOWER_1",
+                OverrideType =
+                    "name=FOCUS_PT;id=%ItemId%;collected_GIS=FILE_MARK_SI,HEART_TOWER_1,true;ql=SI_FALSE,HEART_TOWER_1",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676542,
+                ObjectIds = ["111"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_2",
+                OverrideType =
+                    "id=%ItemId%;collected_GIS=FILE_MARK_SI,MOON_TOWER_2,true;ql=SI_FALSE,MOON_TOWER_2",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676543,
+                ObjectIds = ["296"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_2",
+                OverrideType =
+                    "type=P1_CHEST_S;use_all_bright;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_2;ql=SI_FALSE,TOWER_MONEY_2",
+            },
+        },
+        ["p1_towers_05"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676544,
+                ObjectIds = ["300"],
+                IsKeyItem = true,
+                GISIdentifier = "TOWER_MONEY_3",
+                OverrideType =
+                    "type=P1_TOWER_POT_L;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$TOWER_MONEY_3;ql=SI_FALSE,TOWER_MONEY_3;use_all_bright",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676545,
+                ObjectIds = ["291"],
+                IsKeyItem = true,
+                FillWhenExcluded = FillMode.StatusUpgrade,
+                GISIdentifier = "MOON_TOWER_3",
+                OverrideType =
+                    "name=e4;type=p1_kobold;instruction=tmx(79.5/25),tmx(23/26),tmx(27/43),tmx(79.5/43);defeated_GIS=common_sfx,150|SPAWN_loot,%ItemId%,loot_GIS_MARK_SI$MOON_TOWER_3|particle_emitter,moon_highlighter,stop",
+            },
+        },
+        ["p1_tower_boss"] = new List<Check>
+        {
+            new Check
+            {
+                ArchipelagoId = 7676546,
+                ObjectIds = ["261"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4A",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4A",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676547,
+                ObjectIds = ["260"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4B",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4B",
+            },
+            new Check
+            {
+                ArchipelagoId = 7676548,
+                ObjectIds = ["262"],
+                IsKeyItem = false,
+                GISIdentifier = "AP_TOWER_LOOT_4C",
+                OverrideType =
+                    "type=P1_CRATE_FOOD;use_all_bright;ql=SI_FALSE,REGEN_TOWER_LOOT_4;destroyed_GIS=SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_TOWER_LOOT_4C",
+            },
             new Check
             {
                 ArchipelagoId = 1,
                 ObjectIds = [],
                 IsKeyItem = true,
-                GISIdentifier = "BOSS_DRAKE_DEFEATED",
+                GISIdentifier = "DEFEATED_KATASH", // TODO: not releasing
                 OverrideType =
                     "",
             },
