@@ -355,7 +355,7 @@ public class ItemHandler
 
     private static string GetGisCmdsFromOverwriteType(Check check)
     {
-        // GIS Pack
+        // Checks if GIS Pack
         if (check.ObjectIds.Any(id => id.Contains("-")))
             return check.OverrideType;
 
