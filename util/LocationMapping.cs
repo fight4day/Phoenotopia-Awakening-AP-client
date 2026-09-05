@@ -1904,7 +1904,6 @@ public class LocationMapping
                 ArchipelagoId = 7676228,
                 ObjectIds = ["9-won race"],
                 IsKeyItem = true,
-                IsGisPack = true,
                 GISIdentifier = "BO_QUEST_1",
                 OverrideType =
                     "FILE_MARK_SI,BO_QUEST_1,true|FILE_MARK_OC,bo_temp",
@@ -3477,7 +3476,6 @@ public class LocationMapping
                 ObjectIds = ["5-first win"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "OXY_BANDIT_2",
                 OverrideType =
                     "FILE_MARK_SI,OXY_BANDIT_2,true|override_npc_anim,gamer,balo_idle|FILE_MARK_OC,just_baloed",
@@ -3488,7 +3486,6 @@ public class LocationMapping
                 ObjectIds = ["6-second win"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "HEART_BANDIT_4",
                 OverrideType =
                     "FILE_MARK_SI,HEART_BANDIT_4,true|override_npc_anim,gamer,balo_idle|FILE_ERASE_OC,balo_flavor_text",
@@ -3636,7 +3633,6 @@ public class LocationMapping
                 ObjectIds = ["3-receive heart"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "HEART_ATAI_4",
                 OverrideType =
                     "FILE_MARK_SI,HEART_ATAI_4,true",
@@ -4021,7 +4017,6 @@ public class LocationMapping
                 ArchipelagoId = 7676364,
                 ObjectIds = ["09-won race"],
                 IsKeyItem = true,
-                IsGisPack = true,
                 GISIdentifier = "BO_QUEST_2",
                 OverrideType =
                     "FILE_MARK_SI,BO_QUEST_2,true|FILE_MARK_OC,bo_temp",
@@ -4972,7 +4967,6 @@ public class LocationMapping
                 ObjectIds = ["2-get emerald"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [5064] = [["GO,5065", "GIS,AP_HINT,%APId%;GO,5065"], ["emerald", "%APItem%"]],
@@ -5136,7 +5130,6 @@ public class LocationMapping
                 ObjectIds = ["1-MS gift"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [4939] = [["rocks", "thingamabobs"]],
@@ -5217,7 +5210,6 @@ public class LocationMapping
                 ArchipelagoId = 7676385,
                 ObjectIds = ["9-won race"],
                 IsKeyItem = true,
-                IsGisPack = true,
                 GISIdentifier = "BO_QUEST_3",
                 OverrideType =
                     "FILE_MARK_SI,BO_QUEST_3,true|FILE_MARK_OC,bo_temp",
@@ -5228,7 +5220,6 @@ public class LocationMapping
                 ObjectIds = ["7-troupe heart"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "HEART_DAEA_3",
                 OverrideType =
                     "FILE_MARK_SI,HEART_DAEA_3,true",
@@ -5529,7 +5520,6 @@ public class LocationMapping
                 ArchipelagoId = 7676403,
                 ObjectIds = ["4-final money"],
                 IsKeyItem = false,
-                IsGisPack = true,
                 GISIdentifier = "AP_DAEA_FOUNTAIN_ALL_SONGS",
                 OverrideType =
                     "CONTINUE_IF,SI_ALL_TRUE,FAUN_FOUNT_OU,FAUN_FOUNT_GE,FAUN_FOUNT_RO,FAUN_FOUNT_PA,FAUN_FOUNT_BA,FAUN_FOUNT_PH|SPAWN_loot,%ItemId%,loot_GIS_MARK_AP$AP_DAEA_FOUNTAIN_ALL_SONGS,pos$name(shooter)|cpart,P1_CLOUD,pos$name(shooter),intensity$2,deviation$vec3(1/1/1),dir$UP,color$ffffff|common_sfx,5,pitch$1.5|common_sfx,5,pitch$0.7|DELAY,1.5|particle_emitter,highlighter,stop|light_change,faun_light,intensity$0|common_sfx,150",
@@ -5744,7 +5734,6 @@ public class LocationMapping
                 ArchipelagoId = 7676419,
                 ObjectIds = ["1-1st ingredient reward"],
                 IsKeyItem = false,
-                IsGisPack = true,
                 GISIdentifier = "BASIL_1",
                 OverrideType =
                     "CONTINUE_IF,SI_FALSE,BASIL_1|ITEM_remove,86,1|FILE_MARK_SI,BASIL_1,true",
@@ -5754,7 +5743,6 @@ public class LocationMapping
                 ArchipelagoId = 7676420,
                 ObjectIds = ["2-2nd ingredient reward"],
                 IsKeyItem = false,
-                IsGisPack = true,
                 GISIdentifier = "BASIL_2",
                 OverrideType =
                     "CONTINUE_IF,SI_FALSE,BASIL_2|ITEM_remove,180,1|FILE_MARK_SI,BASIL_2,true",
@@ -5779,7 +5767,6 @@ public class LocationMapping
                 ArchipelagoId = 7676422,
                 ObjectIds = ["3-get elixir"],
                 IsKeyItem = false,
-                IsGisPack = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [5040] = [["JUMP_AT_END,5042,IF_FALSE|ITEM_CAN_ADD,187,1", ""]],
@@ -5806,7 +5793,6 @@ public class LocationMapping
                 ObjectIds = ["7-receive Ms"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "MOON_DAEA_TOWN_4",
                 OverrideType =
                     "FILE_MARK_SI,MOON_DAEA_TOWN_4,true",
@@ -5913,7 +5899,6 @@ public class LocationMapping
                 ObjectIds = ["3-spawn moonstone"],
                 IsKeyItem = true,
                 FillWhenExcluded = FillMode.StatusUpgrade,
-                IsGisPack = true,
                 GISIdentifier = "MOON_DAEA_SEWS_2",
                 OverrideType =
                     "CONTINUE_IF,SI_FALSE,MOON_DAEA_SEWS_2|SPAWN_loot,%ItemId%,pos$name(slime1),loot_GIS_MARK_SI$MOON_DAEA_SEWS_2",
@@ -6272,7 +6257,6 @@ public class LocationMapping
                 ArchipelagoId = 7676532,
                 ObjectIds = ["1-got guards wich"],
                 IsKeyItem = false,
-                IsGisPack = true,
                 DialogReplacements = new Dictionary<int, List<string[]>>
                 {
                     [6448] = [["&ITEM_CAN_ADD,46,1", ""]],
