@@ -385,15 +385,21 @@ public class ItemHandler
             List<string> splitInstruction = instruction.Split(',').ToList();
 
             if (splitInstruction.Count < 3) GiveRinReplacementInstructionFailureWarning(check.ArchipelagoId);
-            if (splitInstruction[2].Contains("pos")) splitInstruction.RemoveAt(2);
 
-            string identifier = splitInstruction.Count >= 3 ? splitInstruction[2] : "";
+            string identifier = "";
+            string pos = "";
+            foreach (string split in splitInstruction)
+            {
+                if (split.Contains("loot_GIS_")) identifier = split;
+                if (split.Contains("pos")) pos = $",{split}";
+            }
+
             if (identifier.IsNullOrEmpty()) GiveRinReplacementInstructionFailureWarning(check.ArchipelagoId);
 
             identifier = identifier.Replace("loot_GIS_", "FILE_").Replace("$", ",");
 
             result = result.Replace(instruction,
-                $"SPAWN_pickup,P1_RAI,{check.ItemInfo.ItemId - 300}|{identifier},true");
+                $"SPAWN_pickup,P1_RAI,{check.ItemInfo.ItemId - 300}{pos}|{identifier},true");
             break;
         }
 
